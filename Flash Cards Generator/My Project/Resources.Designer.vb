@@ -59,20 +59,5 @@ Namespace My.Resources
                 resourceCulture = value
             End Set
         End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to sin(π / 6);1 / 2
-        '''sin(0);0
-        '''sin(π / 4);1 / sqrt(2) or sqrt(2) / 2
-        '''An even function is…;…symmetric with respect to the y-axis, like y = x^2, y = cos x, or y = x . f (–x) = f (x)
-        '''An odd function is…;…symmetric with respect to the origin, like y = x^3, y = sin x, or y = tan x. f (–x) = –f (x)
-        '''math;is super fun
-        '''.
-        '''</summary>
-        Friend ReadOnly Property data() As String
-            Get
-                Return ResourceManager.GetString("data", resourceCulture)
-            End Get
-        End Property
     End Module
 End Namespace
