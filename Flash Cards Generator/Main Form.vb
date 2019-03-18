@@ -26,10 +26,21 @@ Public Class frmMain
         PopulateMyFlashcards()
     End Sub
 
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        Dim LineIndex As Integer
+        Dim FilePath As String = IO.Path.Combine(BasePath, "data.txt")
+        Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
 
+        For Each Line As String In Lines
+            If Line.Contains(lstCardTitles.Text) Then
+                Lines.RemoveAt(LineIndex)
+            End If
+            LineIndex += 1
+        Next
+        System.IO.File.WriteAllLines(FilePath, Lines)
 
-
-
+        PopulateMyFlashcards()
+    End Sub
 
     Private Function ReadRecord(ByVal Title As String) As List(Of String)
         'read a record from data file
@@ -75,12 +86,19 @@ Public Class frmMain
 
     Private Sub PopulateMyFlashcards()
         ' copy all titles to the listbox
-        lstCardTitles.Items.Clear()
+        Dim FilePath As String = IO.Path.Combine(BasePath, "data.txt")
 
-        Dim Title As String
-        For Each Title In ReadRecordTitles()
-            lstCardTitles.Items.Add(Title)
-        Next
+        lstCardTitles.Items.Clear()
+        Try
+            Dim Title As String
+            For Each Title In ReadRecordTitles()
+                lstCardTitles.Items.Add(Title)
+            Next
+        Catch
+            Dim File As IO.FileStream = IO.File.Create(FilePath)
+            File.Close()
+            MessageBox.Show("No data file was found. A new one has been created for you.", "New User")
+        End Try
     End Sub
 
     Private Sub PopulateCardViewer()
@@ -90,20 +108,5 @@ Public Class frmMain
         lblCaption.Text = Record(1)
     End Sub
 
-    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        Dim LineIndex As Integer
-        Dim FilePath As String = IO.Path.Combine(BasePath, "data.txt")
-        Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
-
-        For Each Line As String In Lines
-            If Line.Contains(lstCardTitles.Text) Then
-                Lines.RemoveAt(LineIndex)
-            End If
-            LineIndex += 1
-        Next
-        System.IO.File.WriteAllLines(FilePath, Lines)
-
-        PopulateMyFlashcards()
-    End Sub
 End Class
 
