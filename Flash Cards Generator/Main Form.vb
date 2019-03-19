@@ -9,9 +9,11 @@ Option Infer Off
 Public Class frmMain
 
     Private BasePath As String = My.Application.Info.DirectoryPath
+    Private FilePath As String = IO.Path.Combine(BasePath, "data.txt")
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         PopulateMyFlashcards()
+        EmptyCardViewer()
     End Sub
 
     Private Sub lstCardTitles_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstCardTitles.SelectedIndexChanged
@@ -27,19 +29,18 @@ Public Class frmMain
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        Dim LineIndex As Integer
-        Dim FilePath As String = IO.Path.Combine(BasePath, "data.txt")
-        Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
-
-        For Each Line As String In Lines
-            If Line.Contains(lstCardTitles.Text) Then
-                Lines.RemoveAt(LineIndex)
-            End If
-            LineIndex += 1
-        Next
-        System.IO.File.WriteAllLines(FilePath, Lines)
+        DeleteRecord(lstCardTitles.SelectedIndex)
 
         PopulateMyFlashcards()
+        EmptyCardViewer()
+    End Sub
+
+    Private Sub chkTimer_CheckedChanged(sender As Object, e As EventArgs) Handles chkTimer.CheckedChanged
+        If cmbTimer.Enabled Then
+            cmbTimer.Enabled = False
+        Else
+            cmbTimer.Enabled = True
+        End If
     End Sub
 
     Private Function ReadRecord(ByVal Title As String) As List(Of String)
@@ -84,10 +85,18 @@ Public Class frmMain
         Return Titles
     End Function
 
+    Private Sub DeleteRecord(ByVal Index As Integer)
+        Try
+            Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
+            Lines.RemoveAt(Index)
+            System.IO.File.WriteAllLines(FilePath, Lines)
+        Catch
+            MessageBox.Show("No flashcard selected.", "Error")
+        End Try
+    End Sub
+
     Private Sub PopulateMyFlashcards()
         ' copy all titles to the listbox
-        Dim FilePath As String = IO.Path.Combine(BasePath, "data.txt")
-
         lstCardTitles.Items.Clear()
         Try
             Dim Title As String
@@ -103,10 +112,18 @@ Public Class frmMain
 
     Private Sub PopulateCardViewer()
         ' display title and caption of selected item
-        Dim Record As List(Of String) = ReadRecord(lstCardTitles.Text)
-        lblTitle.Text = Record(0)
-        lblCaption.Text = Record(1)
+        Try
+            Dim Record As List(Of String) = ReadRecord(lstCardTitles.Text)
+            lblTitle.Text = Record(0)
+            lblCaption.Text = Record(1)
+        Catch
+            lblTitle.Text = String.Empty
+            lblCaption.Text = String.Empty
+        End Try
     End Sub
 
+    Private Sub EmptyCardViewer()
+        lblTitle.Text = String.Empty
+        lblCaption.Text = String.Empty
+    End Sub
 End Class
-
