@@ -36,7 +36,7 @@ Partial Class frmMain
         Me.radShowCaption = New System.Windows.Forms.RadioButton()
         Me.chkTimer = New System.Windows.Forms.CheckBox()
         Me.cmbTimer = New System.Windows.Forms.ComboBox()
-        Me.btnBeginQuiz = New System.Windows.Forms.Button()
+        Me.btnStart = New System.Windows.Forms.Button()
         Me.radSortDescending = New System.Windows.Forms.RadioButton()
         Me.radSortAscending = New System.Windows.Forms.RadioButton()
         Me.radSortRandomize = New System.Windows.Forms.RadioButton()
@@ -44,13 +44,16 @@ Partial Class frmMain
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label1.Location = New System.Drawing.Point(242, 9)
         Me.Label1.Name = "Label1"
@@ -59,6 +62,7 @@ Partial Class frmMain
         '
         'Label3
         '
+        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label3.Location = New System.Drawing.Point(541, 9)
         Me.Label3.Name = "Label3"
@@ -67,6 +71,7 @@ Partial Class frmMain
         '
         'lstCardTitles
         '
+        Me.lstCardTitles.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lstCardTitles.FormattingEnabled = True
         Me.lstCardTitles.ItemHeight = 20
         Me.lstCardTitles.Location = New System.Drawing.Point(7, 89)
@@ -76,8 +81,11 @@ Partial Class frmMain
         '
         'Label2
         '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Location = New System.Drawing.Point(71, 30)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(108, 20)
@@ -86,24 +94,31 @@ Partial Class frmMain
         '
         'btnNew
         '
+        Me.btnNew.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnNew.BackColor = System.Drawing.SystemColors.Control
+        Me.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnNew.Location = New System.Drawing.Point(21, 357)
         Me.btnNew.Name = "btnNew"
         Me.btnNew.Size = New System.Drawing.Size(75, 30)
         Me.btnNew.TabIndex = 7
         Me.btnNew.Text = "&New"
-        Me.btnNew.UseVisualStyleBackColor = True
+        Me.btnNew.UseVisualStyleBackColor = False
         '
         'btnDelete
         '
+        Me.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnDelete.BackColor = System.Drawing.SystemColors.Control
+        Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnDelete.Location = New System.Drawing.Point(145, 357)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(75, 30)
         Me.btnDelete.TabIndex = 8
         Me.btnDelete.Text = "&Delete"
-        Me.btnDelete.UseVisualStyleBackColor = True
+        Me.btnDelete.UseVisualStyleBackColor = False
         '
         'lblTitle
         '
+        Me.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblTitle.BackColor = System.Drawing.SystemColors.Window
         Me.lblTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblTitle.Location = New System.Drawing.Point(252, 89)
@@ -114,6 +129,7 @@ Partial Class frmMain
         '
         'lblCaption
         '
+        Me.lblCaption.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblCaption.BackColor = System.Drawing.SystemColors.Window
         Me.lblCaption.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblCaption.Location = New System.Drawing.Point(252, 139)
@@ -123,8 +139,11 @@ Partial Class frmMain
         '
         'Label6
         '
+        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.White
         Me.Label6.Location = New System.Drawing.Point(348, 30)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(93, 20)
@@ -133,8 +152,11 @@ Partial Class frmMain
         '
         'Label4
         '
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(617, 30)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(99, 20)
@@ -166,10 +188,11 @@ Partial Class frmMain
         'chkTimer
         '
         Me.chkTimer.AutoSize = True
-        Me.chkTimer.Location = New System.Drawing.Point(59, 33)
+        Me.chkTimer.Location = New System.Drawing.Point(11, 30)
         Me.chkTimer.Name = "chkTimer"
-        Me.chkTimer.Size = New System.Drawing.Size(15, 14)
+        Me.chkTimer.Size = New System.Drawing.Size(134, 24)
         Me.chkTimer.TabIndex = 16
+        Me.chkTimer.Text = "Show next after:"
         Me.chkTimer.UseVisualStyleBackColor = True
         '
         'cmbTimer
@@ -177,19 +200,22 @@ Partial Class frmMain
         Me.cmbTimer.Enabled = False
         Me.cmbTimer.FormattingEnabled = True
         Me.cmbTimer.Items.AddRange(New Object() {"10", "15", "20", "30", "45", "60"})
-        Me.cmbTimer.Location = New System.Drawing.Point(89, 26)
+        Me.cmbTimer.Location = New System.Drawing.Point(151, 28)
         Me.cmbTimer.Name = "cmbTimer"
         Me.cmbTimer.Size = New System.Drawing.Size(56, 28)
         Me.cmbTimer.TabIndex = 17
         '
-        'btnBeginQuiz
+        'btnStart
         '
-        Me.btnBeginQuiz.Location = New System.Drawing.Point(612, 357)
-        Me.btnBeginQuiz.Name = "btnBeginQuiz"
-        Me.btnBeginQuiz.Size = New System.Drawing.Size(104, 30)
-        Me.btnBeginQuiz.TabIndex = 19
-        Me.btnBeginQuiz.Text = "Begin &Quiz"
-        Me.btnBeginQuiz.UseVisualStyleBackColor = True
+        Me.btnStart.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnStart.BackColor = System.Drawing.SystemColors.Control
+        Me.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnStart.Location = New System.Drawing.Point(612, 357)
+        Me.btnStart.Name = "btnStart"
+        Me.btnStart.Size = New System.Drawing.Size(104, 30)
+        Me.btnStart.TabIndex = 19
+        Me.btnStart.Text = "&Start"
+        Me.btnStart.UseVisualStyleBackColor = False
         '
         'radSortDescending
         '
@@ -235,9 +261,12 @@ Partial Class frmMain
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.GroupBox1.Controls.Add(Me.radSortDescending)
         Me.GroupBox1.Controls.Add(Me.radSortAscending)
         Me.GroupBox1.Controls.Add(Me.radSortRandomize)
+        Me.GroupBox1.ForeColor = System.Drawing.Color.White
         Me.GroupBox1.Location = New System.Drawing.Point(553, 53)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(223, 100)
@@ -247,9 +276,12 @@ Partial Class frmMain
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.GroupBox2.Controls.Add(Me.radShowTitle)
         Me.GroupBox2.Controls.Add(Me.radShowCaption)
         Me.GroupBox2.Controls.Add(Me.radShowBoth)
+        Me.GroupBox2.ForeColor = System.Drawing.Color.White
         Me.GroupBox2.Location = New System.Drawing.Point(553, 159)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(223, 100)
@@ -259,14 +291,28 @@ Partial Class frmMain
         '
         'GroupBox3
         '
+        Me.GroupBox3.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.GroupBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.GroupBox3.Controls.Add(Me.chkTimer)
         Me.GroupBox3.Controls.Add(Me.cmbTimer)
+        Me.GroupBox3.ForeColor = System.Drawing.Color.White
         Me.GroupBox3.Location = New System.Drawing.Point(553, 265)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(223, 68)
         Me.GroupBox3.TabIndex = 26
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Timer:"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PictureBox1.Image = Global.Flash_Cards_Generator.My.Resources.Resources._121494_minimalist_geometric_wallpaper
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(784, 411)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 27
+        Me.PictureBox1.TabStop = False
         '
         'frmMain
         '
@@ -276,7 +322,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.btnBeginQuiz)
+        Me.Controls.Add(Me.btnStart)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.lblCaption)
@@ -287,6 +333,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.lstCardTitles)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "frmMain"
@@ -297,6 +344,7 @@ Partial Class frmMain
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -315,7 +363,7 @@ Partial Class frmMain
     Friend WithEvents radShowCaption As RadioButton
     Friend WithEvents chkTimer As CheckBox
     Friend WithEvents cmbTimer As ComboBox
-    Friend WithEvents btnBeginQuiz As Button
+    Friend WithEvents btnStart As Button
     Friend WithEvents radSortDescending As RadioButton
     Friend WithEvents radSortAscending As RadioButton
     Friend WithEvents radSortRandomize As RadioButton
@@ -323,4 +371,5 @@ Partial Class frmMain
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
