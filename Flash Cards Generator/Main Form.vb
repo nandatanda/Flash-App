@@ -29,10 +29,13 @@ Public Class frmMain
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        DeleteRecord(lstCardTitles.SelectedIndex)
+        Dim Response As Integer = MessageBox.Show("Are you sure you want to delete this flashcard?", "Confirm Delete", MessageBoxButtons.OKCancel)
+        If Response = DialogResult.OK Then
+            DeleteRecord(lstCardTitles.SelectedIndex)
+            PopulateMyFlashcards()
+            EmptyCardViewer()
+        End If
 
-        PopulateMyFlashcards()
-        EmptyCardViewer()
     End Sub
 
     Private Sub chkTimer_CheckedChanged(sender As Object, e As EventArgs) Handles chkTimer.CheckedChanged
@@ -67,7 +70,6 @@ Public Class frmMain
             File = My.Computer.FileSystem.OpenTextFileWriter(FilePath, True)
             File.WriteLine(Record)
             File.Close()
-            MessageBox.Show("Your flashcard was stored successfully!", "Success")
         Catch
             MessageBox.Show("File access denied", "Error")
         End Try
