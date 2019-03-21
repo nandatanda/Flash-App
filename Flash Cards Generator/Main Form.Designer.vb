@@ -84,7 +84,7 @@ Partial Class frmMain
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Location = New System.Drawing.Point(71, 30)
         Me.Label2.Name = "Label2"
@@ -121,6 +121,7 @@ Partial Class frmMain
         Me.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblTitle.BackColor = System.Drawing.SystemColors.Window
         Me.lblTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.Location = New System.Drawing.Point(252, 89)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(281, 35)
@@ -132,6 +133,7 @@ Partial Class frmMain
         Me.lblCaption.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblCaption.BackColor = System.Drawing.SystemColors.Window
         Me.lblCaption.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblCaption.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCaption.Location = New System.Drawing.Point(252, 139)
         Me.lblCaption.Name = "lblCaption"
         Me.lblCaption.Size = New System.Drawing.Size(281, 194)
@@ -142,7 +144,7 @@ Partial Class frmMain
         Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
         Me.Label6.Location = New System.Drawing.Point(348, 30)
         Me.Label6.Name = "Label6"
@@ -155,7 +157,7 @@ Partial Class frmMain
         Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 11.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(617, 30)
         Me.Label4.Name = "Label4"
@@ -199,10 +201,10 @@ Partial Class frmMain
         '
         Me.cmbTimer.Enabled = False
         Me.cmbTimer.FormattingEnabled = True
-        Me.cmbTimer.Items.AddRange(New Object() {"10", "15", "20", "30", "45", "60"})
+        Me.cmbTimer.Items.AddRange(New Object() {"10 sec.", "15 sec.", "20 sec.", "30 sec.", "45 sec.", "60 sec."})
         Me.cmbTimer.Location = New System.Drawing.Point(151, 28)
         Me.cmbTimer.Name = "cmbTimer"
-        Me.cmbTimer.Size = New System.Drawing.Size(56, 28)
+        Me.cmbTimer.Size = New System.Drawing.Size(66, 28)
         Me.cmbTimer.TabIndex = 17
         '
         'btnStart
