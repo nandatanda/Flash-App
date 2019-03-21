@@ -212,9 +212,9 @@ Partial Class frmMain
         Me.btnStart.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnStart.BackColor = System.Drawing.SystemColors.Control
         Me.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnStart.Location = New System.Drawing.Point(612, 357)
+        Me.btnStart.Location = New System.Drawing.Point(625, 357)
         Me.btnStart.Name = "btnStart"
-        Me.btnStart.Size = New System.Drawing.Size(104, 30)
+        Me.btnStart.Size = New System.Drawing.Size(75, 30)
         Me.btnStart.TabIndex = 19
         Me.btnStart.Text = "&Start"
         Me.btnStart.UseVisualStyleBackColor = False
@@ -269,7 +269,7 @@ Partial Class frmMain
         Me.GroupBox1.Controls.Add(Me.radSortAscending)
         Me.GroupBox1.Controls.Add(Me.radSortRandomize)
         Me.GroupBox1.ForeColor = System.Drawing.Color.White
-        Me.GroupBox1.Location = New System.Drawing.Point(553, 53)
+        Me.GroupBox1.Location = New System.Drawing.Point(553, 65)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(223, 100)
         Me.GroupBox1.TabIndex = 25
@@ -284,7 +284,7 @@ Partial Class frmMain
         Me.GroupBox2.Controls.Add(Me.radShowCaption)
         Me.GroupBox2.Controls.Add(Me.radShowBoth)
         Me.GroupBox2.ForeColor = System.Drawing.Color.White
-        Me.GroupBox2.Location = New System.Drawing.Point(553, 159)
+        Me.GroupBox2.Location = New System.Drawing.Point(553, 171)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(223, 100)
         Me.GroupBox2.TabIndex = 24
@@ -298,7 +298,7 @@ Partial Class frmMain
         Me.GroupBox3.Controls.Add(Me.chkTimer)
         Me.GroupBox3.Controls.Add(Me.cmbTimer)
         Me.GroupBox3.ForeColor = System.Drawing.Color.White
-        Me.GroupBox3.Location = New System.Drawing.Point(553, 265)
+        Me.GroupBox3.Location = New System.Drawing.Point(553, 277)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(223, 68)
         Me.GroupBox3.TabIndex = 26
