@@ -22,9 +22,15 @@ Public Class frmMain
 
     Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
         Dim Title As String = InputBox("Enter a title for your flashcard.", "Create Card", "Title")
+        If Title = "" Then
+            Exit Sub
+        End If
         Dim Caption As String = InputBox("Enter the text you want to appear in the body of the flashcard.", "Create Card", "Text")
-        WriteRecord(Title, Caption)
+        If Caption = "" Then
+            Exit Sub
+        End If
 
+        WriteRecord(Title, Caption)
         PopulateMyFlashcards()
     End Sub
 
