@@ -52,12 +52,23 @@ Public Class frmMain
         End If
     End Sub
 
-    Private Sub btnSortAscending_Click(sender As Object, e As EventArgs) Handles btnSortAscending.Click
-        SortRecordsAlphabetically(Reverse:=False)
+    Private Sub btnSortListbox_Click(sender As Object, e As EventArgs) Handles btnSortListbox.Click
+        Static ListboxIsInAscendingOrder As Boolean
+
+        If ListboxIsInAscendingOrder Then
+            SortRecordsAlphabetically(Reverse:=True)
+            btnSortListbox.BackgroundImage = My.Resources.sort_ascending_right
+            ListboxIsInAscendingOrder = False
+        Else
+            SortRecordsAlphabetically()
+            btnSortListbox.BackgroundImage = My.Resources.sort_descending_right
+            ListboxIsInAscendingOrder = True
+        End If
+
         PopulateMyFlashcards()
     End Sub
 
-    Private Sub btnSortDescending_Click(sender As Object, e As EventArgs) Handles btnSortDescending.Click
+    Private Sub btnSortDescending_Click(sender As Object, e As EventArgs)
         SortRecordsAlphabetically(Reverse:=True)
         PopulateMyFlashcards()
     End Sub
@@ -113,7 +124,7 @@ Public Class frmMain
         End Try
     End Sub
 
-    Private Sub SortRecordsAlphabetically(ByVal Reverse As Boolean)
+    Private Sub SortRecordsAlphabetically(Optional ByVal Reverse As Boolean = False)
         Try
             Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
             Lines.Sort()

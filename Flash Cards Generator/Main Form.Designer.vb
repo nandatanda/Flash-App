@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmMain
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmMain
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -44,9 +44,8 @@ Partial Class frmMain
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.btnSortListbox = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btnSortAscending = New System.Windows.Forms.Button()
-        Me.btnSortDescending = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -307,6 +306,19 @@ Partial Class frmMain
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Timer:"
         '
+        'btnSortListbox
+        '
+        Me.btnSortListbox.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnSortListbox.BackgroundImage = Global.Flash_Cards_Generator.My.Resources.Resources.sort_ascending_right
+        Me.btnSortListbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnSortListbox.FlatAppearance.BorderSize = 0
+        Me.btnSortListbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSortListbox.Location = New System.Drawing.Point(209, 58)
+        Me.btnSortListbox.Name = "btnSortListbox"
+        Me.btnSortListbox.Size = New System.Drawing.Size(25, 25)
+        Me.btnSortListbox.TabIndex = 28
+        Me.btnSortListbox.UseVisualStyleBackColor = False
+        '
         'PictureBox1
         '
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -318,31 +330,12 @@ Partial Class frmMain
         Me.PictureBox1.TabIndex = 27
         Me.PictureBox1.TabStop = False
         '
-        'btnSortAscending
-        '
-        Me.btnSortAscending.Location = New System.Drawing.Point(207, 53)
-        Me.btnSortAscending.Name = "btnSortAscending"
-        Me.btnSortAscending.Size = New System.Drawing.Size(27, 30)
-        Me.btnSortAscending.TabIndex = 28
-        Me.btnSortAscending.Text = "A"
-        Me.btnSortAscending.UseVisualStyleBackColor = True
-        '
-        'btnSortDescending
-        '
-        Me.btnSortDescending.Location = New System.Drawing.Point(172, 53)
-        Me.btnSortDescending.Name = "btnSortDescending"
-        Me.btnSortDescending.Size = New System.Drawing.Size(29, 30)
-        Me.btnSortDescending.TabIndex = 29
-        Me.btnSortDescending.Text = "Z"
-        Me.btnSortDescending.UseVisualStyleBackColor = True
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(784, 411)
-        Me.Controls.Add(Me.btnSortDescending)
-        Me.Controls.Add(Me.btnSortAscending)
+        Me.Controls.Add(Me.btnSortListbox)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -396,6 +389,5 @@ Partial Class frmMain
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents btnSortAscending As Button
-    Friend WithEvents btnSortDescending As Button
+    Friend WithEvents btnSortListbox As Button
 End Class

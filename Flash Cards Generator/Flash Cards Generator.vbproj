@@ -122,5 +122,11 @@
   <ItemGroup>
     <None Include="Resources\121494_minimalist-geometric-wallpaper.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort-ascending-right.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sort-descending-right.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
