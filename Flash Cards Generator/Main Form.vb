@@ -52,6 +52,16 @@ Public Class frmMain
         End If
     End Sub
 
+    Private Sub btnSortAscending_Click(sender As Object, e As EventArgs) Handles btnSortAscending.Click
+        SortRecordsAlphabetically(Reverse:=False)
+        PopulateMyFlashcards()
+    End Sub
+
+    Private Sub btnSortDescending_Click(sender As Object, e As EventArgs) Handles btnSortDescending.Click
+        SortRecordsAlphabetically(Reverse:=True)
+        PopulateMyFlashcards()
+    End Sub
+
     Private Function ReadRecord(ByVal Title As String) As List(Of String)
         'read a record from data file
         Dim FilePath As String = IO.Path.Combine(BasePath, "data.txt")
@@ -103,6 +113,19 @@ Public Class frmMain
         End Try
     End Sub
 
+    Private Sub SortRecordsAlphabetically(ByVal Reverse As Boolean)
+        Try
+            Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
+            Lines.Sort()
+            If Reverse Then
+                Lines.Reverse()
+            End If
+            System.IO.File.WriteAllLines(FilePath, Lines)
+        Catch
+            MessageBox.Show("File Access Denied", "Error")
+        End Try
+    End Sub
+
     Private Sub PopulateMyFlashcards()
         ' copy all titles to the listbox
         lstCardTitles.Items.Clear()
@@ -134,4 +157,5 @@ Public Class frmMain
         lblTitle.Text = String.Empty
         lblCaption.Text = String.Empty
     End Sub
+
 End Class

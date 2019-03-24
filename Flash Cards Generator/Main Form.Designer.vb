@@ -45,6 +45,8 @@ Partial Class frmMain
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnSortAscending = New System.Windows.Forms.Button()
+        Me.btnSortDescending = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -316,11 +318,31 @@ Partial Class frmMain
         Me.PictureBox1.TabIndex = 27
         Me.PictureBox1.TabStop = False
         '
+        'btnSortAscending
+        '
+        Me.btnSortAscending.Location = New System.Drawing.Point(207, 53)
+        Me.btnSortAscending.Name = "btnSortAscending"
+        Me.btnSortAscending.Size = New System.Drawing.Size(27, 30)
+        Me.btnSortAscending.TabIndex = 28
+        Me.btnSortAscending.Text = "A"
+        Me.btnSortAscending.UseVisualStyleBackColor = True
+        '
+        'btnSortDescending
+        '
+        Me.btnSortDescending.Location = New System.Drawing.Point(172, 53)
+        Me.btnSortDescending.Name = "btnSortDescending"
+        Me.btnSortDescending.Size = New System.Drawing.Size(29, 30)
+        Me.btnSortDescending.TabIndex = 29
+        Me.btnSortDescending.Text = "Z"
+        Me.btnSortDescending.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(784, 411)
+        Me.Controls.Add(Me.btnSortDescending)
+        Me.Controls.Add(Me.btnSortAscending)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -374,4 +396,6 @@ Partial Class frmMain
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents btnSortAscending As Button
+    Friend WithEvents btnSortDescending As Button
 End Class
