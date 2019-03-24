@@ -66,6 +66,7 @@ Public Class frmMain
         End If
 
         PopulateMyFlashcards()
+        EmptyCardViewer()
     End Sub
 
     Private Sub btnSortDescending_Click(sender As Object, e As EventArgs)

@@ -308,6 +308,7 @@ Partial Class frmMain
         '
         'btnSortListbox
         '
+        Me.btnSortListbox.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnSortListbox.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.btnSortListbox.BackgroundImage = Global.Flash_Cards_Generator.My.Resources.Resources.sort_ascending_right
         Me.btnSortListbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
