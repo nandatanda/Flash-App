@@ -54,21 +54,23 @@ Partial Class frmMain
         '
         'Label1
         '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label1.Location = New System.Drawing.Point(242, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(2, 393)
         Me.Label1.TabIndex = 2
+        Me.Label1.Visible = False
         '
         'Label3
         '
-        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Label3.Location = New System.Drawing.Point(541, 9)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(2, 393)
         Me.Label3.TabIndex = 4
+        Me.Label3.Visible = False
         '
         'lstCardTitles
         '
@@ -97,7 +99,7 @@ Partial Class frmMain
         '
         Me.btnNew.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnNew.BackColor = System.Drawing.SystemColors.Control
-        Me.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNew.Location = New System.Drawing.Point(21, 357)
         Me.btnNew.Name = "btnNew"
         Me.btnNew.Size = New System.Drawing.Size(75, 30)
@@ -109,7 +111,7 @@ Partial Class frmMain
         '
         Me.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnDelete.BackColor = System.Drawing.SystemColors.Control
-        Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDelete.Location = New System.Drawing.Point(145, 357)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(75, 30)
@@ -121,7 +123,7 @@ Partial Class frmMain
         '
         Me.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblTitle.BackColor = System.Drawing.SystemColors.Window
-        Me.lblTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.Location = New System.Drawing.Point(252, 89)
         Me.lblTitle.Name = "lblTitle"
@@ -133,7 +135,7 @@ Partial Class frmMain
         '
         Me.lblCaption.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.lblCaption.BackColor = System.Drawing.SystemColors.Window
-        Me.lblCaption.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblCaption.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblCaption.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCaption.Location = New System.Drawing.Point(252, 139)
         Me.lblCaption.Name = "lblCaption"
@@ -212,7 +214,7 @@ Partial Class frmMain
         '
         Me.btnStart.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnStart.BackColor = System.Drawing.SystemColors.Control
-        Me.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnStart.Location = New System.Drawing.Point(625, 357)
         Me.btnStart.Name = "btnStart"
         Me.btnStart.Size = New System.Drawing.Size(75, 30)
