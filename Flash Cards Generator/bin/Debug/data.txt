@@ -1,0 +1,7 @@
+Nice;A city in France.
+New Delhi;A city in India.
+Munich;A city in Germany.
+Lima;The capital and the largest city of Peru. It is located in the valleys of the Chillón, Rímac and Lurín rivers, in the central coastal part of the country, overlooking the Pacific Ocean.
+Jakarta;The capital and largest city of Indonesia. Located on the northwest coast of the world's most populous island Java, it is the centre of economics, culture and politics of Indonesia, with a population of 10,075,310 as of 2014.
+Florence;A city in Italy.
+Barcelona;A city in Spain.

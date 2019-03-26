@@ -22,87 +22,55 @@ Partial Class frmMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.lstCardTitles = New System.Windows.Forms.ListBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.btnNew = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblCaption = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.radShowTitle = New System.Windows.Forms.RadioButton()
-        Me.radShowCaption = New System.Windows.Forms.RadioButton()
-        Me.chkTimer = New System.Windows.Forms.CheckBox()
-        Me.cmbTimer = New System.Windows.Forms.ComboBox()
-        Me.btnStart = New System.Windows.Forms.Button()
-        Me.radSortDescending = New System.Windows.Forms.RadioButton()
-        Me.radSortAscending = New System.Windows.Forms.RadioButton()
-        Me.radSortRandomize = New System.Windows.Forms.RadioButton()
-        Me.radShowBoth = New System.Windows.Forms.RadioButton()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.btnSortListbox = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.btnExportData = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnMoveCardUp = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.btnEditCard = New System.Windows.Forms.Button()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.Button11 = New System.Windows.Forms.Button()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label1.Location = New System.Drawing.Point(242, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(2, 393)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Visible = False
-        '
-        'Label3
-        '
-        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label3.Location = New System.Drawing.Point(541, 9)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(2, 393)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Visible = False
         '
         'lstCardTitles
         '
-        Me.lstCardTitles.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.lstCardTitles.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lstCardTitles.FormattingEnabled = True
         Me.lstCardTitles.ItemHeight = 20
-        Me.lstCardTitles.Location = New System.Drawing.Point(7, 89)
+        Me.lstCardTitles.Location = New System.Drawing.Point(12, 20)
+        Me.lstCardTitles.Margin = New System.Windows.Forms.Padding(12)
         Me.lstCardTitles.Name = "lstCardTitles"
-        Me.lstCardTitles.Size = New System.Drawing.Size(227, 244)
+        Me.lstCardTitles.Size = New System.Drawing.Size(257, 504)
         Me.lstCardTitles.TabIndex = 5
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(71, 30)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(108, 20)
-        Me.Label2.TabIndex = 6
-        Me.Label2.Text = "My Flashcards"
         '
         'btnNew
         '
         Me.btnNew.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnNew.BackColor = System.Drawing.SystemColors.Control
         Me.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNew.Location = New System.Drawing.Point(21, 357)
+        Me.btnNew.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnNew.Location = New System.Drawing.Point(19, 35)
         Me.btnNew.Name = "btnNew"
-        Me.btnNew.Size = New System.Drawing.Size(75, 30)
+        Me.btnNew.Size = New System.Drawing.Size(108, 30)
         Me.btnNew.TabIndex = 7
         Me.btnNew.Text = "&New"
         Me.btnNew.UseVisualStyleBackColor = False
@@ -112,9 +80,10 @@ Partial Class frmMain
         Me.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.btnDelete.BackColor = System.Drawing.SystemColors.Control
         Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDelete.Location = New System.Drawing.Point(145, 357)
+        Me.btnDelete.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnDelete.Location = New System.Drawing.Point(19, 107)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(75, 30)
+        Me.btnDelete.Size = New System.Drawing.Size(108, 30)
         Me.btnDelete.TabIndex = 8
         Me.btnDelete.Text = "&Delete"
         Me.btnDelete.UseVisualStyleBackColor = False
@@ -125,7 +94,7 @@ Partial Class frmMain
         Me.lblTitle.BackColor = System.Drawing.SystemColors.Window
         Me.lblTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.Location = New System.Drawing.Point(252, 89)
+        Me.lblTitle.Location = New System.Drawing.Point(663, 139)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(281, 35)
         Me.lblTitle.TabIndex = 9
@@ -137,176 +106,10 @@ Partial Class frmMain
         Me.lblCaption.BackColor = System.Drawing.SystemColors.Window
         Me.lblCaption.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblCaption.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCaption.Location = New System.Drawing.Point(252, 139)
+        Me.lblCaption.Location = New System.Drawing.Point(663, 194)
         Me.lblCaption.Name = "lblCaption"
         Me.lblCaption.Size = New System.Drawing.Size(281, 194)
         Me.lblCaption.TabIndex = 10
-        '
-        'Label6
-        '
-        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(348, 30)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(93, 20)
-        Me.Label6.TabIndex = 11
-        Me.Label6.Text = "Card Viewer"
-        '
-        'Label4
-        '
-        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(617, 30)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(99, 20)
-        Me.Label4.TabIndex = 12
-        Me.Label4.Text = "Study Helper"
-        '
-        'radShowTitle
-        '
-        Me.radShowTitle.AutoSize = True
-        Me.radShowTitle.Checked = True
-        Me.radShowTitle.Location = New System.Drawing.Point(89, 12)
-        Me.radShowTitle.Name = "radShowTitle"
-        Me.radShowTitle.Size = New System.Drawing.Size(56, 24)
-        Me.radShowTitle.TabIndex = 14
-        Me.radShowTitle.TabStop = True
-        Me.radShowTitle.Text = "Title"
-        Me.radShowTitle.UseVisualStyleBackColor = True
-        '
-        'radShowCaption
-        '
-        Me.radShowCaption.AutoSize = True
-        Me.radShowCaption.Location = New System.Drawing.Point(89, 42)
-        Me.radShowCaption.Name = "radShowCaption"
-        Me.radShowCaption.Size = New System.Drawing.Size(79, 24)
-        Me.radShowCaption.TabIndex = 15
-        Me.radShowCaption.Text = "Caption"
-        Me.radShowCaption.UseVisualStyleBackColor = True
-        '
-        'chkTimer
-        '
-        Me.chkTimer.AutoSize = True
-        Me.chkTimer.Location = New System.Drawing.Point(11, 30)
-        Me.chkTimer.Name = "chkTimer"
-        Me.chkTimer.Size = New System.Drawing.Size(134, 24)
-        Me.chkTimer.TabIndex = 16
-        Me.chkTimer.Text = "Show next after:"
-        Me.chkTimer.UseVisualStyleBackColor = True
-        '
-        'cmbTimer
-        '
-        Me.cmbTimer.Enabled = False
-        Me.cmbTimer.FormattingEnabled = True
-        Me.cmbTimer.Items.AddRange(New Object() {"10 sec.", "15 sec.", "20 sec.", "30 sec.", "45 sec.", "60 sec."})
-        Me.cmbTimer.Location = New System.Drawing.Point(151, 28)
-        Me.cmbTimer.Name = "cmbTimer"
-        Me.cmbTimer.Size = New System.Drawing.Size(66, 28)
-        Me.cmbTimer.TabIndex = 17
-        '
-        'btnStart
-        '
-        Me.btnStart.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnStart.BackColor = System.Drawing.SystemColors.Control
-        Me.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnStart.Location = New System.Drawing.Point(625, 357)
-        Me.btnStart.Name = "btnStart"
-        Me.btnStart.Size = New System.Drawing.Size(75, 30)
-        Me.btnStart.TabIndex = 19
-        Me.btnStart.Text = "&Start"
-        Me.btnStart.UseVisualStyleBackColor = False
-        '
-        'radSortDescending
-        '
-        Me.radSortDescending.AutoSize = True
-        Me.radSortDescending.Location = New System.Drawing.Point(89, 41)
-        Me.radSortDescending.Name = "radSortDescending"
-        Me.radSortDescending.Size = New System.Drawing.Size(105, 24)
-        Me.radSortDescending.TabIndex = 22
-        Me.radSortDescending.Text = "Descending"
-        Me.radSortDescending.UseVisualStyleBackColor = True
-        '
-        'radSortAscending
-        '
-        Me.radSortAscending.AutoSize = True
-        Me.radSortAscending.Checked = True
-        Me.radSortAscending.Location = New System.Drawing.Point(89, 11)
-        Me.radSortAscending.Name = "radSortAscending"
-        Me.radSortAscending.Size = New System.Drawing.Size(96, 24)
-        Me.radSortAscending.TabIndex = 21
-        Me.radSortAscending.TabStop = True
-        Me.radSortAscending.Text = "Ascending"
-        Me.radSortAscending.UseVisualStyleBackColor = True
-        '
-        'radSortRandomize
-        '
-        Me.radSortRandomize.AutoSize = True
-        Me.radSortRandomize.Location = New System.Drawing.Point(89, 71)
-        Me.radSortRandomize.Name = "radSortRandomize"
-        Me.radSortRandomize.Size = New System.Drawing.Size(102, 24)
-        Me.radSortRandomize.TabIndex = 23
-        Me.radSortRandomize.Text = "Randomize"
-        Me.radSortRandomize.UseVisualStyleBackColor = True
-        '
-        'radShowBoth
-        '
-        Me.radShowBoth.AutoSize = True
-        Me.radShowBoth.Location = New System.Drawing.Point(89, 72)
-        Me.radShowBoth.Name = "radShowBoth"
-        Me.radShowBoth.Size = New System.Drawing.Size(58, 24)
-        Me.radShowBoth.TabIndex = 24
-        Me.radShowBoth.Text = "Both"
-        Me.radShowBoth.UseVisualStyleBackColor = True
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.GroupBox1.Controls.Add(Me.radSortDescending)
-        Me.GroupBox1.Controls.Add(Me.radSortAscending)
-        Me.GroupBox1.Controls.Add(Me.radSortRandomize)
-        Me.GroupBox1.ForeColor = System.Drawing.Color.White
-        Me.GroupBox1.Location = New System.Drawing.Point(553, 65)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(223, 100)
-        Me.GroupBox1.TabIndex = 25
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Sort:"
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.GroupBox2.Controls.Add(Me.radShowTitle)
-        Me.GroupBox2.Controls.Add(Me.radShowCaption)
-        Me.GroupBox2.Controls.Add(Me.radShowBoth)
-        Me.GroupBox2.ForeColor = System.Drawing.Color.White
-        Me.GroupBox2.Location = New System.Drawing.Point(553, 171)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(223, 100)
-        Me.GroupBox2.TabIndex = 24
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Show:"
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.GroupBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.GroupBox3.Controls.Add(Me.chkTimer)
-        Me.GroupBox3.Controls.Add(Me.cmbTimer)
-        Me.GroupBox3.ForeColor = System.Drawing.Color.White
-        Me.GroupBox3.Location = New System.Drawing.Point(553, 277)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(223, 68)
-        Me.GroupBox3.TabIndex = 26
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Timer:"
         '
         'btnSortListbox
         '
@@ -316,7 +119,7 @@ Partial Class frmMain
         Me.btnSortListbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSortListbox.FlatAppearance.BorderSize = 0
         Me.btnSortListbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSortListbox.Location = New System.Drawing.Point(209, 58)
+        Me.btnSortListbox.Location = New System.Drawing.Point(102, 158)
         Me.btnSortListbox.Name = "btnSortListbox"
         Me.btnSortListbox.Size = New System.Drawing.Size(25, 25)
         Me.btnSortListbox.TabIndex = 28
@@ -328,69 +131,258 @@ Partial Class frmMain
         Me.PictureBox1.Image = Global.Flash_Cards_Generator.My.Resources.Resources._121494_minimalist_geometric_wallpaper
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(784, 411)
+        Me.PictureBox1.Size = New System.Drawing.Size(1008, 537)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 27
         Me.PictureBox1.TabStop = False
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.GroupBox1.Controls.Add(Me.Button4)
+        Me.GroupBox1.Controls.Add(Me.btnExportData)
+        Me.GroupBox1.Controls.Add(Me.Button3)
+        Me.GroupBox1.Controls.Add(Me.Button8)
+        Me.GroupBox1.Controls.Add(Me.Button7)
+        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox1.ForeColor = System.Drawing.Color.White
+        Me.GroupBox1.Location = New System.Drawing.Point(284, 12)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(150, 275)
+        Me.GroupBox1.TabIndex = 30
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "File"
+        '
+        'Button4
+        '
+        Me.Button4.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Button4.BackColor = System.Drawing.SystemColors.Control
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Button4.Location = New System.Drawing.Point(19, 179)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(108, 30)
+        Me.Button4.TabIndex = 13
+        Me.Button4.Text = "Print"
+        Me.Button4.UseVisualStyleBackColor = False
+        '
+        'btnExportData
+        '
+        Me.btnExportData.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnExportData.BackColor = System.Drawing.SystemColors.Control
+        Me.btnExportData.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExportData.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnExportData.Location = New System.Drawing.Point(19, 107)
+        Me.btnExportData.Name = "btnExportData"
+        Me.btnExportData.Size = New System.Drawing.Size(108, 30)
+        Me.btnExportData.TabIndex = 12
+        Me.btnExportData.Text = "&Export"
+        Me.btnExportData.UseVisualStyleBackColor = False
+        '
+        'Button3
+        '
+        Me.Button3.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Button3.BackColor = System.Drawing.SystemColors.Control
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Button3.Location = New System.Drawing.Point(19, 71)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(108, 30)
+        Me.Button3.TabIndex = 11
+        Me.Button3.Text = "Import"
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'Button8
+        '
+        Me.Button8.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Button8.BackColor = System.Drawing.SystemColors.Control
+        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button8.ForeColor = System.Drawing.Color.DarkRed
+        Me.Button8.Location = New System.Drawing.Point(19, 215)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(108, 30)
+        Me.Button8.TabIndex = 8
+        Me.Button8.Text = "&Delete"
+        Me.Button8.UseVisualStyleBackColor = False
+        '
+        'Button7
+        '
+        Me.Button7.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Button7.BackColor = System.Drawing.SystemColors.Control
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button7.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Button7.Location = New System.Drawing.Point(19, 35)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(108, 30)
+        Me.Button7.TabIndex = 7
+        Me.Button7.Text = "&New"
+        Me.Button7.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Button1.BackColor = System.Drawing.SystemColors.Control
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Button1.Location = New System.Drawing.Point(19, 143)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(108, 30)
+        Me.Button1.TabIndex = 9
+        Me.Button1.Text = "&Edit"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'btnMoveCardUp
+        '
+        Me.btnMoveCardUp.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnMoveCardUp.BackColor = System.Drawing.SystemColors.Control
+        Me.btnMoveCardUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMoveCardUp.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnMoveCardUp.Location = New System.Drawing.Point(19, 143)
+        Me.btnMoveCardUp.Name = "btnMoveCardUp"
+        Me.btnMoveCardUp.Size = New System.Drawing.Size(108, 30)
+        Me.btnMoveCardUp.TabIndex = 10
+        Me.btnMoveCardUp.Text = "Move Up"
+        Me.btnMoveCardUp.UseVisualStyleBackColor = False
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.GroupBox2.Controls.Add(Me.Button5)
+        Me.GroupBox2.Controls.Add(Me.btnEditCard)
+        Me.GroupBox2.Controls.Add(Me.btnNew)
+        Me.GroupBox2.Controls.Add(Me.btnMoveCardUp)
+        Me.GroupBox2.Controls.Add(Me.btnDelete)
+        Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox2.ForeColor = System.Drawing.Color.White
+        Me.GroupBox2.Location = New System.Drawing.Point(284, 293)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(150, 231)
+        Me.GroupBox2.TabIndex = 31
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Card"
+        '
+        'Button5
+        '
+        Me.Button5.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Button5.BackColor = System.Drawing.SystemColors.Control
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Button5.Location = New System.Drawing.Point(19, 179)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(108, 30)
+        Me.Button5.TabIndex = 32
+        Me.Button5.Text = "Move D&own"
+        Me.Button5.UseVisualStyleBackColor = False
+        '
+        'btnEditCard
+        '
+        Me.btnEditCard.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnEditCard.BackColor = System.Drawing.SystemColors.Control
+        Me.btnEditCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEditCard.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnEditCard.Location = New System.Drawing.Point(19, 71)
+        Me.btnEditCard.Name = "btnEditCard"
+        Me.btnEditCard.Size = New System.Drawing.Size(108, 30)
+        Me.btnEditCard.TabIndex = 9
+        Me.btnEditCard.Text = "&Edit"
+        Me.btnEditCard.UseVisualStyleBackColor = False
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.GroupBox3.Controls.Add(Me.Button6)
+        Me.GroupBox3.Controls.Add(Me.Button9)
+        Me.GroupBox3.Controls.Add(Me.Button11)
+        Me.GroupBox3.Controls.Add(Me.btnSortListbox)
+        Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox3.ForeColor = System.Drawing.Color.White
+        Me.GroupBox3.Location = New System.Drawing.Point(451, 12)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(150, 193)
+        Me.GroupBox3.TabIndex = 32
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "View"
+        '
+        'Button6
+        '
+        Me.Button6.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Button6.BackColor = System.Drawing.SystemColors.Control
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Button6.Location = New System.Drawing.Point(19, 107)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(108, 30)
+        Me.Button6.TabIndex = 12
+        Me.Button6.UseVisualStyleBackColor = False
+        '
+        'Button9
+        '
+        Me.Button9.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Button9.BackColor = System.Drawing.SystemColors.Control
+        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button9.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Button9.Location = New System.Drawing.Point(19, 71)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(108, 30)
+        Me.Button9.TabIndex = 11
+        Me.Button9.UseVisualStyleBackColor = False
+        '
+        'Button11
+        '
+        Me.Button11.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Button11.BackColor = System.Drawing.SystemColors.Control
+        Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button11.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Button11.Location = New System.Drawing.Point(19, 35)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(108, 30)
+        Me.Button11.TabIndex = 7
+        Me.Button11.UseVisualStyleBackColor = False
         '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(784, 411)
-        Me.Controls.Add(Me.btnSortListbox)
+        Me.ClientSize = New System.Drawing.Size(1008, 537)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.btnStart)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.lblCaption)
         Me.Controls.Add(Me.lblTitle)
-        Me.Controls.Add(Me.btnDelete)
-        Me.Controls.Add(Me.btnNew)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.lstCardTitles)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "frmMain"
         Me.Text = "FlashApp"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents lstCardTitles As ListBox
-    Friend WithEvents Label2 As Label
     Friend WithEvents btnNew As Button
     Friend WithEvents btnDelete As Button
     Friend WithEvents lblTitle As Label
     Friend WithEvents lblCaption As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents radShowTitle As RadioButton
-    Friend WithEvents radShowCaption As RadioButton
-    Friend WithEvents chkTimer As CheckBox
-    Friend WithEvents cmbTimer As ComboBox
-    Friend WithEvents btnStart As Button
-    Friend WithEvents radSortDescending As RadioButton
-    Friend WithEvents radSortAscending As RadioButton
-    Friend WithEvents radSortRandomize As RadioButton
-    Friend WithEvents radShowBoth As RadioButton
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents btnSortListbox As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents btnMoveCardUp As Button
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents btnEditCard As Button
+    Friend WithEvents Button7 As Button
+    Friend WithEvents Button8 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents btnExportData As Button
+    Friend WithEvents Button5 As Button
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents Button6 As Button
+    Friend WithEvents Button9 As Button
+    Friend WithEvents Button11 As Button
 End Class

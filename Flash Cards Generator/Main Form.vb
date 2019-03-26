@@ -44,12 +44,12 @@ Public Class frmMain
 
     End Sub
 
-    Private Sub chkTimer_CheckedChanged(sender As Object, e As EventArgs) Handles chkTimer.CheckedChanged
-        If cmbTimer.Enabled Then
-            cmbTimer.Enabled = False
-        Else
-            cmbTimer.Enabled = True
-        End If
+    Private Sub chkTimer_CheckedChanged(sender As Object, e As EventArgs)
+        'If cmbTimer.Enabled Then
+        '    cmbTimer.Enabled = False
+        'Else
+        '    cmbTimer.Enabled = True
+        'End If
     End Sub
 
     Private Sub btnSortListbox_Click(sender As Object, e As EventArgs) Handles btnSortListbox.Click

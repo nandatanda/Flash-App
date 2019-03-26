@@ -95,6 +95,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Quiz Form.Designer.vb">
+      <DependentUpon>Quiz Form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Quiz Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Main Form.resx">
@@ -105,6 +111,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quiz Form.resx">
+      <DependentUpon>Quiz Form.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
