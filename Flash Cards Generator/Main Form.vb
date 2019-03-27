@@ -14,6 +14,8 @@ Public Class frmMain
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         PopulateMyFlashcards()
         EmptyCardViewer()
+
+        lstCardTitles.SelectedIndex = 0
     End Sub
 
     Private Sub lstCardTitles_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstCardTitles.SelectedIndexChanged
@@ -40,6 +42,7 @@ Public Class frmMain
             DeleteRecord(lstCardTitles.SelectedIndex)
             PopulateMyFlashcards()
             EmptyCardViewer()
+            lstCardTitles.SelectedIndex = 0
         End If
 
     End Sub
@@ -69,9 +72,31 @@ Public Class frmMain
         EmptyCardViewer()
     End Sub
 
-    Private Sub btnSortDescending_Click(sender As Object, e As EventArgs)
-        SortRecordsAlphabetically(Reverse:=True)
+    Private Sub btnEditCard_Click(sender As Object, e As EventArgs) Handles btnEditCard.Click
+        Dim Title As String = InputBox("Change the text of the title.", "Edit Card", ReadRecord(lstCardTitles.Text)(0))
+        If Title = "" Then
+            Exit Sub
+        End If
+
+        Dim Caption As String = InputBox("Change the text of the caption, or body of the card.", "Edit Card", ReadRecord(lstCardTitles.Text)(1))
+        If Title = "" Then
+            Exit Sub
+        End If
+
+        Dim Index As Integer = lstCardTitles.SelectedIndex
+
+        Try
+            Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
+            Lines(Index) = Title + ";" + Caption
+            System.IO.File.WriteAllLines(FilePath, Lines)
+        Catch
+            MessageBox.Show("File Access Denied.", "Error")
+        End Try
+
         PopulateMyFlashcards()
+        PopulateCardViewer()
+        lstCardTitles.SelectedIndex = Index
+
     End Sub
 
     Private Function ReadRecord(ByVal Title As String) As List(Of String)
@@ -121,7 +146,7 @@ Public Class frmMain
             Lines.RemoveAt(Index)
             System.IO.File.WriteAllLines(FilePath, Lines)
         Catch
-            MessageBox.Show("No flashcard selected.", "Error")
+            MessageBox.Show("File Access Denied.", "Error")
         End Try
     End Sub
 
