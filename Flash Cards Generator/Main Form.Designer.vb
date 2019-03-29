@@ -41,7 +41,6 @@ Partial Class frmMain
         Me.Button5 = New System.Windows.Forms.Button()
         Me.btnEditCard = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,13 +52,12 @@ Partial Class frmMain
         'lstCardTitles
         '
         Me.lstCardTitles.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstCardTitles.FormattingEnabled = True
         Me.lstCardTitles.ItemHeight = 20
-        Me.lstCardTitles.Location = New System.Drawing.Point(12, 20)
-        Me.lstCardTitles.Margin = New System.Windows.Forms.Padding(12)
+        Me.lstCardTitles.Location = New System.Drawing.Point(516, 22)
         Me.lstCardTitles.Name = "lstCardTitles"
-        Me.lstCardTitles.Size = New System.Drawing.Size(257, 504)
+        Me.lstCardTitles.Size = New System.Drawing.Size(235, 564)
         Me.lstCardTitles.TabIndex = 5
         '
         'btnNew
@@ -68,7 +66,7 @@ Partial Class frmMain
         Me.btnNew.BackColor = System.Drawing.SystemColors.Control
         Me.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNew.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnNew.Location = New System.Drawing.Point(19, 35)
+        Me.btnNew.Location = New System.Drawing.Point(21, 26)
         Me.btnNew.Name = "btnNew"
         Me.btnNew.Size = New System.Drawing.Size(108, 30)
         Me.btnNew.TabIndex = 7
@@ -81,7 +79,7 @@ Partial Class frmMain
         Me.btnDelete.BackColor = System.Drawing.SystemColors.Control
         Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDelete.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnDelete.Location = New System.Drawing.Point(19, 107)
+        Me.btnDelete.Location = New System.Drawing.Point(21, 98)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(108, 30)
         Me.btnDelete.TabIndex = 8
@@ -90,26 +88,27 @@ Partial Class frmMain
         '
         'lblTitle
         '
-        Me.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.lblTitle.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblTitle.BackColor = System.Drawing.SystemColors.Window
         Me.lblTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.Location = New System.Drawing.Point(663, 139)
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.Location = New System.Drawing.Point(12, 274)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(281, 35)
+        Me.lblTitle.Size = New System.Drawing.Size(486, 45)
         Me.lblTitle.TabIndex = 9
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblCaption
         '
-        Me.lblCaption.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.lblCaption.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblCaption.BackColor = System.Drawing.SystemColors.Window
         Me.lblCaption.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblCaption.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCaption.Location = New System.Drawing.Point(663, 194)
+        Me.lblCaption.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCaption.Location = New System.Drawing.Point(12, 335)
         Me.lblCaption.Name = "lblCaption"
-        Me.lblCaption.Size = New System.Drawing.Size(281, 194)
+        Me.lblCaption.Size = New System.Drawing.Size(486, 250)
         Me.lblCaption.TabIndex = 10
+        Me.lblCaption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btnSortListbox
         '
@@ -119,7 +118,7 @@ Partial Class frmMain
         Me.btnSortListbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSortListbox.FlatAppearance.BorderSize = 0
         Me.btnSortListbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSortListbox.Location = New System.Drawing.Point(102, 158)
+        Me.btnSortListbox.Location = New System.Drawing.Point(62, 98)
         Me.btnSortListbox.Name = "btnSortListbox"
         Me.btnSortListbox.Size = New System.Drawing.Size(25, 25)
         Me.btnSortListbox.TabIndex = 28
@@ -131,7 +130,7 @@ Partial Class frmMain
         Me.PictureBox1.Image = Global.Flash_Cards_Generator.My.Resources.Resources._121494_minimalist_geometric_wallpaper
         Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1008, 537)
+        Me.PictureBox1.Size = New System.Drawing.Size(764, 606)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 27
         Me.PictureBox1.TabStop = False
@@ -147,9 +146,9 @@ Partial Class frmMain
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.ForeColor = System.Drawing.Color.White
-        Me.GroupBox1.Location = New System.Drawing.Point(284, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(150, 275)
+        Me.GroupBox1.Size = New System.Drawing.Size(150, 246)
         Me.GroupBox1.TabIndex = 30
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "File"
@@ -160,7 +159,7 @@ Partial Class frmMain
         Me.Button4.BackColor = System.Drawing.SystemColors.Control
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button4.Location = New System.Drawing.Point(19, 179)
+        Me.Button4.Location = New System.Drawing.Point(19, 170)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(108, 30)
         Me.Button4.TabIndex = 13
@@ -173,7 +172,7 @@ Partial Class frmMain
         Me.btnExportData.BackColor = System.Drawing.SystemColors.Control
         Me.btnExportData.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnExportData.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnExportData.Location = New System.Drawing.Point(19, 107)
+        Me.btnExportData.Location = New System.Drawing.Point(19, 98)
         Me.btnExportData.Name = "btnExportData"
         Me.btnExportData.Size = New System.Drawing.Size(108, 30)
         Me.btnExportData.TabIndex = 12
@@ -186,7 +185,7 @@ Partial Class frmMain
         Me.Button3.BackColor = System.Drawing.SystemColors.Control
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button3.Location = New System.Drawing.Point(19, 71)
+        Me.Button3.Location = New System.Drawing.Point(19, 62)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(108, 30)
         Me.Button3.TabIndex = 11
@@ -199,7 +198,7 @@ Partial Class frmMain
         Me.Button8.BackColor = System.Drawing.SystemColors.Control
         Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button8.ForeColor = System.Drawing.Color.DarkRed
-        Me.Button8.Location = New System.Drawing.Point(19, 215)
+        Me.Button8.Location = New System.Drawing.Point(19, 206)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(108, 30)
         Me.Button8.TabIndex = 8
@@ -212,7 +211,7 @@ Partial Class frmMain
         Me.Button7.BackColor = System.Drawing.SystemColors.Control
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button7.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button7.Location = New System.Drawing.Point(19, 35)
+        Me.Button7.Location = New System.Drawing.Point(19, 26)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(108, 30)
         Me.Button7.TabIndex = 7
@@ -225,7 +224,7 @@ Partial Class frmMain
         Me.Button1.BackColor = System.Drawing.SystemColors.Control
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button1.Location = New System.Drawing.Point(19, 143)
+        Me.Button1.Location = New System.Drawing.Point(19, 134)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(108, 30)
         Me.Button1.TabIndex = 9
@@ -238,7 +237,7 @@ Partial Class frmMain
         Me.btnMoveCardUp.BackColor = System.Drawing.SystemColors.Control
         Me.btnMoveCardUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMoveCardUp.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnMoveCardUp.Location = New System.Drawing.Point(19, 143)
+        Me.btnMoveCardUp.Location = New System.Drawing.Point(21, 134)
         Me.btnMoveCardUp.Name = "btnMoveCardUp"
         Me.btnMoveCardUp.Size = New System.Drawing.Size(108, 30)
         Me.btnMoveCardUp.TabIndex = 10
@@ -255,9 +254,9 @@ Partial Class frmMain
         Me.GroupBox2.Controls.Add(Me.btnDelete)
         Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox2.ForeColor = System.Drawing.Color.White
-        Me.GroupBox2.Location = New System.Drawing.Point(284, 293)
+        Me.GroupBox2.Location = New System.Drawing.Point(348, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(150, 231)
+        Me.GroupBox2.Size = New System.Drawing.Size(150, 217)
         Me.GroupBox2.TabIndex = 31
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Card"
@@ -268,7 +267,7 @@ Partial Class frmMain
         Me.Button5.BackColor = System.Drawing.SystemColors.Control
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button5.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button5.Location = New System.Drawing.Point(19, 179)
+        Me.Button5.Location = New System.Drawing.Point(21, 170)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(108, 30)
         Me.Button5.TabIndex = 32
@@ -281,7 +280,7 @@ Partial Class frmMain
         Me.btnEditCard.BackColor = System.Drawing.SystemColors.Control
         Me.btnEditCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEditCard.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnEditCard.Location = New System.Drawing.Point(19, 71)
+        Me.btnEditCard.Location = New System.Drawing.Point(21, 62)
         Me.btnEditCard.Name = "btnEditCard"
         Me.btnEditCard.Size = New System.Drawing.Size(108, 30)
         Me.btnEditCard.TabIndex = 9
@@ -291,30 +290,17 @@ Partial Class frmMain
         'GroupBox3
         '
         Me.GroupBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.GroupBox3.Controls.Add(Me.Button6)
         Me.GroupBox3.Controls.Add(Me.Button9)
         Me.GroupBox3.Controls.Add(Me.Button11)
         Me.GroupBox3.Controls.Add(Me.btnSortListbox)
         Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox3.ForeColor = System.Drawing.Color.White
-        Me.GroupBox3.Location = New System.Drawing.Point(451, 12)
+        Me.GroupBox3.Location = New System.Drawing.Point(180, 12)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(150, 193)
+        Me.GroupBox3.Size = New System.Drawing.Size(150, 138)
         Me.GroupBox3.TabIndex = 32
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "View"
-        '
-        'Button6
-        '
-        Me.Button6.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Button6.BackColor = System.Drawing.SystemColors.Control
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button6.Location = New System.Drawing.Point(19, 107)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(108, 30)
-        Me.Button6.TabIndex = 12
-        Me.Button6.UseVisualStyleBackColor = False
         '
         'Button9
         '
@@ -322,10 +308,11 @@ Partial Class frmMain
         Me.Button9.BackColor = System.Drawing.SystemColors.Control
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button9.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button9.Location = New System.Drawing.Point(19, 71)
+        Me.Button9.Location = New System.Drawing.Point(21, 62)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(108, 30)
         Me.Button9.TabIndex = 11
+        Me.Button9.Text = "Sort"
         Me.Button9.UseVisualStyleBackColor = False
         '
         'Button11
@@ -334,17 +321,18 @@ Partial Class frmMain
         Me.Button11.BackColor = System.Drawing.SystemColors.Control
         Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button11.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button11.Location = New System.Drawing.Point(19, 35)
+        Me.Button11.Location = New System.Drawing.Point(21, 26)
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(108, 30)
         Me.Button11.TabIndex = 7
+        Me.Button11.Text = "Quiz"
         Me.Button11.UseVisualStyleBackColor = False
         '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1008, 537)
+        Me.ClientSize = New System.Drawing.Size(764, 606)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -382,7 +370,6 @@ Partial Class frmMain
     Friend WithEvents btnExportData As Button
     Friend WithEvents Button5 As Button
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents Button6 As Button
     Friend WithEvents Button9 As Button
     Friend WithEvents Button11 As Button
 End Class

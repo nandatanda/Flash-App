@@ -195,5 +195,4 @@ Public Class frmMain
         lblTitle.Text = String.Empty
         lblCaption.Text = String.Empty
     End Sub
-
 End Class
