@@ -48,14 +48,6 @@ Public Class frmMain
 
     End Sub
 
-    Private Sub chkTimer_CheckedChanged(sender As Object, e As EventArgs)
-        'If cmbTimer.Enabled Then
-        '    cmbTimer.Enabled = False
-        'Else
-        '    cmbTimer.Enabled = True
-        'End If
-    End Sub
-
     Private Sub btnSortListbox_Click(sender As Object, e As EventArgs) Handles btnSortListbox.Click
         Static ListboxIsInAscendingOrder As Boolean
 
@@ -100,9 +92,25 @@ Public Class frmMain
 
     End Sub
 
+    Private Sub btnMoveCardUp_Click(sender As Object, e As EventArgs) Handles btnMoveCardUp.Click
+        Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
+        Dim TargetIndex As Integer = lstCardTitles.SelectedIndex - 1
+
+        Try
+            Dim TemporaryValue As String = Lines(TargetIndex)
+            Lines(TargetIndex) = lstCardTitles.Text
+            Lines(lstCardTitles.SelectedIndex) = TemporaryValue
+
+            System.IO.File.WriteAllLines(FilePath, Lines)
+            PopulateMyFlashcards()
+            lstCardTitles.SelectedIndex = TargetIndex
+        Catch
+            lstCardTitles.SelectedIndex = 0
+        End Try
+    End Sub
+
     Private Function ReadRecord(ByVal Title As String) As List(Of String)
         'read a record from data file
-        Dim FilePath As String = IO.Path.Combine(BasePath, "data.txt")
 
         For Each Line As String In IO.File.ReadLines(FilePath)
             If Line.Contains(Title) Then
@@ -195,4 +203,5 @@ Public Class frmMain
         lblTitle.Text = String.Empty
         lblCaption.Text = String.Empty
     End Sub
+
 End Class
