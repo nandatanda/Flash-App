@@ -22,7 +22,7 @@ Public Class frmMain
         PopulateCardViewer()
     End Sub
 
-    Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
+    Private Sub btnNewCard_Click(sender As Object, e As EventArgs) Handles btnNewCard.Click
         Dim Title As String = InputBox("Enter a title for your flashcard.", "Create Card", "Title")
         If Title = "" Then
             Exit Sub
@@ -37,7 +37,7 @@ Public Class frmMain
         lstCardTitles.SelectedItem = Title
     End Sub
 
-    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+    Private Sub btnDeleteCard_Click(sender As Object, e As EventArgs) Handles btnDeleteCard.Click
         Dim Response As Integer = MessageBox.Show("Are you sure you want to delete this flashcard?", "Confirm Delete", MessageBoxButtons.OKCancel)
         If Response = DialogResult.OK Then
             DeleteRecord(lstCardTitles.SelectedIndex)

@@ -23,8 +23,8 @@ Partial Class frmMain
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.lstCardTitles = New System.Windows.Forms.ListBox()
-        Me.btnNew = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.btnNewCard = New System.Windows.Forms.Button()
+        Me.btnDeleteCard = New System.Windows.Forms.Button()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblCaption = New System.Windows.Forms.Label()
         Me.btnSortListbox = New System.Windows.Forms.Button()
@@ -38,7 +38,7 @@ Partial Class frmMain
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnMoveCardUp = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.btnMoveCardDown = New System.Windows.Forms.Button()
         Me.btnEditCard = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Button9 = New System.Windows.Forms.Button()
@@ -60,31 +60,31 @@ Partial Class frmMain
         Me.lstCardTitles.Size = New System.Drawing.Size(235, 564)
         Me.lstCardTitles.TabIndex = 5
         '
-        'btnNew
+        'btnNewCard
         '
-        Me.btnNew.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnNew.BackColor = System.Drawing.SystemColors.Control
-        Me.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNew.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnNew.Location = New System.Drawing.Point(21, 26)
-        Me.btnNew.Name = "btnNew"
-        Me.btnNew.Size = New System.Drawing.Size(108, 30)
-        Me.btnNew.TabIndex = 7
-        Me.btnNew.Text = "&New"
-        Me.btnNew.UseVisualStyleBackColor = False
+        Me.btnNewCard.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnNewCard.BackColor = System.Drawing.SystemColors.Control
+        Me.btnNewCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNewCard.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnNewCard.Location = New System.Drawing.Point(21, 26)
+        Me.btnNewCard.Name = "btnNewCard"
+        Me.btnNewCard.Size = New System.Drawing.Size(108, 30)
+        Me.btnNewCard.TabIndex = 7
+        Me.btnNewCard.Text = "&New"
+        Me.btnNewCard.UseVisualStyleBackColor = False
         '
-        'btnDelete
+        'btnDeleteCard
         '
-        Me.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnDelete.BackColor = System.Drawing.SystemColors.Control
-        Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDelete.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnDelete.Location = New System.Drawing.Point(21, 98)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(108, 30)
-        Me.btnDelete.TabIndex = 8
-        Me.btnDelete.Text = "&Delete"
-        Me.btnDelete.UseVisualStyleBackColor = False
+        Me.btnDeleteCard.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnDeleteCard.BackColor = System.Drawing.SystemColors.Control
+        Me.btnDeleteCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDeleteCard.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnDeleteCard.Location = New System.Drawing.Point(21, 98)
+        Me.btnDeleteCard.Name = "btnDeleteCard"
+        Me.btnDeleteCard.Size = New System.Drawing.Size(108, 30)
+        Me.btnDeleteCard.TabIndex = 8
+        Me.btnDeleteCard.Text = "&Delete"
+        Me.btnDeleteCard.UseVisualStyleBackColor = False
         '
         'lblTitle
         '
@@ -247,11 +247,11 @@ Partial Class frmMain
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.GroupBox2.Controls.Add(Me.Button5)
+        Me.GroupBox2.Controls.Add(Me.btnMoveCardDown)
         Me.GroupBox2.Controls.Add(Me.btnEditCard)
-        Me.GroupBox2.Controls.Add(Me.btnNew)
+        Me.GroupBox2.Controls.Add(Me.btnNewCard)
         Me.GroupBox2.Controls.Add(Me.btnMoveCardUp)
-        Me.GroupBox2.Controls.Add(Me.btnDelete)
+        Me.GroupBox2.Controls.Add(Me.btnDeleteCard)
         Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox2.ForeColor = System.Drawing.Color.White
         Me.GroupBox2.Location = New System.Drawing.Point(348, 12)
@@ -261,18 +261,18 @@ Partial Class frmMain
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Card"
         '
-        'Button5
+        'btnMoveCardDown
         '
-        Me.Button5.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Button5.BackColor = System.Drawing.SystemColors.Control
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button5.Location = New System.Drawing.Point(21, 170)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(108, 30)
-        Me.Button5.TabIndex = 32
-        Me.Button5.Text = "Move D&own"
-        Me.Button5.UseVisualStyleBackColor = False
+        Me.btnMoveCardDown.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnMoveCardDown.BackColor = System.Drawing.SystemColors.Control
+        Me.btnMoveCardDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMoveCardDown.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnMoveCardDown.Location = New System.Drawing.Point(21, 170)
+        Me.btnMoveCardDown.Name = "btnMoveCardDown"
+        Me.btnMoveCardDown.Size = New System.Drawing.Size(108, 30)
+        Me.btnMoveCardDown.TabIndex = 32
+        Me.btnMoveCardDown.Text = "Move D&own"
+        Me.btnMoveCardDown.UseVisualStyleBackColor = False
         '
         'btnEditCard
         '
@@ -352,8 +352,8 @@ Partial Class frmMain
 
     End Sub
     Friend WithEvents lstCardTitles As ListBox
-    Friend WithEvents btnNew As Button
-    Friend WithEvents btnDelete As Button
+    Friend WithEvents btnNewCard As Button
+    Friend WithEvents btnDeleteCard As Button
     Friend WithEvents lblTitle As Label
     Friend WithEvents lblCaption As Label
     Friend WithEvents PictureBox1 As PictureBox
@@ -368,7 +368,7 @@ Partial Class frmMain
     Friend WithEvents Button8 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents btnExportData As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents btnMoveCardDown As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Button9 As Button
     Friend WithEvents Button11 As Button
