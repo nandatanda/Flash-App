@@ -14,7 +14,6 @@ Public Class frmMain
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         PopulateMyFlashcards()
         EmptyCardViewer()
-
         lstCardTitles.SelectedIndex = 0
     End Sub
 
@@ -37,6 +36,45 @@ Public Class frmMain
         lstCardTitles.SelectedItem = Title
     End Sub
 
+    Private Sub btnEditCard_Click(sender As Object, e As EventArgs) Handles btnEditCard.Click
+        Dim Title As String = "Title"
+        Dim Caption As String = "Caption"
+        Dim Index As Integer = lstCardTitles.SelectedIndex
+
+        ' attempt to read record to be edited from file
+        Try
+            Title = ReadRecord(lstCardTitles.Text)(0)
+            Caption = ReadRecord(lstCardTitles.Text)(1)
+        Catch
+            MessageBox.Show("File Access Denied", "Error")
+        End Try
+
+        ' input new title
+        Title = InputBox("Change the text of the title.", "Edit Card", Title)
+        If Title = "" Then
+            Exit Sub
+        End If
+
+        ' input new caption
+        Caption = InputBox("Change the text of the caption, or body of the card.", "Edit Card", Caption)
+        If Caption = "" Then
+            Exit Sub
+        End If
+
+        ' attempt to write new record to file
+        Try
+            Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
+            Lines(Index) = Title + ";" + Caption
+            System.IO.File.WriteAllLines(FilePath, Lines)
+
+            PopulateMyFlashcards()
+            PopulateCardViewer()
+            lstCardTitles.SelectedIndex = Index
+        Catch
+            MessageBox.Show("File Access Denied.", "Error")
+        End Try
+    End Sub
+
     Private Sub btnDeleteCard_Click(sender As Object, e As EventArgs) Handles btnDeleteCard.Click
         Dim Response As Integer = MessageBox.Show("Are you sure you want to delete this flashcard?", "Confirm Delete", MessageBoxButtons.OKCancel)
         If Response = DialogResult.OK Then
@@ -45,7 +83,48 @@ Public Class frmMain
             EmptyCardViewer()
             lstCardTitles.SelectedIndex = 0
         End If
+    End Sub
 
+    Private Sub btnMoveCardUp_Click(sender As Object, e As EventArgs) Handles btnMoveCardUp.Click
+        Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
+        Dim CurrentIndex As Integer = lstCardTitles.SelectedIndex
+        Dim TargetIndex As Integer = lstCardTitles.SelectedIndex - 1
+        Dim TemporaryValue As String
+
+        'swap values and write to file
+        If TargetIndex >= 0 Then
+            TemporaryValue = Lines(TargetIndex)
+            Lines(TargetIndex) = Lines(CurrentIndex)
+            Lines(CurrentIndex) = TemporaryValue
+
+            System.IO.File.WriteAllLines(FilePath, Lines)
+            PopulateMyFlashcards()
+            lstCardTitles.SelectedIndex = TargetIndex
+        Else
+            lstCardTitles.SelectedIndex = 0
+        End If
+
+    End Sub
+
+    Private Sub btnMoveCardDown_Click(sender As Object, e As EventArgs) Handles btnMoveCardDown.Click
+        Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
+        Dim CurrentIndex As Integer = lstCardTitles.SelectedIndex
+        Dim TargetIndex As Integer = lstCardTitles.SelectedIndex + 1
+        Dim LargestIndex As Integer = lstCardTitles.Items.Count - 1
+        Dim TemporaryValue As String
+
+        'swap values and write to file
+        If TargetIndex <= LargestIndex Then
+            TemporaryValue = Lines(TargetIndex)
+            Lines(TargetIndex) = Lines(CurrentIndex)
+            Lines(CurrentIndex) = TemporaryValue
+
+            System.IO.File.WriteAllLines(FilePath, Lines)
+            PopulateMyFlashcards()
+            lstCardTitles.SelectedIndex = TargetIndex
+        Else
+            lstCardTitles.SelectedIndex = LargestIndex
+        End If
     End Sub
 
     Private Sub btnSortListbox_Click(sender As Object, e As EventArgs) Handles btnSortListbox.Click
@@ -65,49 +144,7 @@ Public Class frmMain
         EmptyCardViewer()
     End Sub
 
-    Private Sub btnEditCard_Click(sender As Object, e As EventArgs) Handles btnEditCard.Click
-        Dim Title As String = InputBox("Change the text of the title.", "Edit Card", ReadRecord(lstCardTitles.Text)(0))
-        If Title = "" Then
-            Exit Sub
-        End If
 
-        Dim Caption As String = InputBox("Change the text of the caption, or body of the card.", "Edit Card", ReadRecord(lstCardTitles.Text)(1))
-        If Title = "" Then
-            Exit Sub
-        End If
-
-        Dim Index As Integer = lstCardTitles.SelectedIndex
-
-        Try
-            Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
-            Lines(Index) = Title + ";" + Caption
-            System.IO.File.WriteAllLines(FilePath, Lines)
-        Catch
-            MessageBox.Show("File Access Denied.", "Error")
-        End Try
-
-        PopulateMyFlashcards()
-        PopulateCardViewer()
-        lstCardTitles.SelectedIndex = Index
-
-    End Sub
-
-    Private Sub btnMoveCardUp_Click(sender As Object, e As EventArgs) Handles btnMoveCardUp.Click
-        Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
-        Dim TargetIndex As Integer = lstCardTitles.SelectedIndex - 1
-
-        Try
-            Dim TemporaryValue As String = Lines(TargetIndex)
-            Lines(TargetIndex) = lstCardTitles.Text
-            Lines(lstCardTitles.SelectedIndex) = TemporaryValue
-
-            System.IO.File.WriteAllLines(FilePath, Lines)
-            PopulateMyFlashcards()
-            lstCardTitles.SelectedIndex = TargetIndex
-        Catch
-            lstCardTitles.SelectedIndex = 0
-        End Try
-    End Sub
 
     Private Function ReadRecord(ByVal Title As String) As List(Of String)
         'read a record from data file
