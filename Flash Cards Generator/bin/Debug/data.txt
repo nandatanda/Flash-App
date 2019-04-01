@@ -1,7 +1,7 @@
-Nice;A city in France.
-New Delhi;A city in India.
-Munich;A city in Germany.
-Lima;The capital and the largest city of Peru. It is located in the valleys of the Chillón, Rímac and Lurín rivers, in the central coastal part of the country, overlooking the Pacific Ocean.
+Barcelona;It is the capital and largest city of the autonomous community of Catalonia, as well as the second most populous municipality of Spain.
+Florence;The capital city of the Italian region of Tuscany. It is the most populous city in Tuscany, with 383,084 inhabitants in 2013, and over 1,520,000 in its metropolitan area.
 Jakarta;The capital and largest city of Indonesia. Located on the northwest coast of the world's most populous island Java, it is the centre of economics, culture and politics of Indonesia, with a population of 10,075,310 as of 2014.
-Florence;A city in Italy.
-Barcelona;A city in Spain.
+Lima;The capital and the largest city of Peru. It is located in the valleys of the Chillón, Rímac and Lurín rivers, in the central coastal part of the country, overlooking the Pacific Ocean.
+Munich;The capital and most populous city of Bavaria, the second most populous German federal state. With a population of around 1.5 million, it is the third-largest city in Germany, after Berlin and Hamburg, as well as the 12th-largest city in the European Union.
+New Delhi;An urban district of Delhi which serves as the capital of India and seat of all three branches of the Government of India.
+Nice;The seventh most populous urban area in France and the capital of the Alpes-Maritimes département.
