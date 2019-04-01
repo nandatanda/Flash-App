@@ -42,12 +42,8 @@ Public Class frmMain
         Dim Index As Integer = lstCardTitles.SelectedIndex
 
         ' attempt to read record to be edited from file
-        Try
-            Title = ReadRecord(lstCardTitles.Text)(0)
-            Caption = ReadRecord(lstCardTitles.Text)(1)
-        Catch
-            MessageBox.Show("File Access Denied", "Error")
-        End Try
+        Title = ReadRecord(lstCardTitles.Text)(0)
+        Caption = ReadRecord(lstCardTitles.Text)(1)
 
         ' input new title
         Title = InputBox("Change the text of the title.", "Edit Card", Title)
@@ -138,6 +134,8 @@ Public Class frmMain
     Private Sub btnSortListbox_Click(sender As Object, e As EventArgs) Handles btnSortListbox.Click
         Static ListboxIsInAscendingOrder As Boolean
 
+        Dim SelectedItem As String = lstCardTitles.SelectedItem.ToString
+
         If ListboxIsInAscendingOrder Then
             SortRecordsAlphabetically(Reverse:=True)
             btnSortListbox.BackgroundImage = My.Resources.sort_ascending_right
@@ -150,20 +148,24 @@ Public Class frmMain
 
         PopulateMyFlashcards()
         EmptyCardViewer()
+        lstCardTitles.SelectedItem = SelectedItem
     End Sub
 
-
-
     Private Function ReadRecord(ByVal Title As String) As List(Of String)
-        'read a record from data file
+        'return first record matching given title from data file
 
-        For Each Line As String In IO.File.ReadLines(FilePath)
-            If Line.Contains(Title) Then
-                Dim Record As New List(Of String)(Line.Split(";"c))
-                Return Record
-                Exit For
-            End If
-        Next
+        Try
+            For Each Line As String In IO.File.ReadLines(FilePath)
+                If Line.Contains(Title) Then
+                    Dim Record As New List(Of String)(Line.Split(";"c))
+                    Return Record
+                    Exit For
+                End If
+            Next
+        Catch
+            MessageBox.Show("Record could not be read.", "Error")
+        End Try
+
         Return Nothing
     End Function
 
@@ -234,14 +236,10 @@ Public Class frmMain
 
     Private Sub PopulateCardViewer()
         ' display title and caption of selected item
-        Try
-            Dim Record As List(Of String) = ReadRecord(lstCardTitles.Text)
-            lblTitle.Text = Record(0)
-            lblCaption.Text = Record(1)
-        Catch
-            lblTitle.Text = String.Empty
-            lblCaption.Text = String.Empty
-        End Try
+
+        Dim Record As List(Of String) = ReadRecord(lstCardTitles.Text)
+        lblTitle.Text = Record(0)
+        lblCaption.Text = Record(1)
     End Sub
 
     Private Sub EmptyCardViewer()
