@@ -77,11 +77,19 @@ Public Class frmMain
 
     Private Sub btnDeleteCard_Click(sender As Object, e As EventArgs) Handles btnDeleteCard.Click
         Dim Response As Integer = MessageBox.Show("Are you sure you want to delete this flashcard?", "Confirm Delete", MessageBoxButtons.OKCancel)
+        Dim SelectedIndex As Integer = lstCardTitles.SelectedIndex
+
         If Response = DialogResult.OK Then
-            DeleteRecord(lstCardTitles.SelectedIndex)
+            DeleteRecord(SelectedIndex)
             PopulateMyFlashcards()
             EmptyCardViewer()
-            lstCardTitles.SelectedIndex = 0
+
+            Dim LargestIndex As Integer = lstCardTitles.Items.Count - 1
+            If SelectedIndex > LargestIndex Then
+                lstCardTitles.SelectedIndex = LargestIndex
+            Else
+                lstCardTitles.SelectedIndex = SelectedIndex
+            End If
         End If
     End Sub
 
