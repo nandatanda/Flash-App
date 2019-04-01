@@ -134,7 +134,7 @@ Public Class frmMain
     Private Sub btnSortListbox_Click(sender As Object, e As EventArgs) Handles btnSortListbox.Click
         Static ListboxIsInAscendingOrder As Boolean
 
-        Dim SelectedItem As String = lstCardTitles.SelectedItem.ToString
+        Dim LatestSelectedItem As String = lstCardTitles.SelectedItem.ToString
 
         If ListboxIsInAscendingOrder Then
             SortRecordsAlphabetically(Reverse:=True)
@@ -148,7 +148,7 @@ Public Class frmMain
 
         PopulateMyFlashcards()
         EmptyCardViewer()
-        lstCardTitles.SelectedItem = SelectedItem
+        lstCardTitles.SelectedItem = LatestSelectedItem
     End Sub
 
     Private Function ReadRecord(ByVal Title As String) As List(Of String)
