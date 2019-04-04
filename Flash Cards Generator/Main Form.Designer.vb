@@ -28,12 +28,6 @@ Partial Class frmMain
         Me.lblCaption = New System.Windows.Forms.Label()
         Me.btnSortListbox = New System.Windows.Forms.Button()
         Me.tsmMain = New System.Windows.Forms.MenuStrip()
-        Me.CardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsmCardNew = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsmCardEdit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsmCardDelete = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsmCardMoveUp = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsmCardMoveDown = New System.Windows.Forms.ToolStripMenuItem()
         Me.FileToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -45,6 +39,12 @@ Partial Class frmMain
         Me.PrintPreviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmCardNew = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmCardEdit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmCardDelete = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmCardMoveUp = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmCardMoveDown = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
@@ -61,7 +61,7 @@ Partial Class frmMain
         Me.lstCardTitles.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstCardTitles.FormattingEnabled = True
         Me.lstCardTitles.ItemHeight = 21
-        Me.lstCardTitles.Location = New System.Drawing.Point(0, 572)
+        Me.lstCardTitles.Location = New System.Drawing.Point(0, 560)
         Me.lstCardTitles.MultiColumn = True
         Me.lstCardTitles.Name = "lstCardTitles"
         Me.lstCardTitles.Size = New System.Drawing.Size(584, 189)
@@ -97,7 +97,7 @@ Partial Class frmMain
         Me.btnSortListbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSortListbox.FlatAppearance.BorderSize = 0
         Me.btnSortListbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSortListbox.Location = New System.Drawing.Point(547, 537)
+        Me.btnSortListbox.Location = New System.Drawing.Point(547, 529)
         Me.btnSortListbox.Name = "btnSortListbox"
         Me.btnSortListbox.Size = New System.Drawing.Size(25, 25)
         Me.btnSortListbox.TabIndex = 28
@@ -110,45 +110,6 @@ Partial Class frmMain
         Me.tsmMain.Name = "tsmMain"
         Me.tsmMain.Size = New System.Drawing.Size(584, 24)
         Me.tsmMain.TabIndex = 33
-        '
-        'CardToolStripMenuItem
-        '
-        Me.CardToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmCardNew, Me.tsmCardEdit, Me.tsmCardDelete, Me.tsmCardMoveUp, Me.tsmCardMoveDown})
-        Me.CardToolStripMenuItem.Name = "CardToolStripMenuItem"
-        Me.CardToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
-        Me.CardToolStripMenuItem.Text = "&Card"
-        '
-        'tsmCardNew
-        '
-        Me.tsmCardNew.Name = "tsmCardNew"
-        Me.tsmCardNew.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.tsmCardNew.Size = New System.Drawing.Size(180, 22)
-        Me.tsmCardNew.Text = "Create"
-        '
-        'tsmCardEdit
-        '
-        Me.tsmCardEdit.Name = "tsmCardEdit"
-        Me.tsmCardEdit.Size = New System.Drawing.Size(180, 22)
-        Me.tsmCardEdit.Text = "Edit..."
-        '
-        'tsmCardDelete
-        '
-        Me.tsmCardDelete.Name = "tsmCardDelete"
-        Me.tsmCardDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete
-        Me.tsmCardDelete.Size = New System.Drawing.Size(180, 22)
-        Me.tsmCardDelete.Text = "Delete"
-        '
-        'tsmCardMoveUp
-        '
-        Me.tsmCardMoveUp.Name = "tsmCardMoveUp"
-        Me.tsmCardMoveUp.Size = New System.Drawing.Size(180, 22)
-        Me.tsmCardMoveUp.Text = "Move Up"
-        '
-        'tsmCardMoveDown
-        '
-        Me.tsmCardMoveDown.Name = "tsmCardMoveDown"
-        Me.tsmCardMoveDown.Size = New System.Drawing.Size(180, 22)
-        Me.tsmCardMoveDown.Text = "Move Down"
         '
         'FileToolStripMenuItem1
         '
@@ -163,7 +124,7 @@ Partial Class frmMain
         Me.NewToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.NewToolStripMenuItem1.Name = "NewToolStripMenuItem1"
         Me.NewToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.NewToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.NewToolStripMenuItem1.Size = New System.Drawing.Size(146, 22)
         Me.NewToolStripMenuItem1.Text = "&New"
         '
         'OpenToolStripMenuItem1
@@ -172,13 +133,13 @@ Partial Class frmMain
         Me.OpenToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.OpenToolStripMenuItem1.Name = "OpenToolStripMenuItem1"
         Me.OpenToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.OpenToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.OpenToolStripMenuItem1.Size = New System.Drawing.Size(146, 22)
         Me.OpenToolStripMenuItem1.Text = "&Open"
         '
         'toolStripSeparator
         '
         Me.toolStripSeparator.Name = "toolStripSeparator"
-        Me.toolStripSeparator.Size = New System.Drawing.Size(177, 6)
+        Me.toolStripSeparator.Size = New System.Drawing.Size(143, 6)
         '
         'SaveToolStripMenuItem
         '
@@ -186,19 +147,19 @@ Partial Class frmMain
         Me.SaveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
         Me.SaveToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.SaveToolStripMenuItem.Text = "&Save"
         '
         'SaveAsToolStripMenuItem
         '
         Me.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem"
-        Me.SaveAsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveAsToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.SaveAsToolStripMenuItem.Text = "Save &As"
         '
         'toolStripSeparator1
         '
         Me.toolStripSeparator1.Name = "toolStripSeparator1"
-        Me.toolStripSeparator1.Size = New System.Drawing.Size(177, 6)
+        Me.toolStripSeparator1.Size = New System.Drawing.Size(143, 6)
         '
         'PrintToolStripMenuItem
         '
@@ -206,7 +167,7 @@ Partial Class frmMain
         Me.PrintToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
         Me.PrintToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
-        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.PrintToolStripMenuItem.Text = "&Print"
         '
         'PrintPreviewToolStripMenuItem
@@ -214,19 +175,58 @@ Partial Class frmMain
         Me.PrintPreviewToolStripMenuItem.Image = CType(resources.GetObject("PrintPreviewToolStripMenuItem.Image"), System.Drawing.Image)
         Me.PrintPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.PrintPreviewToolStripMenuItem.Name = "PrintPreviewToolStripMenuItem"
-        Me.PrintPreviewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PrintPreviewToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.PrintPreviewToolStripMenuItem.Text = "Print Pre&view"
         '
         'toolStripSeparator2
         '
         Me.toolStripSeparator2.Name = "toolStripSeparator2"
-        Me.toolStripSeparator2.Size = New System.Drawing.Size(177, 6)
+        Me.toolStripSeparator2.Size = New System.Drawing.Size(143, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.ExitToolStripMenuItem.Text = "E&xit"
+        '
+        'CardToolStripMenuItem
+        '
+        Me.CardToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmCardNew, Me.tsmCardEdit, Me.tsmCardDelete, Me.tsmCardMoveUp, Me.tsmCardMoveDown})
+        Me.CardToolStripMenuItem.Name = "CardToolStripMenuItem"
+        Me.CardToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.CardToolStripMenuItem.Text = "&Card"
+        '
+        'tsmCardNew
+        '
+        Me.tsmCardNew.Name = "tsmCardNew"
+        Me.tsmCardNew.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
+        Me.tsmCardNew.Size = New System.Drawing.Size(150, 22)
+        Me.tsmCardNew.Text = "Create"
+        '
+        'tsmCardEdit
+        '
+        Me.tsmCardEdit.Name = "tsmCardEdit"
+        Me.tsmCardEdit.Size = New System.Drawing.Size(150, 22)
+        Me.tsmCardEdit.Text = "Edit..."
+        '
+        'tsmCardDelete
+        '
+        Me.tsmCardDelete.Name = "tsmCardDelete"
+        Me.tsmCardDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete
+        Me.tsmCardDelete.Size = New System.Drawing.Size(150, 22)
+        Me.tsmCardDelete.Text = "Delete"
+        '
+        'tsmCardMoveUp
+        '
+        Me.tsmCardMoveUp.Name = "tsmCardMoveUp"
+        Me.tsmCardMoveUp.Size = New System.Drawing.Size(150, 22)
+        Me.tsmCardMoveUp.Text = "Move Up"
+        '
+        'tsmCardMoveDown
+        '
+        Me.tsmCardMoveDown.Name = "tsmCardMoveDown"
+        Me.tsmCardMoveDown.Size = New System.Drawing.Size(150, 22)
+        Me.tsmCardMoveDown.Text = "Move Down"
         '
         'HelpToolStripMenuItem
         '
@@ -238,18 +238,18 @@ Partial Class frmMain
         'SearchToolStripMenuItem
         '
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.SearchToolStripMenuItem.Text = "&Search"
         '
         'toolStripSeparator5
         '
         Me.toolStripSeparator5.Name = "toolStripSeparator5"
-        Me.toolStripSeparator5.Size = New System.Drawing.Size(177, 6)
+        Me.toolStripSeparator5.Size = New System.Drawing.Size(113, 6)
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.AboutToolStripMenuItem.Text = "&About..."
         '
         'ViewToolStripMenuItem
@@ -263,7 +263,7 @@ Partial Class frmMain
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(584, 761)
+        Me.ClientSize = New System.Drawing.Size(584, 749)
         Me.Controls.Add(Me.btnSortListbox)
         Me.Controls.Add(Me.lblCaption)
         Me.Controls.Add(Me.lblTitle)
