@@ -172,7 +172,7 @@ Partial Class frmMain
         Me.btnExportData.BackColor = System.Drawing.SystemColors.Control
         Me.btnExportData.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnExportData.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnExportData.Location = New System.Drawing.Point(19, 98)
+        Me.btnExportData.Location = New System.Drawing.Point(19, 134)
         Me.btnExportData.Name = "btnExportData"
         Me.btnExportData.Size = New System.Drawing.Size(108, 30)
         Me.btnExportData.TabIndex = 12
@@ -189,7 +189,7 @@ Partial Class frmMain
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(108, 30)
         Me.Button3.TabIndex = 11
-        Me.Button3.Text = "Import"
+        Me.Button3.Text = "Open"
         Me.Button3.UseVisualStyleBackColor = False
         '
         'Button8
@@ -224,7 +224,7 @@ Partial Class frmMain
         Me.Button1.BackColor = System.Drawing.SystemColors.Control
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button1.Location = New System.Drawing.Point(19, 134)
+        Me.Button1.Location = New System.Drawing.Point(19, 98)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(108, 30)
         Me.Button1.TabIndex = 9
