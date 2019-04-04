@@ -137,5 +137,8 @@
   <ItemGroup>
     <None Include="Resources\sort-descending-right.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\black-background_00313351.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
