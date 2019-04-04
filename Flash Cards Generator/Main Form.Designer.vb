@@ -22,305 +22,289 @@ Partial Class frmMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.lstCardTitles = New System.Windows.Forms.ListBox()
-        Me.btnNewCard = New System.Windows.Forms.Button()
-        Me.btnDeleteCard = New System.Windows.Forms.Button()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblCaption = New System.Windows.Forms.Label()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.btnExportData = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnMoveCardUp = New System.Windows.Forms.Button()
-        Me.btnMoveCardDown = New System.Windows.Forms.Button()
-        Me.btnEditCard = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button11 = New System.Windows.Forms.Button()
         Me.btnSortListbox = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tsmMain = New System.Windows.Forms.MenuStrip()
+        Me.CardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmCardNew = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmCardEdit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmCardDelete = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmCardMoveUp = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmCardMoveDown = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FileToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NewToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.toolStripSeparator = New System.Windows.Forms.ToolStripSeparator()
+        Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveAsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.toolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.PrintToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PrintPreviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.toolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.toolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmMain.SuspendLayout()
         Me.SuspendLayout()
         '
         'lstCardTitles
         '
-        Me.lstCardTitles.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lstCardTitles.BackColor = System.Drawing.SystemColors.MenuBar
+        Me.lstCardTitles.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.lstCardTitles.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.lstCardTitles.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstCardTitles.FormattingEnabled = True
-        Me.lstCardTitles.ItemHeight = 20
-        Me.lstCardTitles.Location = New System.Drawing.Point(516, 22)
+        Me.lstCardTitles.ItemHeight = 21
+        Me.lstCardTitles.Location = New System.Drawing.Point(0, 572)
+        Me.lstCardTitles.MultiColumn = True
         Me.lstCardTitles.Name = "lstCardTitles"
-        Me.lstCardTitles.Size = New System.Drawing.Size(235, 564)
+        Me.lstCardTitles.Size = New System.Drawing.Size(584, 189)
         Me.lstCardTitles.TabIndex = 5
-        '
-        'btnNewCard
-        '
-        Me.btnNewCard.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnNewCard.BackColor = System.Drawing.SystemColors.Control
-        Me.btnNewCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNewCard.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnNewCard.Location = New System.Drawing.Point(336, 48)
-        Me.btnNewCard.Name = "btnNewCard"
-        Me.btnNewCard.Size = New System.Drawing.Size(108, 30)
-        Me.btnNewCard.TabIndex = 7
-        Me.btnNewCard.Text = "&New"
-        Me.btnNewCard.UseVisualStyleBackColor = False
-        '
-        'btnDeleteCard
-        '
-        Me.btnDeleteCard.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnDeleteCard.BackColor = System.Drawing.SystemColors.Control
-        Me.btnDeleteCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDeleteCard.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnDeleteCard.Location = New System.Drawing.Point(336, 120)
-        Me.btnDeleteCard.Name = "btnDeleteCard"
-        Me.btnDeleteCard.Size = New System.Drawing.Size(108, 30)
-        Me.btnDeleteCard.TabIndex = 8
-        Me.btnDeleteCard.Text = "&Delete"
-        Me.btnDeleteCard.UseVisualStyleBackColor = False
         '
         'lblTitle
         '
         Me.lblTitle.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblTitle.BackColor = System.Drawing.SystemColors.Window
-        Me.lblTitle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.Location = New System.Drawing.Point(12, 274)
+        Me.lblTitle.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.Location = New System.Drawing.Point(17, 124)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(486, 45)
+        Me.lblTitle.Size = New System.Drawing.Size(555, 45)
         Me.lblTitle.TabIndex = 9
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblCaption
         '
         Me.lblCaption.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.lblCaption.BackColor = System.Drawing.SystemColors.Window
-        Me.lblCaption.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblCaption.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCaption.Location = New System.Drawing.Point(12, 335)
+        Me.lblCaption.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.lblCaption.Font = New System.Drawing.Font("Segoe UI Semibold", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCaption.Location = New System.Drawing.Point(12, 169)
         Me.lblCaption.Name = "lblCaption"
-        Me.lblCaption.Size = New System.Drawing.Size(486, 250)
+        Me.lblCaption.Size = New System.Drawing.Size(560, 249)
         Me.lblCaption.TabIndex = 10
         Me.lblCaption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Button4
-        '
-        Me.Button4.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Button4.BackColor = System.Drawing.SystemColors.Control
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button4.Location = New System.Drawing.Point(66, 192)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(108, 30)
-        Me.Button4.TabIndex = 13
-        Me.Button4.Text = "Print"
-        Me.Button4.UseVisualStyleBackColor = False
-        '
-        'btnExportData
-        '
-        Me.btnExportData.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnExportData.BackColor = System.Drawing.SystemColors.Control
-        Me.btnExportData.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExportData.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnExportData.Location = New System.Drawing.Point(66, 156)
-        Me.btnExportData.Name = "btnExportData"
-        Me.btnExportData.Size = New System.Drawing.Size(108, 30)
-        Me.btnExportData.TabIndex = 12
-        Me.btnExportData.Text = "&Export"
-        Me.btnExportData.UseVisualStyleBackColor = False
-        '
-        'Button3
-        '
-        Me.Button3.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Button3.BackColor = System.Drawing.SystemColors.Control
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button3.Location = New System.Drawing.Point(66, 84)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(108, 30)
-        Me.Button3.TabIndex = 11
-        Me.Button3.Text = "Open"
-        Me.Button3.UseVisualStyleBackColor = False
-        '
-        'Button8
-        '
-        Me.Button8.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Button8.BackColor = System.Drawing.SystemColors.Control
-        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button8.ForeColor = System.Drawing.Color.DarkRed
-        Me.Button8.Location = New System.Drawing.Point(66, 228)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(108, 30)
-        Me.Button8.TabIndex = 8
-        Me.Button8.Text = "&Delete"
-        Me.Button8.UseVisualStyleBackColor = False
-        '
-        'Button7
-        '
-        Me.Button7.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Button7.BackColor = System.Drawing.SystemColors.Control
-        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button7.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button7.Location = New System.Drawing.Point(66, 48)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(108, 30)
-        Me.Button7.TabIndex = 7
-        Me.Button7.Text = "&New"
-        Me.Button7.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Button1.BackColor = System.Drawing.SystemColors.Control
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button1.Location = New System.Drawing.Point(66, 120)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(108, 30)
-        Me.Button1.TabIndex = 9
-        Me.Button1.Text = "&Edit"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'btnMoveCardUp
-        '
-        Me.btnMoveCardUp.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnMoveCardUp.BackColor = System.Drawing.SystemColors.Control
-        Me.btnMoveCardUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMoveCardUp.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnMoveCardUp.Location = New System.Drawing.Point(336, 156)
-        Me.btnMoveCardUp.Name = "btnMoveCardUp"
-        Me.btnMoveCardUp.Size = New System.Drawing.Size(108, 30)
-        Me.btnMoveCardUp.TabIndex = 10
-        Me.btnMoveCardUp.Text = "Move Up"
-        Me.btnMoveCardUp.UseVisualStyleBackColor = False
-        '
-        'btnMoveCardDown
-        '
-        Me.btnMoveCardDown.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnMoveCardDown.BackColor = System.Drawing.SystemColors.Control
-        Me.btnMoveCardDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMoveCardDown.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnMoveCardDown.Location = New System.Drawing.Point(336, 192)
-        Me.btnMoveCardDown.Name = "btnMoveCardDown"
-        Me.btnMoveCardDown.Size = New System.Drawing.Size(108, 30)
-        Me.btnMoveCardDown.TabIndex = 32
-        Me.btnMoveCardDown.Text = "Move D&own"
-        Me.btnMoveCardDown.UseVisualStyleBackColor = False
-        '
-        'btnEditCard
-        '
-        Me.btnEditCard.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnEditCard.BackColor = System.Drawing.SystemColors.Control
-        Me.btnEditCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEditCard.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnEditCard.Location = New System.Drawing.Point(336, 84)
-        Me.btnEditCard.Name = "btnEditCard"
-        Me.btnEditCard.Size = New System.Drawing.Size(108, 30)
-        Me.btnEditCard.TabIndex = 9
-        Me.btnEditCard.Text = "&Edit"
-        Me.btnEditCard.UseVisualStyleBackColor = False
-        '
-        'Button9
-        '
-        Me.Button9.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Button9.BackColor = System.Drawing.SystemColors.Control
-        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button9.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button9.Location = New System.Drawing.Point(201, 84)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(108, 30)
-        Me.Button9.TabIndex = 11
-        Me.Button9.Text = "Sort"
-        Me.Button9.UseVisualStyleBackColor = False
-        '
-        'Button11
-        '
-        Me.Button11.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.Button11.BackColor = System.Drawing.SystemColors.Control
-        Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button11.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button11.Location = New System.Drawing.Point(201, 48)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(108, 30)
-        Me.Button11.TabIndex = 7
-        Me.Button11.Text = "Quiz"
-        Me.Button11.UseVisualStyleBackColor = False
         '
         'btnSortListbox
         '
         Me.btnSortListbox.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.btnSortListbox.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.btnSortListbox.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.btnSortListbox.BackgroundImage = Global.Flash_Cards_Generator.My.Resources.Resources.sort_ascending_right
         Me.btnSortListbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSortListbox.FlatAppearance.BorderSize = 0
         Me.btnSortListbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSortListbox.Location = New System.Drawing.Point(243, 120)
+        Me.btnSortListbox.Location = New System.Drawing.Point(547, 537)
         Me.btnSortListbox.Name = "btnSortListbox"
         Me.btnSortListbox.Size = New System.Drawing.Size(25, 25)
         Me.btnSortListbox.TabIndex = 28
         Me.btnSortListbox.UseVisualStyleBackColor = False
         '
-        'PictureBox1
+        'tsmMain
         '
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PictureBox1.Image = Global.Flash_Cards_Generator.My.Resources.Resources.black_background_00313351
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(764, 606)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 27
-        Me.PictureBox1.TabStop = False
+        Me.tsmMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem1, Me.CardToolStripMenuItem, Me.HelpToolStripMenuItem, Me.ViewToolStripMenuItem})
+        Me.tsmMain.Location = New System.Drawing.Point(0, 0)
+        Me.tsmMain.Name = "tsmMain"
+        Me.tsmMain.Size = New System.Drawing.Size(584, 24)
+        Me.tsmMain.TabIndex = 33
+        '
+        'CardToolStripMenuItem
+        '
+        Me.CardToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmCardNew, Me.tsmCardEdit, Me.tsmCardDelete, Me.tsmCardMoveUp, Me.tsmCardMoveDown})
+        Me.CardToolStripMenuItem.Name = "CardToolStripMenuItem"
+        Me.CardToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.CardToolStripMenuItem.Text = "&Card"
+        '
+        'tsmCardNew
+        '
+        Me.tsmCardNew.Name = "tsmCardNew"
+        Me.tsmCardNew.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
+        Me.tsmCardNew.Size = New System.Drawing.Size(180, 22)
+        Me.tsmCardNew.Text = "Create"
+        '
+        'tsmCardEdit
+        '
+        Me.tsmCardEdit.Name = "tsmCardEdit"
+        Me.tsmCardEdit.Size = New System.Drawing.Size(180, 22)
+        Me.tsmCardEdit.Text = "Edit..."
+        '
+        'tsmCardDelete
+        '
+        Me.tsmCardDelete.Name = "tsmCardDelete"
+        Me.tsmCardDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete
+        Me.tsmCardDelete.Size = New System.Drawing.Size(180, 22)
+        Me.tsmCardDelete.Text = "Delete"
+        '
+        'tsmCardMoveUp
+        '
+        Me.tsmCardMoveUp.Name = "tsmCardMoveUp"
+        Me.tsmCardMoveUp.Size = New System.Drawing.Size(180, 22)
+        Me.tsmCardMoveUp.Text = "Move Up"
+        '
+        'tsmCardMoveDown
+        '
+        Me.tsmCardMoveDown.Name = "tsmCardMoveDown"
+        Me.tsmCardMoveDown.Size = New System.Drawing.Size(180, 22)
+        Me.tsmCardMoveDown.Text = "Move Down"
+        '
+        'FileToolStripMenuItem1
+        '
+        Me.FileToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem1, Me.OpenToolStripMenuItem1, Me.toolStripSeparator, Me.SaveToolStripMenuItem, Me.SaveAsToolStripMenuItem, Me.toolStripSeparator1, Me.PrintToolStripMenuItem, Me.PrintPreviewToolStripMenuItem, Me.toolStripSeparator2, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem1.Name = "FileToolStripMenuItem1"
+        Me.FileToolStripMenuItem1.Size = New System.Drawing.Size(37, 20)
+        Me.FileToolStripMenuItem1.Text = "&File"
+        '
+        'NewToolStripMenuItem1
+        '
+        Me.NewToolStripMenuItem1.Image = CType(resources.GetObject("NewToolStripMenuItem1.Image"), System.Drawing.Image)
+        Me.NewToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.NewToolStripMenuItem1.Name = "NewToolStripMenuItem1"
+        Me.NewToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
+        Me.NewToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.NewToolStripMenuItem1.Text = "&New"
+        '
+        'OpenToolStripMenuItem1
+        '
+        Me.OpenToolStripMenuItem1.Image = CType(resources.GetObject("OpenToolStripMenuItem1.Image"), System.Drawing.Image)
+        Me.OpenToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.OpenToolStripMenuItem1.Name = "OpenToolStripMenuItem1"
+        Me.OpenToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
+        Me.OpenToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.OpenToolStripMenuItem1.Text = "&Open"
+        '
+        'toolStripSeparator
+        '
+        Me.toolStripSeparator.Name = "toolStripSeparator"
+        Me.toolStripSeparator.Size = New System.Drawing.Size(177, 6)
+        '
+        'SaveToolStripMenuItem
+        '
+        Me.SaveToolStripMenuItem.Image = CType(resources.GetObject("SaveToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.SaveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
+        Me.SaveToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveToolStripMenuItem.Text = "&Save"
+        '
+        'SaveAsToolStripMenuItem
+        '
+        Me.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem"
+        Me.SaveAsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveAsToolStripMenuItem.Text = "Save &As"
+        '
+        'toolStripSeparator1
+        '
+        Me.toolStripSeparator1.Name = "toolStripSeparator1"
+        Me.toolStripSeparator1.Size = New System.Drawing.Size(177, 6)
+        '
+        'PrintToolStripMenuItem
+        '
+        Me.PrintToolStripMenuItem.Image = CType(resources.GetObject("PrintToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.PrintToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
+        Me.PrintToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
+        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PrintToolStripMenuItem.Text = "&Print"
+        '
+        'PrintPreviewToolStripMenuItem
+        '
+        Me.PrintPreviewToolStripMenuItem.Image = CType(resources.GetObject("PrintPreviewToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.PrintPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.PrintPreviewToolStripMenuItem.Name = "PrintPreviewToolStripMenuItem"
+        Me.PrintPreviewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PrintPreviewToolStripMenuItem.Text = "Print Pre&view"
+        '
+        'toolStripSeparator2
+        '
+        Me.toolStripSeparator2.Name = "toolStripSeparator2"
+        Me.toolStripSeparator2.Size = New System.Drawing.Size(177, 6)
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExitToolStripMenuItem.Text = "E&xit"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SearchToolStripMenuItem, Me.toolStripSeparator5, Me.AboutToolStripMenuItem})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem.Text = "&Help"
+        '
+        'SearchToolStripMenuItem
+        '
+        Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SearchToolStripMenuItem.Text = "&Search"
+        '
+        'toolStripSeparator5
+        '
+        Me.toolStripSeparator5.Name = "toolStripSeparator5"
+        Me.toolStripSeparator5.Size = New System.Drawing.Size(177, 6)
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AboutToolStripMenuItem.Text = "&About..."
+        '
+        'ViewToolStripMenuItem
+        '
+        Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
+        Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.ViewToolStripMenuItem.Text = "&View"
         '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(764, 606)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button9)
-        Me.Controls.Add(Me.btnExportData)
-        Me.Controls.Add(Me.btnMoveCardDown)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button11)
-        Me.Controls.Add(Me.Button8)
+        Me.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.ClientSize = New System.Drawing.Size(584, 761)
         Me.Controls.Add(Me.btnSortListbox)
-        Me.Controls.Add(Me.Button7)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.btnEditCard)
-        Me.Controls.Add(Me.btnNewCard)
-        Me.Controls.Add(Me.btnMoveCardUp)
-        Me.Controls.Add(Me.btnDeleteCard)
         Me.Controls.Add(Me.lblCaption)
         Me.Controls.Add(Me.lblTitle)
         Me.Controls.Add(Me.lstCardTitles)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.tsmMain)
         Me.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MainMenuStrip = Me.tsmMain
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.MaximumSize = New System.Drawing.Size(780, 645)
-        Me.MinimumSize = New System.Drawing.Size(780, 645)
         Me.Name = "frmMain"
         Me.Text = "FlashApp"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tsmMain.ResumeLayout(False)
+        Me.tsmMain.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents lstCardTitles As ListBox
-    Friend WithEvents btnNewCard As Button
-    Friend WithEvents btnDeleteCard As Button
     Friend WithEvents lblTitle As Label
     Friend WithEvents lblCaption As Label
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents btnSortListbox As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents btnMoveCardUp As Button
-    Friend WithEvents btnEditCard As Button
-    Friend WithEvents Button7 As Button
-    Friend WithEvents Button8 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents btnExportData As Button
-    Friend WithEvents btnMoveCardDown As Button
-    Friend WithEvents Button9 As Button
-    Friend WithEvents Button11 As Button
+    Friend WithEvents tsmMain As MenuStrip
+    Friend WithEvents CardToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsmCardNew As ToolStripMenuItem
+    Friend WithEvents tsmCardEdit As ToolStripMenuItem
+    Friend WithEvents tsmCardDelete As ToolStripMenuItem
+    Friend WithEvents tsmCardMoveUp As ToolStripMenuItem
+    Friend WithEvents tsmCardMoveDown As ToolStripMenuItem
+    Friend WithEvents FileToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents NewToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents OpenToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents toolStripSeparator As ToolStripSeparator
+    Friend WithEvents SaveToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveAsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents toolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents PrintToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PrintPreviewToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents toolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SearchToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents toolStripSeparator5 As ToolStripSeparator
+    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ViewToolStripMenuItem As ToolStripMenuItem
 End Class

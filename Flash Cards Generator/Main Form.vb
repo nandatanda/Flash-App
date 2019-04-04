@@ -21,7 +21,7 @@ Public Class frmMain
         PopulateCardViewer()
     End Sub
 
-    Private Sub btnNewCard_Click(sender As Object, e As EventArgs) Handles btnNewCard.Click
+    Private Sub tsmCardNew_Click(sender As Object, e As EventArgs) Handles tsmCardNew.Click
         Dim Title As String = InputBox("Enter a title for your flashcard.", "Create Card", "Title")
         If Title = "" Then
             Exit Sub
@@ -36,7 +36,7 @@ Public Class frmMain
         lstCardTitles.SelectedItem = Title
     End Sub
 
-    Private Sub btnEditCard_Click(sender As Object, e As EventArgs) Handles btnEditCard.Click
+    Private Sub tsmCardEdit_Click(sender As Object, e As EventArgs) Handles tsmCardEdit.Click
         Dim Title As String = "Title"
         Dim Caption As String = "Caption"
         Dim Index As Integer = lstCardTitles.SelectedIndex
@@ -71,7 +71,7 @@ Public Class frmMain
         End Try
     End Sub
 
-    Private Sub btnDeleteCard_Click(sender As Object, e As EventArgs) Handles btnDeleteCard.Click
+    Private Sub tsmCardDelete_Click(sender As Object, e As EventArgs) Handles tsmCardDelete.Click
         Dim Response As Integer = MessageBox.Show("Are you sure you want to delete this flashcard?", "Confirm Delete", MessageBoxButtons.OKCancel)
         Dim SelectedIndex As Integer = lstCardTitles.SelectedIndex
 
@@ -89,7 +89,7 @@ Public Class frmMain
         End If
     End Sub
 
-    Private Sub btnMoveCardUp_Click(sender As Object, e As EventArgs) Handles btnMoveCardUp.Click
+    Private Sub tsmCardMoveUp_Click(sender As Object, e As EventArgs) Handles tsmCardMoveUp.Click
         Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
         Dim CurrentIndex As Integer = lstCardTitles.SelectedIndex
         Dim TargetIndex As Integer = lstCardTitles.SelectedIndex - 1
@@ -107,10 +107,9 @@ Public Class frmMain
         Else
             lstCardTitles.SelectedIndex = 0
         End If
-
     End Sub
 
-    Private Sub btnMoveCardDown_Click(sender As Object, e As EventArgs) Handles btnMoveCardDown.Click
+    Private Sub tsmCardMoveDown_Click(sender As Object, e As EventArgs) Handles tsmCardMoveDown.Click
         Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
         Dim CurrentIndex As Integer = lstCardTitles.SelectedIndex
         Dim TargetIndex As Integer = lstCardTitles.SelectedIndex + 1
@@ -136,15 +135,15 @@ Public Class frmMain
 
         Dim LatestSelectedItem As String = lstCardTitles.SelectedItem.ToString
 
-        If ListboxIsInAscendingOrder Then
+    If ListboxIsInAscendingOrder Then
             SortRecordsAlphabetically(Reverse:=True)
             btnSortListbox.BackgroundImage = My.Resources.sort_ascending_right
             ListboxIsInAscendingOrder = False
-        Else
+    Else
             SortRecordsAlphabetically()
             btnSortListbox.BackgroundImage = My.Resources.sort_descending_right
             ListboxIsInAscendingOrder = True
-        End If
+    End If
 
         PopulateMyFlashcards()
         EmptyCardViewer()
@@ -239,7 +238,7 @@ Public Class frmMain
 
         Dim Record As List(Of String) = ReadRecord(lstCardTitles.Text)
         lblTitle.Text = Record(0)
-        lblCaption.Text = Record(1)
+        lblCaption.Text = "'" + Record(1) + "'"
     End Sub
 
     Private Sub EmptyCardViewer()
