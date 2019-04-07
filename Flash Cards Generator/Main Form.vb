@@ -10,10 +10,10 @@ Public Class frmMain
 
     Private BasePath As String = My.Application.Info.DirectoryPath
     Private FilePath As String = IO.Path.Combine(BasePath, "data.txt")
+    Private WorkingFilePath As String = String.Empty
 
-    Public WorkingLibraryList As List(Of String)
+    Public WorkingLibraryList As List(Of List(Of String))
 
-    Private WorkingFilePath As String
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         lblTitle.Text = "Welcome"
@@ -155,7 +155,21 @@ Public Class frmMain
         lstCardTitles.SelectedItem = LatestSelectedItem
     End Sub
 
-    ' Member functions & subs
+    ' Member Functions & Subs
+
+    Private Function ParseFile(ByVal Path As String) As List(Of List(Of String))
+        Dim MyLibrary As List(Of List(Of String)) = New List(Of List(Of String))
+
+        For Each Line As String In IO.File.ReadLines(Path)
+            Dim Record As List(Of String) = New List(Of String) From {
+                Split(Line, ";")(0),
+                Split(Line, ";")(1)
+            }
+            MyLibrary.Add(Record)
+        Next
+
+        Return MyLibrary
+    End Function
 
     Private Function ReadRecord(ByVal Title As String) As List(Of String)
         'return first record matching given title from data file
@@ -260,7 +274,26 @@ Public Class frmMain
     End Sub
 
     Private Sub tsmFileOpen_Click(sender As Object, e As EventArgs) Handles tsmFileOpen.Click
+        If WorkingFilePath = String.Empty Then
+            Dim MyPrompt As OpenFileDialog = New OpenFileDialog With {
+                .DefaultExt = "txt",
+                .FileName = "my-library",
+                .InitialDirectory = BasePath,
+                .Filter = "All files|*.*|Text files|*.txt",
+                .Title = "Open"
+            }
 
+            If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
+                WorkingFilePath = MyPrompt.FileName
+                WorkingLibraryList = ParseFile(WorkingFilePath)
+
+                For Each Record As List(Of String) In WorkingLibraryList
+                    MessageBox.Show(Record(1), Record(0))
+                Next
+            End If
+        Else
+            MessageBox.Show("Already a file open.")
+        End If
     End Sub
 
     Private Sub tsmFileSave_Click(sender As Object, e As EventArgs) Handles tsmFileSave.Click
