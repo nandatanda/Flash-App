@@ -11,15 +11,20 @@ Public Class frmMain
     Private BasePath As String = My.Application.Info.DirectoryPath
     Private FilePath As String = IO.Path.Combine(BasePath, "data.txt")
 
+    Public WorkingLibraryList As List(Of String)
+
+    Private WorkingFilePath As String
+
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
-        PopulateMyFlashcards()
-        EmptyCardViewer()
-        lstCardTitles.SelectedIndex = 0
+        lblTitle.Text = "Welcome"
+        lblCaption.Text = "To start, create a new card library or open an existing one using the 'file' menu above."
     End Sub
 
     Private Sub lstCardTitles_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstCardTitles.SelectedIndexChanged
         PopulateCardViewer()
     End Sub
+
+    ' Click Events for ToolStripMenu -> Card
 
     Private Sub tsmCardNew_Click(sender As Object, e As EventArgs) Handles tsmCardNew.Click
         Dim Title As String = InputBox("Enter a title for your flashcard.", "Create Card", "Title")
@@ -150,6 +155,8 @@ Public Class frmMain
         lstCardTitles.SelectedItem = LatestSelectedItem
     End Sub
 
+    ' Member functions & subs
+
     Private Function ReadRecord(ByVal Title As String) As List(Of String)
         'return first record matching given title from data file
 
@@ -246,4 +253,21 @@ Public Class frmMain
         lblCaption.Text = String.Empty
     End Sub
 
+    ' Click Events for ToolStripMenu -> File
+
+    Private Sub tsmFileNew_Click(sender As Object, e As EventArgs) Handles tsmFileNew.Click
+
+    End Sub
+
+    Private Sub tsmFileOpen_Click(sender As Object, e As EventArgs) Handles tsmFileOpen.Click
+
+    End Sub
+
+    Private Sub tsmFileSave_Click(sender As Object, e As EventArgs) Handles tsmFileSave.Click
+
+    End Sub
+
+    Private Sub tsmFileSaveAs_Click(sender As Object, e As EventArgs) Handles tsmFileSaveAs.Click
+
+    End Sub
 End Class
