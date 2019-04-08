@@ -152,18 +152,20 @@ Public Class frmMain
         ' remove selected card from list
         Dim Response As Integer = MessageBox.Show("Are you sure you want to delete this flashcard?", "Confirm Delete", MessageBoxButtons.OKCancel)
         If Response = DialogResult.OK Then
-            LibraryList.RemoveAt(lstCardTitles.SelectedIndex)
+            Dim TargetIndex As Integer = lstCardTitles.SelectedIndex
+            Dim LargestIndex As Integer = lstCardTitles.Items.Count - 2
+
+            LibraryList.RemoveAt(TargetIndex)
 
             ' update interface
             UpdateCardTitles()
             ClearCurrentCard()
 
             ' choose new selected item
-            Dim LargestIndex As Integer = lstCardTitles.Items.Count - 1
-            If lstCardTitles.SelectedIndex > LargestIndex Then
+            If TargetIndex > LargestIndex Then
                 lstCardTitles.SelectedIndex = LargestIndex
             Else
-                lstCardTitles.SelectedIndex = lstCardTitles.SelectedIndex
+                lstCardTitles.SelectedIndex = TargetIndex
             End If
         End If
     End Sub

@@ -200,32 +200,32 @@ Partial Class frmMain
         '
         Me.tsmCardNew.Name = "tsmCardNew"
         Me.tsmCardNew.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.tsmCardNew.Size = New System.Drawing.Size(150, 22)
+        Me.tsmCardNew.Size = New System.Drawing.Size(180, 22)
         Me.tsmCardNew.Text = "Create"
         '
         'tsmCardEdit
         '
         Me.tsmCardEdit.Name = "tsmCardEdit"
-        Me.tsmCardEdit.Size = New System.Drawing.Size(150, 22)
+        Me.tsmCardEdit.Size = New System.Drawing.Size(180, 22)
         Me.tsmCardEdit.Text = "Edit..."
         '
         'tsmCardDelete
         '
         Me.tsmCardDelete.Name = "tsmCardDelete"
         Me.tsmCardDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete
-        Me.tsmCardDelete.Size = New System.Drawing.Size(150, 22)
+        Me.tsmCardDelete.Size = New System.Drawing.Size(180, 22)
         Me.tsmCardDelete.Text = "Delete"
         '
         'tsmCardMoveUp
         '
         Me.tsmCardMoveUp.Name = "tsmCardMoveUp"
-        Me.tsmCardMoveUp.Size = New System.Drawing.Size(150, 22)
+        Me.tsmCardMoveUp.Size = New System.Drawing.Size(180, 22)
         Me.tsmCardMoveUp.Text = "Move Up"
         '
         'tsmCardMoveDown
         '
         Me.tsmCardMoveDown.Name = "tsmCardMoveDown"
-        Me.tsmCardMoveDown.Size = New System.Drawing.Size(150, 22)
+        Me.tsmCardMoveDown.Size = New System.Drawing.Size(180, 22)
         Me.tsmCardMoveDown.Text = "Move Down"
         '
         'HelpToolStripMenuItem
@@ -238,18 +238,18 @@ Partial Class frmMain
         'SearchToolStripMenuItem
         '
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SearchToolStripMenuItem.Text = "&Search"
         '
         'toolStripSeparator5
         '
         Me.toolStripSeparator5.Name = "toolStripSeparator5"
-        Me.toolStripSeparator5.Size = New System.Drawing.Size(113, 6)
+        Me.toolStripSeparator5.Size = New System.Drawing.Size(177, 6)
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AboutToolStripMenuItem.Text = "&About..."
         '
         'ViewToolStripMenuItem
