@@ -26,17 +26,18 @@ Public Class frmMain
 
     Private Sub btnSortListbox_Click(sender As Object, e As EventArgs) Handles btnSortListbox.Click
         Static ListboxIsInAscendingOrder As Boolean
-
         Dim LatestSelectedItem As String = lstCardTitles.SelectedItem.ToString
 
-        If ListboxIsInAscendingOrder Then
-            LibraryList.Reverse()
-            btnSortListbox.BackgroundImage = My.Resources.sort_ascending_right
-            ListboxIsInAscendingOrder = False
-        Else
-            LibraryList.Sort()
-            btnSortListbox.BackgroundImage = My.Resources.sort_descending_right
-            ListboxIsInAscendingOrder = True
+        If lstCardTitles.Items.Count > 0 Then
+            If ListboxIsInAscendingOrder Then
+                LibraryList.Reverse()
+                btnSortListbox.BackgroundImage = My.Resources.sort_ascending_right
+                ListboxIsInAscendingOrder = False
+            Else
+                LibraryList.Sort(Function(x, y) x(0).CompareTo(y(0)))
+                btnSortListbox.BackgroundImage = My.Resources.sort_descending_right
+                ListboxIsInAscendingOrder = True
+            End If
         End If
 
         UpdateCardTitles()
