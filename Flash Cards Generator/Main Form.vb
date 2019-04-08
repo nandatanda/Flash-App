@@ -48,7 +48,9 @@ Public Class frmMain
     ' Click Events for ToolStripMenu -> File
 
     Private Sub tsmFileNew_Click(sender As Object, e As EventArgs) Handles tsmFileNew.Click
-        If Not HasUnsavedChanges Then
+        If HasUnsavedChanges Then
+            MessageBox.Show("The current file is unsaved. Opening a new file may result in loss of data.", "Reminder")
+        Else
             ClearCurrentCard()
             lstCardTitles.Items.Clear()
             lblTitle.Text = "New Library"
@@ -58,7 +60,9 @@ Public Class frmMain
     End Sub
 
     Private Sub tsmFileOpen_Click(sender As Object, e As EventArgs) Handles tsmFileOpen.Click
-        If WorkingFilePath = String.Empty Then
+        If HasUnsavedChanges Then
+            MessageBox.Show("The current file is unsaved. Opening a new file may result in loss of data.", "Reminder")
+        Else
             Dim MyPrompt As OpenFileDialog = New OpenFileDialog With {
                 .DefaultExt = "txt",
                 .FileName = "my-library",
@@ -78,8 +82,6 @@ Public Class frmMain
                     UpdateCurrentCard()
                 End If
             End If
-        Else
-            MessageBox.Show("There is already a file open.", "Error")
         End If
     End Sub
 
@@ -117,6 +119,8 @@ Public Class frmMain
         ' update interface
         UpdateCardTitles()
         lstCardTitles.SelectedItem = Title
+
+        HasUnsavedChanges = True
     End Sub
 
     Private Sub tsmCardEdit_Click(sender As Object, e As EventArgs) Handles tsmCardEdit.Click
@@ -149,6 +153,8 @@ Public Class frmMain
         UpdateCardTitles()
         lstCardTitles.SelectedIndex = Index
         UpdateCurrentCard()
+
+        HasUnsavedChanges = True
     End Sub
 
     Private Sub tsmCardDelete_Click(sender As Object, e As EventArgs) Handles tsmCardDelete.Click
