@@ -9,7 +9,6 @@ Option Infer Off
 Public Class frmMain
 
     Private BasePath As String = My.Application.Info.DirectoryPath
-    Private FilePath As String = IO.Path.Combine(BasePath, "data.txt")
     Private WorkingFilePath As String = String.Empty
     Private HasUnsavedChanges As Boolean
 
@@ -91,34 +90,38 @@ Public Class frmMain
     ' Click Events for ToolStripMenu -> Card
 
     Private Sub tsmCardNew_Click(sender As Object, e As EventArgs) Handles tsmCardNew.Click
-        Dim NewCard As List(Of String) = New List(Of String)
+        ' create a new card record and add it to library list
 
+        ' input new card's title
         Dim Title As String = InputBox("Enter a title for your flashcard.", "Create Card", "Title")
         If Title = "" Then
             Exit Sub
         End If
+
+        ' input new card's caption
         Dim Caption As String = InputBox("Enter the text you want to appear in the body of the flashcard.", "Create Card", "Text")
         If Caption = "" Then
             Exit Sub
         End If
 
+        ' define new card and add to list
+        Dim NewCard As List(Of String) = New List(Of String)
         NewCard.Add(Title)
         NewCard.Add(Caption)
-
         LibraryList.Add(NewCard)
+
+        ' update interface
         UpdateCardTitles()
         lstCardTitles.SelectedItem = Title
     End Sub
 
     Private Sub tsmCardEdit_Click(sender As Object, e As EventArgs) Handles tsmCardEdit.Click
-        Dim Title As String = "Title"
-        Dim Caption As String = "Caption"
-        Dim Index As Integer = lstCardTitles.SelectedIndex
-        Dim EditedCard As List(Of String) = New List(Of String)
+        ' edit a card's title/caption and replace in library list
 
         ' read original card from list
-        Title = LibraryList(Index)(0)
-        Caption = LibraryList(Index)(1)
+        Dim Index As Integer = lstCardTitles.SelectedIndex
+        Dim Title As String = LibraryList(Index)(0)
+        Dim Caption As String = LibraryList(Index)(1)
 
         ' input new title
         Title = InputBox("Change the text of the title.", "Edit Card", Title)
@@ -132,34 +135,34 @@ Public Class frmMain
             Exit Sub
         End If
 
-        ' replace card in list
+        ' define edited card and replace in list
+        Dim EditedCard As List(Of String) = New List(Of String)
         EditedCard.Add(Title)
         EditedCard.Add(Caption)
         LibraryList(Index) = EditedCard
 
         ' update interface
         UpdateCardTitles()
-        UpdateCurrentCard()
         lstCardTitles.SelectedIndex = Index
+        UpdateCurrentCard()
     End Sub
 
     Private Sub tsmCardDelete_Click(sender As Object, e As EventArgs) Handles tsmCardDelete.Click
         ' remove selected card from list
         Dim Response As Integer = MessageBox.Show("Are you sure you want to delete this flashcard?", "Confirm Delete", MessageBoxButtons.OKCancel)
-        Dim SelectedIndex As Integer = lstCardTitles.SelectedIndex
-
         If Response = DialogResult.OK Then
-            LibraryList.RemoveAt(SelectedIndex)
+            LibraryList.RemoveAt(lstCardTitles.SelectedIndex)
 
             ' update interface
             UpdateCardTitles()
             ClearCurrentCard()
 
+            ' choose new selected item
             Dim LargestIndex As Integer = lstCardTitles.Items.Count - 1
-            If SelectedIndex > LargestIndex Then
+            If lstCardTitles.SelectedIndex > LargestIndex Then
                 lstCardTitles.SelectedIndex = LargestIndex
             Else
-                lstCardTitles.SelectedIndex = SelectedIndex
+                lstCardTitles.SelectedIndex = lstCardTitles.SelectedIndex
             End If
         End If
     End Sub
