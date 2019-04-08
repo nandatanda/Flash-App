@@ -51,6 +51,9 @@ Public Class frmMain
         If Not HasUnsavedChanges Then
             ClearCurrentCard()
             lstCardTitles.Items.Clear()
+            lblTitle.Text = "New Library"
+            lblCaption.Text = "Create your first card with 'Ctrl + C' or by using the file menu above. The new card will be displayed here."
+            LibraryList = New List(Of List(Of String))
         End If
     End Sub
 

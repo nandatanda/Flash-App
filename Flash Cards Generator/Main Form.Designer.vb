@@ -219,13 +219,15 @@ Partial Class frmMain
         'tsmCardMoveUp
         '
         Me.tsmCardMoveUp.Name = "tsmCardMoveUp"
-        Me.tsmCardMoveUp.Size = New System.Drawing.Size(180, 22)
+        Me.tsmCardMoveUp.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Up), System.Windows.Forms.Keys)
+        Me.tsmCardMoveUp.Size = New System.Drawing.Size(199, 22)
         Me.tsmCardMoveUp.Text = "Move Up"
         '
         'tsmCardMoveDown
         '
         Me.tsmCardMoveDown.Name = "tsmCardMoveDown"
-        Me.tsmCardMoveDown.Size = New System.Drawing.Size(180, 22)
+        Me.tsmCardMoveDown.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Down), System.Windows.Forms.Keys)
+        Me.tsmCardMoveDown.Size = New System.Drawing.Size(199, 22)
         Me.tsmCardMoveDown.Text = "Move Down"
         '
         'HelpToolStripMenuItem
