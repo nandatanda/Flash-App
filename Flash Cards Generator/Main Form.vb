@@ -53,6 +53,7 @@ Public Class frmMain
         Else
             ClearCurrentCard()
             lstCardTitles.Items.Clear()
+            lblFilePath.Text = String.Empty
             lblTitle.Text = "New Library"
             lblCaption.Text = "Create your first card with 'Ctrl + C' or by using the file menu above. The new card will be displayed here."
             LibraryList = New List(Of List(Of String))
@@ -75,7 +76,11 @@ Public Class frmMain
                 WorkingFilePath = MyPrompt.FileName
                 LibraryList = ParseFile(WorkingFilePath)
 
+                Dim PathArray As String() = WorkingFilePath.Split("\"c)
+                Dim LargestIndex As Integer = PathArray.Count() - 1
+
                 UpdateCardTitles()
+                lblFilePath.Text = PathArray(LargestIndex)
 
                 If lstCardTitles.Items.Count > 0 Then
                     lstCardTitles.SelectedIndex = 0

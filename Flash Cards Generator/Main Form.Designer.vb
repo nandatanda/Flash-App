@@ -27,7 +27,9 @@ Partial Class frmMain
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblCaption = New System.Windows.Forms.Label()
         Me.btnSortListbox = New System.Windows.Forms.Button()
-        Me.tsmMain = New System.Windows.Forms.MenuStrip()
+        Me.lblFilePath = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.FileToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmFileNew = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmFileOpen = New System.Windows.Forms.ToolStripMenuItem()
@@ -50,9 +52,7 @@ Partial Class frmMain
         Me.toolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.tsmMain = New System.Windows.Forms.MenuStrip()
         Me.tsmMain.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -100,19 +100,42 @@ Partial Class frmMain
         Me.btnSortListbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSortListbox.FlatAppearance.BorderSize = 0
         Me.btnSortListbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSortListbox.Location = New System.Drawing.Point(547, 552)
+        Me.btnSortListbox.Location = New System.Drawing.Point(547, 550)
         Me.btnSortListbox.Name = "btnSortListbox"
         Me.btnSortListbox.Size = New System.Drawing.Size(25, 25)
         Me.btnSortListbox.TabIndex = 28
         Me.btnSortListbox.UseVisualStyleBackColor = False
         '
-        'tsmMain
+        'lblFilePath
         '
-        Me.tsmMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem1, Me.CardToolStripMenuItem, Me.HelpToolStripMenuItem, Me.ViewToolStripMenuItem})
-        Me.tsmMain.Location = New System.Drawing.Point(0, 0)
-        Me.tsmMain.Name = "tsmMain"
-        Me.tsmMain.Size = New System.Drawing.Size(584, 24)
-        Me.tsmMain.TabIndex = 33
+        Me.lblFilePath.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblFilePath.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFilePath.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblFilePath.Location = New System.Drawing.Point(206, 531)
+        Me.lblFilePath.Name = "lblFilePath"
+        Me.lblFilePath.Size = New System.Drawing.Size(172, 20)
+        Me.lblFilePath.TabIndex = 34
+        Me.lblFilePath.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label2.BackColor = System.Drawing.SystemColors.Window
+        Me.Label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Label2.Location = New System.Drawing.Point(0, 540)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(200, 3)
+        Me.Label2.TabIndex = 35
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Label3.BackColor = System.Drawing.SystemColors.Window
+        Me.Label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Label3.Location = New System.Drawing.Point(384, 540)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(200, 3)
+        Me.Label3.TabIndex = 36
         '
         'FileToolStripMenuItem1
         '
@@ -263,36 +286,13 @@ Partial Class frmMain
         Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.ViewToolStripMenuItem.Text = "&View"
         '
-        'Label1
+        'tsmMain
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label1.Location = New System.Drawing.Point(267, 537)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(59, 20)
-        Me.Label1.TabIndex = 34
-        Me.Label1.Text = "data.txt"
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label2.BackColor = System.Drawing.SystemColors.Window
-        Me.Label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label2.Location = New System.Drawing.Point(0, 546)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(200, 3)
-        Me.Label2.TabIndex = 35
-        '
-        'Label3
-        '
-        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.Label3.BackColor = System.Drawing.SystemColors.Window
-        Me.Label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label3.Location = New System.Drawing.Point(384, 546)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(200, 3)
-        Me.Label3.TabIndex = 36
+        Me.tsmMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem1, Me.CardToolStripMenuItem, Me.HelpToolStripMenuItem, Me.ViewToolStripMenuItem})
+        Me.tsmMain.Location = New System.Drawing.Point(0, 0)
+        Me.tsmMain.Name = "tsmMain"
+        Me.tsmMain.Size = New System.Drawing.Size(584, 24)
+        Me.tsmMain.TabIndex = 33
         '
         'frmMain
         '
@@ -302,7 +302,7 @@ Partial Class frmMain
         Me.ClientSize = New System.Drawing.Size(584, 749)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblFilePath)
         Me.Controls.Add(Me.btnSortListbox)
         Me.Controls.Add(Me.lblCaption)
         Me.Controls.Add(Me.lblTitle)
@@ -324,13 +324,9 @@ Partial Class frmMain
     Friend WithEvents lblTitle As Label
     Friend WithEvents lblCaption As Label
     Friend WithEvents btnSortListbox As Button
-    Friend WithEvents tsmMain As MenuStrip
-    Friend WithEvents CardToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents tsmCardNew As ToolStripMenuItem
-    Friend WithEvents tsmCardEdit As ToolStripMenuItem
-    Friend WithEvents tsmCardDelete As ToolStripMenuItem
-    Friend WithEvents tsmCardMoveUp As ToolStripMenuItem
-    Friend WithEvents tsmCardMoveDown As ToolStripMenuItem
+    Friend WithEvents lblFilePath As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
     Friend WithEvents FileToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents tsmFileNew As ToolStripMenuItem
     Friend WithEvents tsmFileOpen As ToolStripMenuItem
@@ -342,12 +338,16 @@ Partial Class frmMain
     Friend WithEvents PrintPreviewToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents toolStripSeparator2 As ToolStripSeparator
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CardToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsmCardNew As ToolStripMenuItem
+    Friend WithEvents tsmCardEdit As ToolStripMenuItem
+    Friend WithEvents tsmCardDelete As ToolStripMenuItem
+    Friend WithEvents tsmCardMoveUp As ToolStripMenuItem
+    Friend WithEvents tsmCardMoveDown As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SearchToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents toolStripSeparator5 As ToolStripSeparator
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ViewToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents tsmMain As MenuStrip
 End Class
