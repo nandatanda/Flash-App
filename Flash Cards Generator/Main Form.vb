@@ -9,239 +9,332 @@ Option Infer Off
 Public Class frmMain
 
     Private BasePath As String = My.Application.Info.DirectoryPath
-    Private FilePath As String = IO.Path.Combine(BasePath, "data.txt")
+    Private WorkingFilePath As String = String.Empty
+    Private HasUnsavedChanges As Boolean
+
+    Public LibraryList As List(Of List(Of String)) = New List(Of List(Of String))
+
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
-        PopulateMyFlashcards()
-        EmptyCardViewer()
-        lstCardTitles.SelectedIndex = 0
+        lblTitle.Text = "Welcome"
+        lblCaption.Text = "To start, create a new card library or open an existing one using the 'file' menu above."
     End Sub
 
     Private Sub lstCardTitles_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstCardTitles.SelectedIndexChanged
-        PopulateCardViewer()
+        UpdateCurrentCard()
     End Sub
 
+    Private Sub btnSortListbox_Click(sender As Object, e As EventArgs) Handles btnSortListbox.Click
+        Static ListboxIsInAscendingOrder As Boolean
+        Dim LatestSelectedItem As String = lstCardTitles.SelectedItem.ToString
+
+        If lstCardTitles.Items.Count > 0 Then
+            If ListboxIsInAscendingOrder Then
+                LibraryList.Reverse()
+                btnSortListbox.BackgroundImage = My.Resources.sort_ascending_right
+                ListboxIsInAscendingOrder = False
+            Else
+                LibraryList.Sort(Function(x, y) x(0).CompareTo(y(0)))
+                btnSortListbox.BackgroundImage = My.Resources.sort_descending_right
+                ListboxIsInAscendingOrder = True
+            End If
+        End If
+
+        UpdateCardTitles()
+        ClearCurrentCard()
+        lstCardTitles.SelectedItem = LatestSelectedItem
+    End Sub
+
+    ' Click Events for ToolStripMenu -> File
+
+    Private Sub tsmFileNew_Click(sender As Object, e As EventArgs) Handles tsmFileNew.Click
+        If HasUnsavedChanges Then
+            Dim Response As Integer = MessageBox.Show("The current library has unsaved changes. Creating a new one will result in loss of data. Save before continuing? ", "New", MessageBoxButtons.YesNoCancel)
+
+            If Response = DialogResult.Cancel Then
+                Exit Sub
+            ElseIf Response = DialogResult.Yes Then
+                If WorkingFilePath = String.Empty Then
+                    Dim MyPrompt As SaveFileDialog = New SaveFileDialog With {
+                    .DefaultExt = "txt",
+                    .FileName = "my-flashcards",
+                    .InitialDirectory = BasePath,
+                    .Filter = "All files|*.*|Text files|*.txt",
+                    .Title = "Open"
+                    }
+                    If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
+                        WorkingFilePath = MyPrompt.FileName
+                        SaveToFile(WorkingFilePath)
+                    Else
+                        Exit Sub
+                    End If
+                End If
+            End If
+        End If
+
+        WorkingFilePath = String.Empty
+        LibraryList = New List(Of List(Of String))
+        HasUnsavedChanges = False
+
+        ClearCurrentCard()
+        lstCardTitles.Items.Clear()
+        lblFilePath.Text = "New Library*"
+        lblTitle.Text = "New Library"
+        lblCaption.Text = "Create your first card with 'Ctrl + C' or by using the file menu above. The new card will be displayed here."
+    End Sub
+
+    Private Sub tsmFileOpen_Click(sender As Object, e As EventArgs) Handles tsmFileOpen.Click
+        If HasUnsavedChanges Then
+            MessageBox.Show("The current file is unsaved. Opening a new file may result in loss of data.", "Open")
+        Else
+            Dim MyPrompt As OpenFileDialog = New OpenFileDialog With {
+                .DefaultExt = "txt",
+                .FileName = "data",
+                .InitialDirectory = BasePath,
+                .Filter = "All files|*.*|Text files|*.txt",
+                .Title = "Open"
+            }
+
+            If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
+                WorkingFilePath = MyPrompt.FileName
+                LibraryList = ParseFile(WorkingFilePath)
+
+                UpdateCardTitles()
+                lblFilePath.Text = ShortenPath(WorkingFilePath)
+
+                If lstCardTitles.Items.Count > 0 Then
+                    lstCardTitles.SelectedIndex = 0
+                    UpdateCurrentCard()
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub tsmFileSave_Click(sender As Object, e As EventArgs) Handles tsmFileSave.Click
+
+    End Sub
+
+    Private Sub tsmFileSaveAs_Click(sender As Object, e As EventArgs) Handles tsmFileSaveAs.Click
+
+    End Sub
+
+    ' Click Events for ToolStripMenu -> Card
+
     Private Sub tsmCardNew_Click(sender As Object, e As EventArgs) Handles tsmCardNew.Click
+        ' create a new card record and add it to library list
+
+        ' input new card's title
         Dim Title As String = InputBox("Enter a title for your flashcard.", "Create Card", "Title")
         If Title = "" Then
             Exit Sub
         End If
+
+        ' input new card's caption
         Dim Caption As String = InputBox("Enter the text you want to appear in the body of the flashcard.", "Create Card", "Text")
         If Caption = "" Then
             Exit Sub
         End If
 
-        WriteRecord(Title, Caption)
-        PopulateMyFlashcards()
+        ' define new card and add to list
+        Dim NewCard As List(Of String) = New List(Of String)
+        NewCard.Add(Title)
+        NewCard.Add(Caption)
+        LibraryList.Add(NewCard)
+
+        ' update interface
+        UpdateCardTitles()
         lstCardTitles.SelectedItem = Title
+
+        HasUnsavedChanges = True
+        If WorkingFilePath = String.Empty Then
+            lblFilePath.Text = "New Library*"
+        Else
+            lblFilePath.Text = ShortenPath(WorkingFilePath) + "*"
+        End If
     End Sub
 
     Private Sub tsmCardEdit_Click(sender As Object, e As EventArgs) Handles tsmCardEdit.Click
-        Dim Title As String = "Title"
-        Dim Caption As String = "Caption"
-        Dim Index As Integer = lstCardTitles.SelectedIndex
+        ' edit a card's title/caption and replace in library list
 
-        ' attempt to read record to be edited from file
-        Title = ReadRecord(lstCardTitles.Text)(0)
-        Caption = ReadRecord(lstCardTitles.Text)(1)
+        If LibraryList.Count > 0 Then
+            ' read original card from list
+            Dim Index As Integer = lstCardTitles.SelectedIndex
+            Dim Title As String = LibraryList(Index)(0)
+            Dim Caption As String = LibraryList(Index)(1)
 
-        ' input new title
-        Title = InputBox("Change the text of the title.", "Edit Card", Title)
-        If Title = "" Then
-            Exit Sub
-        End If
+            ' input new title
+            Title = InputBox("Change the text of the title.", "Edit", Title)
+            If Title = "" Then
+                Exit Sub
+            End If
 
-        ' input new caption
-        Caption = InputBox("Change the text of the caption, or body of the card.", "Edit Card", Caption)
-        If Caption = "" Then
-            Exit Sub
-        End If
+            ' input new caption
+            Caption = InputBox("Change the text of the caption, or body of the card.", "Edit", Caption)
+            If Caption = "" Then
+                Exit Sub
+            End If
 
-        ' attempt to write new record to file
-        Try
-            Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
-            Lines(Index) = Title + ";" + Caption
-            System.IO.File.WriteAllLines(FilePath, Lines)
+            ' define edited card and replace in list
+            Dim EditedCard As List(Of String) = New List(Of String)
+            EditedCard.Add(Title)
+            EditedCard.Add(Caption)
+            If Not EditedCard.SequenceEqual(LibraryList(Index)) Then
+                LibraryList(Index) = EditedCard
+                HasUnsavedChanges = True
+            End If
 
-            PopulateMyFlashcards()
-            PopulateCardViewer()
+            ' update interface
+            UpdateCardTitles()
             lstCardTitles.SelectedIndex = Index
-        Catch
-            MessageBox.Show("File Access Denied.", "Error")
-        End Try
+            UpdateCurrentCard()
+            lblFilePath.Text = ShortenPath(WorkingFilePath) + "*"
+        Else
+            MessageBox.Show("There are no cards to edit in the current library.", "Edit")
+        End If
     End Sub
 
     Private Sub tsmCardDelete_Click(sender As Object, e As EventArgs) Handles tsmCardDelete.Click
-        Dim Response As Integer = MessageBox.Show("Are you sure you want to delete this flashcard?", "Confirm Delete", MessageBoxButtons.OKCancel)
-        Dim SelectedIndex As Integer = lstCardTitles.SelectedIndex
+        ' remove selected card from list
 
-        If Response = DialogResult.OK Then
-            DeleteRecord(SelectedIndex)
-            PopulateMyFlashcards()
-            EmptyCardViewer()
+        If LibraryList.Count > 0 Then
+            Dim Response As Integer = MessageBox.Show("Are you sure you want to delete this flashcard?", "Delete", MessageBoxButtons.OKCancel)
+            If Response = DialogResult.OK Then
+                Dim TargetIndex As Integer = lstCardTitles.SelectedIndex
+                Dim LargestIndex As Integer = lstCardTitles.Items.Count - 2
 
-            Dim LargestIndex As Integer = lstCardTitles.Items.Count - 1
-            If SelectedIndex > LargestIndex Then
-                lstCardTitles.SelectedIndex = LargestIndex
-            Else
-                lstCardTitles.SelectedIndex = SelectedIndex
+                LibraryList.RemoveAt(TargetIndex)
+
+                ' update interface
+                UpdateCardTitles()
+                ClearCurrentCard()
+
+                ' choose new selected item
+                If TargetIndex > LargestIndex Then
+                    lstCardTitles.SelectedIndex = LargestIndex
+                Else
+                    lstCardTitles.SelectedIndex = TargetIndex
+                End If
+
+                HasUnsavedChanges = True
+                lblFilePath.Text = ShortenPath(WorkingFilePath) + "*"
             End If
+        Else
+            MessageBox.Show("There are no cards to delete in the current library.", "Delete")
         End If
     End Sub
 
     Private Sub tsmCardMoveUp_Click(sender As Object, e As EventArgs) Handles tsmCardMoveUp.Click
-        Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
-        Dim CurrentIndex As Integer = lstCardTitles.SelectedIndex
-        Dim TargetIndex As Integer = lstCardTitles.SelectedIndex - 1
-        Dim TemporaryValue As String
+        If LibraryList.Count > 1 Then
+            Dim CurrentIndex As Integer = lstCardTitles.SelectedIndex
+            Dim TargetIndex As Integer = lstCardTitles.SelectedIndex - 1
+            Dim TemporaryValue As List(Of String)
 
-        'swap values and write to file
-        If TargetIndex >= 0 Then
-            TemporaryValue = Lines(TargetIndex)
-            Lines(TargetIndex) = Lines(CurrentIndex)
-            Lines(CurrentIndex) = TemporaryValue
+            'swap positions in list
+            If TargetIndex >= 0 Then
+                TemporaryValue = LibraryList(TargetIndex)
+                LibraryList(TargetIndex) = LibraryList(CurrentIndex)
+                LibraryList(CurrentIndex) = TemporaryValue
 
-            System.IO.File.WriteAllLines(FilePath, Lines)
-            PopulateMyFlashcards()
-            lstCardTitles.SelectedIndex = TargetIndex
-        Else
-            lstCardTitles.SelectedIndex = 0
+                UpdateCardTitles()
+                lstCardTitles.SelectedIndex = TargetIndex
+            Else
+                lstCardTitles.SelectedIndex = 0
+            End If
+
+            HasUnsavedChanges = True
+            lblFilePath.Text = ShortenPath(WorkingFilePath) + "*"
         End If
     End Sub
 
     Private Sub tsmCardMoveDown_Click(sender As Object, e As EventArgs) Handles tsmCardMoveDown.Click
-        Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
-        Dim CurrentIndex As Integer = lstCardTitles.SelectedIndex
-        Dim TargetIndex As Integer = lstCardTitles.SelectedIndex + 1
-        Dim LargestIndex As Integer = lstCardTitles.Items.Count - 1
-        Dim TemporaryValue As String
+        If LibraryList.Count > 1 Then
+            Dim CurrentIndex As Integer = lstCardTitles.SelectedIndex
+            Dim TargetIndex As Integer = lstCardTitles.SelectedIndex + 1
+            Dim LargestIndex As Integer = lstCardTitles.Items.Count - 1
+            Dim TemporaryValue As List(Of String)
 
-        'swap values and write to file
-        If TargetIndex <= LargestIndex Then
-            TemporaryValue = Lines(TargetIndex)
-            Lines(TargetIndex) = Lines(CurrentIndex)
-            Lines(CurrentIndex) = TemporaryValue
+            'swap values and write to file
+            If TargetIndex <= LargestIndex Then
+                TemporaryValue = LibraryList(TargetIndex)
+                LibraryList(TargetIndex) = LibraryList(CurrentIndex)
+                LibraryList(CurrentIndex) = TemporaryValue
 
-            System.IO.File.WriteAllLines(FilePath, Lines)
-            PopulateMyFlashcards()
-            lstCardTitles.SelectedIndex = TargetIndex
-        Else
-            lstCardTitles.SelectedIndex = LargestIndex
+                UpdateCardTitles()
+                lstCardTitles.SelectedIndex = TargetIndex
+            Else
+                lstCardTitles.SelectedIndex = LargestIndex
+            End If
+
+            HasUnsavedChanges = True
+            lblFilePath.Text = ShortenPath(WorkingFilePath) + "*"
         End If
     End Sub
 
-    Private Sub btnSortListbox_Click(sender As Object, e As EventArgs) Handles btnSortListbox.Click
-        Static ListboxIsInAscendingOrder As Boolean
+    ' Member Functions & Subs
 
-        Dim LatestSelectedItem As String = lstCardTitles.SelectedItem.ToString
-
-    If ListboxIsInAscendingOrder Then
-            SortRecordsAlphabetically(Reverse:=True)
-            btnSortListbox.BackgroundImage = My.Resources.sort_ascending_right
-            ListboxIsInAscendingOrder = False
-    Else
-            SortRecordsAlphabetically()
-            btnSortListbox.BackgroundImage = My.Resources.sort_descending_right
-            ListboxIsInAscendingOrder = True
-    End If
-
-        PopulateMyFlashcards()
-        EmptyCardViewer()
-        lstCardTitles.SelectedItem = LatestSelectedItem
-    End Sub
-
-    Private Function ReadRecord(ByVal Title As String) As List(Of String)
-        'return first record matching given title from data file
-
+    Private Function ParseFile(ByVal Path As String) As List(Of List(Of String))
+        ' return a list of cards where each element is a list of that card's components
+        Dim MyLibrary As List(Of List(Of String)) = New List(Of List(Of String))
         Try
-            For Each Line As String In IO.File.ReadLines(FilePath)
-                If Line.Contains(Title) Then
-                    Dim Record As New List(Of String)(Line.Split(";"c))
-                    Return Record
-                    Exit For
-                End If
+            For Each Line As String In IO.File.ReadLines(Path)
+                Dim Record As List(Of String) = New List(Of String) From {
+                Split(Line, ";")(0),
+                Split(Line, ";")(1)
+            }
+                MyLibrary.Add(Record)
             Next
         Catch
-            MessageBox.Show("Record could not be read.", "Error")
+            MessageBox.Show("Unable to import library. The file may be corrupted or not of the appropriate type.", "Error")
         End Try
-
-        Return Nothing
+        Return MyLibrary
     End Function
 
-    Private Sub WriteRecord(ByVal Title As String, Caption As String)
-        ' write a record to data file
-        Dim FilePath As String = IO.Path.Combine(BasePath, "data.txt")
-        Dim Record As String = Title + ";" + Caption
+    Private Function ShortenPath(ByVal Path As String) As String
+        ' return a short path for display in interface
 
-        Try
-            Dim File As IO.StreamWriter
-            File = My.Computer.FileSystem.OpenTextFileWriter(FilePath, True)
-            File.WriteLine(Record)
-            File.Close()
-        Catch
-            MessageBox.Show("File access denied", "Error")
-        End Try
-    End Sub
+        Dim PathArray As String() = WorkingFilePath.Split("\"c)
+        If PathArray.Count > 4 Then
+            Dim RootPath As String = PathArray(0) + "\"
+            Dim ThirdToLastPath As String = PathArray(PathArray.Count() - 3) + "\"
+            Dim SecondToLastPath As String = PathArray(PathArray.Count() - 2) + "\"
+            Dim LastPath As String = PathArray(PathArray.Count() - 1)
 
-    Private Function ReadRecordTitles() As List(Of String)
-        'return a list of all titles in data file
-        Dim FilePath As String = IO.Path.Combine(BasePath, "data.txt")
-        Dim Titles As New List(Of String)
+            Return RootPath + "...\" + ThirdToLastPath + SecondToLastPath + LastPath
+        Else
+            Return WorkingFilePath
+        End If
 
-        For Each Line As String In IO.File.ReadLines(FilePath)
-            Line = Split(Line, ";")(0)
-            Titles.Add(Line)
-        Next
-        Return Titles
     End Function
 
-    Private Sub DeleteRecord(ByVal Index As Integer)
+    Private Sub SaveToFile(ByVal Path As String)
+        ' write the current list of cards to file
+        Dim Lines As List(Of String) = New List(Of String)
         Try
-            Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
-            Lines.RemoveAt(Index)
-            System.IO.File.WriteAllLines(FilePath, Lines)
+            For Each Line As List(Of String) In LibraryList
+                Lines.Add(Line(0) + ";" + Line(1))
+            Next
+            System.IO.File.WriteAllLines(Path, Lines)
         Catch
-            MessageBox.Show("File Access Denied.", "Error")
+            MessageBox.Show("The file could not be saved.", "Error")
         End Try
     End Sub
 
-    Private Sub SortRecordsAlphabetically(Optional ByVal Reverse As Boolean = False)
-        Try
-            Dim Lines As List(Of String) = System.IO.File.ReadAllLines(FilePath).ToList
-            Lines.Sort()
-            If Reverse Then
-                Lines.Reverse()
-            End If
-            System.IO.File.WriteAllLines(FilePath, Lines)
-        Catch
-            MessageBox.Show("File Access Denied", "Error")
-        End Try
-    End Sub
-
-    Private Sub PopulateMyFlashcards()
+    Private Sub UpdateCardTitles()
         ' copy all titles to the listbox
         lstCardTitles.Items.Clear()
-        Try
-            Dim Title As String
-            For Each Title In ReadRecordTitles()
-                lstCardTitles.Items.Add(Title)
-            Next
-        Catch
-            Dim File As IO.FileStream = IO.File.Create(FilePath)
-            File.Close()
-            MessageBox.Show("No data file was found. A new one has been created for you.", "New User")
-        End Try
+        For Each Card As List(Of String) In LibraryList
+            lstCardTitles.Items.Add(Card(0))
+        Next
     End Sub
 
-    Private Sub PopulateCardViewer()
+    Private Sub UpdateCurrentCard()
         ' display title and caption of selected item
-
-        Dim Record As List(Of String) = ReadRecord(lstCardTitles.Text)
-        lblTitle.Text = Record(0)
-        lblCaption.Text = "'" + Record(1) + "'"
+        Dim Card As List(Of String) = LibraryList(lstCardTitles.SelectedIndex)
+        lblTitle.Text = Card(0)
+        lblCaption.Text = "'" + Card(1) + "'"
     End Sub
 
-    Private Sub EmptyCardViewer()
+    Private Sub ClearCurrentCard()
         lblTitle.Text = String.Empty
         lblCaption.Text = String.Empty
     End Sub

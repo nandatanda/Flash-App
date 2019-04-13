@@ -27,13 +27,14 @@ Partial Class frmMain
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblCaption = New System.Windows.Forms.Label()
         Me.btnSortListbox = New System.Windows.Forms.Button()
-        Me.tsmMain = New System.Windows.Forms.MenuStrip()
+        Me.lblFilePath = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.FileToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NewToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OpenToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmFileNew = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmFileOpen = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripSeparator = New System.Windows.Forms.ToolStripSeparator()
-        Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveAsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmFileSave = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmFileSaveAs = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.PrintToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrintPreviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -50,6 +51,7 @@ Partial Class frmMain
         Me.toolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmMain = New System.Windows.Forms.MenuStrip()
         Me.tsmMain.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -61,31 +63,31 @@ Partial Class frmMain
         Me.lstCardTitles.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstCardTitles.FormattingEnabled = True
         Me.lstCardTitles.ItemHeight = 21
-        Me.lstCardTitles.Location = New System.Drawing.Point(0, 560)
+        Me.lstCardTitles.Location = New System.Drawing.Point(0, 520)
         Me.lstCardTitles.MultiColumn = True
         Me.lstCardTitles.Name = "lstCardTitles"
-        Me.lstCardTitles.Size = New System.Drawing.Size(584, 189)
+        Me.lstCardTitles.Size = New System.Drawing.Size(584, 168)
         Me.lstCardTitles.TabIndex = 5
         '
         'lblTitle
         '
-        Me.lblTitle.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblTitle.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblTitle.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.Location = New System.Drawing.Point(17, 124)
+        Me.lblTitle.Location = New System.Drawing.Point(41, 119)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(555, 45)
+        Me.lblTitle.Size = New System.Drawing.Size(503, 45)
         Me.lblTitle.TabIndex = 9
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblCaption
         '
-        Me.lblCaption.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblCaption.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblCaption.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.lblCaption.Font = New System.Drawing.Font("Segoe UI Semibold", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCaption.Location = New System.Drawing.Point(12, 169)
+        Me.lblCaption.Location = New System.Drawing.Point(41, 164)
         Me.lblCaption.Name = "lblCaption"
-        Me.lblCaption.Size = New System.Drawing.Size(560, 249)
+        Me.lblCaption.Size = New System.Drawing.Size(503, 249)
         Me.lblCaption.TabIndex = 10
         Me.lblCaption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -97,64 +99,78 @@ Partial Class frmMain
         Me.btnSortListbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSortListbox.FlatAppearance.BorderSize = 0
         Me.btnSortListbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSortListbox.Location = New System.Drawing.Point(547, 529)
+        Me.btnSortListbox.Location = New System.Drawing.Point(547, 486)
         Me.btnSortListbox.Name = "btnSortListbox"
         Me.btnSortListbox.Size = New System.Drawing.Size(25, 25)
         Me.btnSortListbox.TabIndex = 28
         Me.btnSortListbox.UseVisualStyleBackColor = False
         '
-        'tsmMain
+        'lblFilePath
         '
-        Me.tsmMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem1, Me.CardToolStripMenuItem, Me.HelpToolStripMenuItem, Me.ViewToolStripMenuItem})
-        Me.tsmMain.Location = New System.Drawing.Point(0, 0)
-        Me.tsmMain.Name = "tsmMain"
-        Me.tsmMain.Size = New System.Drawing.Size(584, 24)
-        Me.tsmMain.TabIndex = 33
+        Me.lblFilePath.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblFilePath.AutoSize = True
+        Me.lblFilePath.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFilePath.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.lblFilePath.Location = New System.Drawing.Point(12, 465)
+        Me.lblFilePath.Name = "lblFilePath"
+        Me.lblFilePath.Size = New System.Drawing.Size(0, 20)
+        Me.lblFilePath.TabIndex = 34
+        Me.lblFilePath.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label2.BackColor = System.Drawing.SystemColors.Window
+        Me.Label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Label2.Location = New System.Drawing.Point(0, 474)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(584, 3)
+        Me.Label2.TabIndex = 35
         '
         'FileToolStripMenuItem1
         '
-        Me.FileToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem1, Me.OpenToolStripMenuItem1, Me.toolStripSeparator, Me.SaveToolStripMenuItem, Me.SaveAsToolStripMenuItem, Me.toolStripSeparator1, Me.PrintToolStripMenuItem, Me.PrintPreviewToolStripMenuItem, Me.toolStripSeparator2, Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmFileNew, Me.tsmFileOpen, Me.toolStripSeparator, Me.tsmFileSave, Me.tsmFileSaveAs, Me.toolStripSeparator1, Me.PrintToolStripMenuItem, Me.PrintPreviewToolStripMenuItem, Me.toolStripSeparator2, Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem1.Name = "FileToolStripMenuItem1"
         Me.FileToolStripMenuItem1.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem1.Text = "&File"
         '
-        'NewToolStripMenuItem1
+        'tsmFileNew
         '
-        Me.NewToolStripMenuItem1.Image = CType(resources.GetObject("NewToolStripMenuItem1.Image"), System.Drawing.Image)
-        Me.NewToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.NewToolStripMenuItem1.Name = "NewToolStripMenuItem1"
-        Me.NewToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.NewToolStripMenuItem1.Size = New System.Drawing.Size(146, 22)
-        Me.NewToolStripMenuItem1.Text = "&New"
+        Me.tsmFileNew.Image = CType(resources.GetObject("tsmFileNew.Image"), System.Drawing.Image)
+        Me.tsmFileNew.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsmFileNew.Name = "tsmFileNew"
+        Me.tsmFileNew.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
+        Me.tsmFileNew.Size = New System.Drawing.Size(146, 22)
+        Me.tsmFileNew.Text = "&New"
         '
-        'OpenToolStripMenuItem1
+        'tsmFileOpen
         '
-        Me.OpenToolStripMenuItem1.Image = CType(resources.GetObject("OpenToolStripMenuItem1.Image"), System.Drawing.Image)
-        Me.OpenToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.OpenToolStripMenuItem1.Name = "OpenToolStripMenuItem1"
-        Me.OpenToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.OpenToolStripMenuItem1.Size = New System.Drawing.Size(146, 22)
-        Me.OpenToolStripMenuItem1.Text = "&Open"
+        Me.tsmFileOpen.Image = CType(resources.GetObject("tsmFileOpen.Image"), System.Drawing.Image)
+        Me.tsmFileOpen.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsmFileOpen.Name = "tsmFileOpen"
+        Me.tsmFileOpen.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
+        Me.tsmFileOpen.Size = New System.Drawing.Size(146, 22)
+        Me.tsmFileOpen.Text = "&Open"
         '
         'toolStripSeparator
         '
         Me.toolStripSeparator.Name = "toolStripSeparator"
         Me.toolStripSeparator.Size = New System.Drawing.Size(143, 6)
         '
-        'SaveToolStripMenuItem
+        'tsmFileSave
         '
-        Me.SaveToolStripMenuItem.Image = CType(resources.GetObject("SaveToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.SaveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
-        Me.SaveToolStripMenuItem.Text = "&Save"
+        Me.tsmFileSave.Image = CType(resources.GetObject("tsmFileSave.Image"), System.Drawing.Image)
+        Me.tsmFileSave.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsmFileSave.Name = "tsmFileSave"
+        Me.tsmFileSave.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.tsmFileSave.Size = New System.Drawing.Size(146, 22)
+        Me.tsmFileSave.Text = "&Save"
         '
-        'SaveAsToolStripMenuItem
+        'tsmFileSaveAs
         '
-        Me.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem"
-        Me.SaveAsToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
-        Me.SaveAsToolStripMenuItem.Text = "Save &As"
+        Me.tsmFileSaveAs.Name = "tsmFileSaveAs"
+        Me.tsmFileSaveAs.Size = New System.Drawing.Size(146, 22)
+        Me.tsmFileSaveAs.Text = "Save &As"
         '
         'toolStripSeparator1
         '
@@ -200,32 +216,34 @@ Partial Class frmMain
         '
         Me.tsmCardNew.Name = "tsmCardNew"
         Me.tsmCardNew.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.tsmCardNew.Size = New System.Drawing.Size(150, 22)
+        Me.tsmCardNew.Size = New System.Drawing.Size(199, 22)
         Me.tsmCardNew.Text = "Create"
         '
         'tsmCardEdit
         '
         Me.tsmCardEdit.Name = "tsmCardEdit"
-        Me.tsmCardEdit.Size = New System.Drawing.Size(150, 22)
+        Me.tsmCardEdit.Size = New System.Drawing.Size(199, 22)
         Me.tsmCardEdit.Text = "Edit..."
         '
         'tsmCardDelete
         '
         Me.tsmCardDelete.Name = "tsmCardDelete"
         Me.tsmCardDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete
-        Me.tsmCardDelete.Size = New System.Drawing.Size(150, 22)
+        Me.tsmCardDelete.Size = New System.Drawing.Size(199, 22)
         Me.tsmCardDelete.Text = "Delete"
         '
         'tsmCardMoveUp
         '
         Me.tsmCardMoveUp.Name = "tsmCardMoveUp"
-        Me.tsmCardMoveUp.Size = New System.Drawing.Size(150, 22)
+        Me.tsmCardMoveUp.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Up), System.Windows.Forms.Keys)
+        Me.tsmCardMoveUp.Size = New System.Drawing.Size(199, 22)
         Me.tsmCardMoveUp.Text = "Move Up"
         '
         'tsmCardMoveDown
         '
         Me.tsmCardMoveDown.Name = "tsmCardMoveDown"
-        Me.tsmCardMoveDown.Size = New System.Drawing.Size(150, 22)
+        Me.tsmCardMoveDown.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Down), System.Windows.Forms.Keys)
+        Me.tsmCardMoveDown.Size = New System.Drawing.Size(199, 22)
         Me.tsmCardMoveDown.Text = "Move Down"
         '
         'HelpToolStripMenuItem
@@ -258,12 +276,22 @@ Partial Class frmMain
         Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.ViewToolStripMenuItem.Text = "&View"
         '
+        'tsmMain
+        '
+        Me.tsmMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem1, Me.CardToolStripMenuItem, Me.HelpToolStripMenuItem, Me.ViewToolStripMenuItem})
+        Me.tsmMain.Location = New System.Drawing.Point(0, 0)
+        Me.tsmMain.Name = "tsmMain"
+        Me.tsmMain.Size = New System.Drawing.Size(584, 24)
+        Me.tsmMain.TabIndex = 33
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(584, 749)
+        Me.ClientSize = New System.Drawing.Size(584, 688)
+        Me.Controls.Add(Me.lblFilePath)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnSortListbox)
         Me.Controls.Add(Me.lblCaption)
         Me.Controls.Add(Me.lblTitle)
@@ -272,6 +300,7 @@ Partial Class frmMain
         Me.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MainMenuStrip = Me.tsmMain
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.MinimumSize = New System.Drawing.Size(300, 400)
         Me.Name = "frmMain"
         Me.Text = "FlashApp"
         Me.tsmMain.ResumeLayout(False)
@@ -284,27 +313,29 @@ Partial Class frmMain
     Friend WithEvents lblTitle As Label
     Friend WithEvents lblCaption As Label
     Friend WithEvents btnSortListbox As Button
-    Friend WithEvents tsmMain As MenuStrip
+    Friend WithEvents lblFilePath As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents FileToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents tsmFileNew As ToolStripMenuItem
+    Friend WithEvents tsmFileOpen As ToolStripMenuItem
+    Friend WithEvents toolStripSeparator As ToolStripSeparator
+    Friend WithEvents tsmFileSave As ToolStripMenuItem
+    Friend WithEvents tsmFileSaveAs As ToolStripMenuItem
+    Friend WithEvents toolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents PrintToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PrintPreviewToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents toolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CardToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents tsmCardNew As ToolStripMenuItem
     Friend WithEvents tsmCardEdit As ToolStripMenuItem
     Friend WithEvents tsmCardDelete As ToolStripMenuItem
     Friend WithEvents tsmCardMoveUp As ToolStripMenuItem
     Friend WithEvents tsmCardMoveDown As ToolStripMenuItem
-    Friend WithEvents FileToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents NewToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents OpenToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents toolStripSeparator As ToolStripSeparator
-    Friend WithEvents SaveToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SaveAsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents toolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents PrintToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents PrintPreviewToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents toolStripSeparator2 As ToolStripSeparator
-    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SearchToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents toolStripSeparator5 As ToolStripSeparator
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ViewToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsmMain As MenuStrip
 End Class
