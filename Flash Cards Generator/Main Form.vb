@@ -53,9 +53,7 @@ Public Class frmMain
 
             If Response = DialogResult.Cancel Then
                 Exit Sub
-            End If
-
-            If Response = DialogResult.Yes Then
+            ElseIf Response = DialogResult.Yes Then
                 If WorkingFilePath = String.Empty Then
                     Dim MyPrompt As SaveFileDialog = New SaveFileDialog With {
                     .DefaultExt = "txt",
