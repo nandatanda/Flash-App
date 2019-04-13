@@ -146,9 +146,10 @@ Public Class frmMain
         lstCardTitles.SelectedItem = Title
 
         HasUnsavedChanges = True
-
         If WorkingFilePath = String.Empty Then
             lblFilePath.Text = "New Library*"
+        Else
+            lblFilePath.Text = ShortenPath(WorkingFilePath) + "*"
         End If
     End Sub
 
@@ -162,13 +163,13 @@ Public Class frmMain
             Dim Caption As String = LibraryList(Index)(1)
 
             ' input new title
-            Title = InputBox("Change the text of the title.", "Edit Card", Title)
+            Title = InputBox("Change the text of the title.", "Edit", Title)
             If Title = "" Then
                 Exit Sub
             End If
 
             ' input new caption
-            Caption = InputBox("Change the text of the caption, or body of the card.", "Edit Card", Caption)
+            Caption = InputBox("Change the text of the caption, or body of the card.", "Edit", Caption)
             If Caption = "" Then
                 Exit Sub
             End If
@@ -186,8 +187,9 @@ Public Class frmMain
             UpdateCardTitles()
             lstCardTitles.SelectedIndex = Index
             UpdateCurrentCard()
+            lblFilePath.Text = ShortenPath(WorkingFilePath) + "*"
         Else
-            MessageBox.Show("There are no cards to edit in the current library.", "Edit Card")
+            MessageBox.Show("There are no cards to edit in the current library.", "Edit")
         End If
     End Sub
 
@@ -214,6 +216,7 @@ Public Class frmMain
                 End If
 
                 HasUnsavedChanges = True
+                lblFilePath.Text = ShortenPath(WorkingFilePath) + "*"
             End If
         Else
             MessageBox.Show("There are no cards to delete in the current library.", "Delete")
@@ -239,6 +242,7 @@ Public Class frmMain
             End If
 
             HasUnsavedChanges = True
+            lblFilePath.Text = ShortenPath(WorkingFilePath) + "*"
         End If
     End Sub
 
@@ -262,6 +266,7 @@ Public Class frmMain
             End If
 
             HasUnsavedChanges = True
+            lblFilePath.Text = ShortenPath(WorkingFilePath) + "*"
         End If
     End Sub
 
