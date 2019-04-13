@@ -209,44 +209,48 @@ Public Class frmMain
     End Sub
 
     Private Sub tsmCardMoveUp_Click(sender As Object, e As EventArgs) Handles tsmCardMoveUp.Click
-        Dim CurrentIndex As Integer = lstCardTitles.SelectedIndex
-        Dim TargetIndex As Integer = lstCardTitles.SelectedIndex - 1
-        Dim TemporaryValue As List(Of String)
+        If LibraryList.Count > 1 Then
+            Dim CurrentIndex As Integer = lstCardTitles.SelectedIndex
+            Dim TargetIndex As Integer = lstCardTitles.SelectedIndex - 1
+            Dim TemporaryValue As List(Of String)
 
-        'swap positions in list
-        If TargetIndex >= 0 Then
-            TemporaryValue = LibraryList(TargetIndex)
-            LibraryList(TargetIndex) = LibraryList(CurrentIndex)
-            LibraryList(CurrentIndex) = TemporaryValue
+            'swap positions in list
+            If TargetIndex >= 0 Then
+                TemporaryValue = LibraryList(TargetIndex)
+                LibraryList(TargetIndex) = LibraryList(CurrentIndex)
+                LibraryList(CurrentIndex) = TemporaryValue
 
-            UpdateCardTitles()
-            lstCardTitles.SelectedIndex = TargetIndex
-        Else
-            lstCardTitles.SelectedIndex = 0
+                UpdateCardTitles()
+                lstCardTitles.SelectedIndex = TargetIndex
+            Else
+                lstCardTitles.SelectedIndex = 0
+            End If
+
+            HasUnsavedChanges = True
         End If
-
-        HasUnsavedChanges = True
     End Sub
 
     Private Sub tsmCardMoveDown_Click(sender As Object, e As EventArgs) Handles tsmCardMoveDown.Click
-        Dim CurrentIndex As Integer = lstCardTitles.SelectedIndex
-        Dim TargetIndex As Integer = lstCardTitles.SelectedIndex + 1
-        Dim LargestIndex As Integer = lstCardTitles.Items.Count - 1
-        Dim TemporaryValue As List(Of String)
+        If LibraryList.Count > 1 Then
+            Dim CurrentIndex As Integer = lstCardTitles.SelectedIndex
+            Dim TargetIndex As Integer = lstCardTitles.SelectedIndex + 1
+            Dim LargestIndex As Integer = lstCardTitles.Items.Count - 1
+            Dim TemporaryValue As List(Of String)
 
-        'swap values and write to file
-        If TargetIndex <= LargestIndex Then
-            TemporaryValue = LibraryList(TargetIndex)
-            LibraryList(TargetIndex) = LibraryList(CurrentIndex)
-            LibraryList(CurrentIndex) = TemporaryValue
+            'swap values and write to file
+            If TargetIndex <= LargestIndex Then
+                TemporaryValue = LibraryList(TargetIndex)
+                LibraryList(TargetIndex) = LibraryList(CurrentIndex)
+                LibraryList(CurrentIndex) = TemporaryValue
 
-            UpdateCardTitles()
-            lstCardTitles.SelectedIndex = TargetIndex
-        Else
-            lstCardTitles.SelectedIndex = LargestIndex
+                UpdateCardTitles()
+                lstCardTitles.SelectedIndex = TargetIndex
+            Else
+                lstCardTitles.SelectedIndex = LargestIndex
+            End If
+
+            HasUnsavedChanges = True
         End If
-
-        HasUnsavedChanges = True
     End Sub
 
     ' Member Functions & Subs
