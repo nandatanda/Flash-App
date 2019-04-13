@@ -181,25 +181,30 @@ Public Class frmMain
 
     Private Sub tsmCardDelete_Click(sender As Object, e As EventArgs) Handles tsmCardDelete.Click
         ' remove selected card from list
-        Dim Response As Integer = MessageBox.Show("Are you sure you want to delete this flashcard?", "Confirm Delete", MessageBoxButtons.OKCancel)
-        If Response = DialogResult.OK Then
-            Dim TargetIndex As Integer = lstCardTitles.SelectedIndex
-            Dim LargestIndex As Integer = lstCardTitles.Items.Count - 2
 
-            LibraryList.RemoveAt(TargetIndex)
+        If LibraryList.Count > 0 Then
+            Dim Response As Integer = MessageBox.Show("Are you sure you want to delete this flashcard?", "Confirm Delete", MessageBoxButtons.OKCancel)
+            If Response = DialogResult.OK Then
+                Dim TargetIndex As Integer = lstCardTitles.SelectedIndex
+                Dim LargestIndex As Integer = lstCardTitles.Items.Count - 2
 
-            ' update interface
-            UpdateCardTitles()
-            ClearCurrentCard()
+                LibraryList.RemoveAt(TargetIndex)
 
-            ' choose new selected item
-            If TargetIndex > LargestIndex Then
-                lstCardTitles.SelectedIndex = LargestIndex
-            Else
-                lstCardTitles.SelectedIndex = TargetIndex
+                ' update interface
+                UpdateCardTitles()
+                ClearCurrentCard()
+
+                ' choose new selected item
+                If TargetIndex > LargestIndex Then
+                    lstCardTitles.SelectedIndex = LargestIndex
+                Else
+                    lstCardTitles.SelectedIndex = TargetIndex
+                End If
+
+                HasUnsavedChanges = True
             End If
-
-            HasUnsavedChanges = True
+        Else
+            MessageBox.Show("There are no cards to delete in the current library.", "Delete Card")
         End If
     End Sub
 
