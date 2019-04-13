@@ -53,7 +53,7 @@ Public Class frmMain
         Else
             ClearCurrentCard()
             lstCardTitles.Items.Clear()
-            lblFilePath.Text = String.Empty
+            lblFilePath.Text = "New Library*"
             lblTitle.Text = "New Library"
             lblCaption.Text = "Create your first card with 'Ctrl + C' or by using the file menu above. The new card will be displayed here."
             LibraryList = New List(Of List(Of String))
@@ -134,6 +134,10 @@ Public Class frmMain
         lstCardTitles.SelectedItem = Title
 
         HasUnsavedChanges = True
+
+        If WorkingFilePath = String.Empty Then
+            lblFilePath.Text = "New Library*"
+        End If
     End Sub
 
     Private Sub tsmCardEdit_Click(sender As Object, e As EventArgs) Handles tsmCardEdit.Click
@@ -164,13 +168,14 @@ Public Class frmMain
             If Not EditedCard.SequenceEqual(LibraryList(Index)) Then
                 LibraryList(Index) = EditedCard
                 HasUnsavedChanges = True
-                MessageBox.Show("There are unsaved changes")
             End If
 
             ' update interface
             UpdateCardTitles()
             lstCardTitles.SelectedIndex = Index
             UpdateCurrentCard()
+        Else
+            MessageBox.Show("There are no cards to edit in the current library.", "Edit Card")
         End If
     End Sub
 
