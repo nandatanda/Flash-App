@@ -29,7 +29,6 @@ Partial Class frmMain
         Me.btnSortListbox = New System.Windows.Forms.Button()
         Me.lblFilePath = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.FileToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmFileNew = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmFileOpen = New System.Windows.Forms.ToolStripMenuItem()
@@ -64,7 +63,7 @@ Partial Class frmMain
         Me.lstCardTitles.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstCardTitles.FormattingEnabled = True
         Me.lstCardTitles.ItemHeight = 21
-        Me.lstCardTitles.Location = New System.Drawing.Point(0, 581)
+        Me.lstCardTitles.Location = New System.Drawing.Point(0, 520)
         Me.lstCardTitles.MultiColumn = True
         Me.lstCardTitles.Name = "lstCardTitles"
         Me.lstCardTitles.Size = New System.Drawing.Size(584, 168)
@@ -75,9 +74,9 @@ Partial Class frmMain
         Me.lblTitle.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblTitle.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.Location = New System.Drawing.Point(12, 118)
+        Me.lblTitle.Location = New System.Drawing.Point(41, 119)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(560, 45)
+        Me.lblTitle.Size = New System.Drawing.Size(503, 45)
         Me.lblTitle.TabIndex = 9
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -86,9 +85,9 @@ Partial Class frmMain
         Me.lblCaption.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblCaption.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.lblCaption.Font = New System.Drawing.Font("Segoe UI Semibold", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCaption.Location = New System.Drawing.Point(12, 169)
+        Me.lblCaption.Location = New System.Drawing.Point(41, 164)
         Me.lblCaption.Name = "lblCaption"
-        Me.lblCaption.Size = New System.Drawing.Size(560, 249)
+        Me.lblCaption.Size = New System.Drawing.Size(503, 249)
         Me.lblCaption.TabIndex = 10
         Me.lblCaption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -100,7 +99,7 @@ Partial Class frmMain
         Me.btnSortListbox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnSortListbox.FlatAppearance.BorderSize = 0
         Me.btnSortListbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSortListbox.Location = New System.Drawing.Point(547, 550)
+        Me.btnSortListbox.Location = New System.Drawing.Point(547, 486)
         Me.btnSortListbox.Name = "btnSortListbox"
         Me.btnSortListbox.Size = New System.Drawing.Size(25, 25)
         Me.btnSortListbox.TabIndex = 28
@@ -109,11 +108,12 @@ Partial Class frmMain
         'lblFilePath
         '
         Me.lblFilePath.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lblFilePath.AutoSize = True
         Me.lblFilePath.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFilePath.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.lblFilePath.Location = New System.Drawing.Point(206, 531)
+        Me.lblFilePath.Location = New System.Drawing.Point(12, 465)
         Me.lblFilePath.Name = "lblFilePath"
-        Me.lblFilePath.Size = New System.Drawing.Size(172, 20)
+        Me.lblFilePath.Size = New System.Drawing.Size(0, 20)
         Me.lblFilePath.TabIndex = 34
         Me.lblFilePath.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
@@ -122,20 +122,10 @@ Partial Class frmMain
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label2.BackColor = System.Drawing.SystemColors.Window
         Me.Label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label2.Location = New System.Drawing.Point(0, 540)
+        Me.Label2.Location = New System.Drawing.Point(0, 474)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(200, 3)
+        Me.Label2.Size = New System.Drawing.Size(584, 3)
         Me.Label2.TabIndex = 35
-        '
-        'Label3
-        '
-        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.Label3.BackColor = System.Drawing.SystemColors.Window
-        Me.Label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label3.Location = New System.Drawing.Point(384, 540)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(200, 3)
-        Me.Label3.TabIndex = 36
         '
         'FileToolStripMenuItem1
         '
@@ -299,10 +289,9 @@ Partial Class frmMain
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(584, 749)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
+        Me.ClientSize = New System.Drawing.Size(584, 688)
         Me.Controls.Add(Me.lblFilePath)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnSortListbox)
         Me.Controls.Add(Me.lblCaption)
         Me.Controls.Add(Me.lblTitle)
@@ -326,7 +315,6 @@ Partial Class frmMain
     Friend WithEvents btnSortListbox As Button
     Friend WithEvents lblFilePath As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents FileToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents tsmFileNew As ToolStripMenuItem
     Friend WithEvents tsmFileOpen As ToolStripMenuItem

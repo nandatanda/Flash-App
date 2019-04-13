@@ -12,7 +12,7 @@ Public Class frmMain
     Private WorkingFilePath As String = String.Empty
     Private HasUnsavedChanges As Boolean
 
-    Public LibraryList As List(Of List(Of String))
+    Public LibraryList As List(Of List(Of String)) = New List(Of List(Of String))
 
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -66,7 +66,7 @@ Public Class frmMain
         Else
             Dim MyPrompt As OpenFileDialog = New OpenFileDialog With {
                 .DefaultExt = "txt",
-                .FileName = "my-library",
+                .FileName = "data",
                 .InitialDirectory = BasePath,
                 .Filter = "All files|*.*|Text files|*.txt",
                 .Title = "Open"
@@ -76,11 +76,19 @@ Public Class frmMain
                 WorkingFilePath = MyPrompt.FileName
                 LibraryList = ParseFile(WorkingFilePath)
 
-                Dim PathArray As String() = WorkingFilePath.Split("\"c)
-                Dim LargestIndex As Integer = PathArray.Count() - 1
-
                 UpdateCardTitles()
-                lblFilePath.Text = PathArray(LargestIndex)
+
+                Dim PathArray As String() = WorkingFilePath.Split("\"c)
+                If PathArray.Count > 4 Then
+                    Dim RootPath As String = PathArray(0) + "\"
+                    Dim ThirdToLastPath As String = PathArray(PathArray.Count() - 3) + "\"
+                    Dim SecondToLastPath As String = PathArray(PathArray.Count() - 2) + "\"
+                    Dim LastPath As String = PathArray(PathArray.Count() - 1)
+
+                    lblFilePath.Text = RootPath + "...\" + ThirdToLastPath + SecondToLastPath + LastPath
+                Else
+                    lblFilePath.Text = WorkingFilePath
+                End If
 
                 If lstCardTitles.Items.Count > 0 Then
                     lstCardTitles.SelectedIndex = 0
@@ -131,35 +139,39 @@ Public Class frmMain
     Private Sub tsmCardEdit_Click(sender As Object, e As EventArgs) Handles tsmCardEdit.Click
         ' edit a card's title/caption and replace in library list
 
-        ' read original card from list
-        Dim Index As Integer = lstCardTitles.SelectedIndex
-        Dim Title As String = LibraryList(Index)(0)
-        Dim Caption As String = LibraryList(Index)(1)
+        If LibraryList.Count > 0 Then
+            ' read original card from list
+            Dim Index As Integer = lstCardTitles.SelectedIndex
+            Dim Title As String = LibraryList(Index)(0)
+            Dim Caption As String = LibraryList(Index)(1)
 
-        ' input new title
-        Title = InputBox("Change the text of the title.", "Edit Card", Title)
-        If Title = "" Then
-            Exit Sub
+            ' input new title
+            Title = InputBox("Change the text of the title.", "Edit Card", Title)
+            If Title = "" Then
+                Exit Sub
+            End If
+
+            ' input new caption
+            Caption = InputBox("Change the text of the caption, or body of the card.", "Edit Card", Caption)
+            If Caption = "" Then
+                Exit Sub
+            End If
+
+            ' define edited card and replace in list
+            Dim EditedCard As List(Of String) = New List(Of String)
+            EditedCard.Add(Title)
+            EditedCard.Add(Caption)
+            If Not EditedCard.SequenceEqual(LibraryList(Index)) Then
+                LibraryList(Index) = EditedCard
+                HasUnsavedChanges = True
+                MessageBox.Show("There are unsaved changes")
+            End If
+
+            ' update interface
+            UpdateCardTitles()
+            lstCardTitles.SelectedIndex = Index
+            UpdateCurrentCard()
         End If
-
-        ' input new caption
-        Caption = InputBox("Change the text of the caption, or body of the card.", "Edit Card", Caption)
-        If Caption = "" Then
-            Exit Sub
-        End If
-
-        ' define edited card and replace in list
-        Dim EditedCard As List(Of String) = New List(Of String)
-        EditedCard.Add(Title)
-        EditedCard.Add(Caption)
-        LibraryList(Index) = EditedCard
-
-        ' update interface
-        UpdateCardTitles()
-        lstCardTitles.SelectedIndex = Index
-        UpdateCurrentCard()
-
-        HasUnsavedChanges = True
     End Sub
 
     Private Sub tsmCardDelete_Click(sender As Object, e As EventArgs) Handles tsmCardDelete.Click
@@ -181,6 +193,8 @@ Public Class frmMain
             Else
                 lstCardTitles.SelectedIndex = TargetIndex
             End If
+
+            HasUnsavedChanges = True
         End If
     End Sub
 
@@ -200,6 +214,8 @@ Public Class frmMain
         Else
             lstCardTitles.SelectedIndex = 0
         End If
+
+        HasUnsavedChanges = True
     End Sub
 
     Private Sub tsmCardMoveDown_Click(sender As Object, e As EventArgs) Handles tsmCardMoveDown.Click
@@ -219,6 +235,8 @@ Public Class frmMain
         Else
             lstCardTitles.SelectedIndex = LargestIndex
         End If
+
+        HasUnsavedChanges = True
     End Sub
 
     ' Member Functions & Subs
