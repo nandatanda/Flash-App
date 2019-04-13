@@ -96,18 +96,7 @@ Public Class frmMain
                 LibraryList = ParseFile(WorkingFilePath)
 
                 UpdateCardTitles()
-
-                Dim PathArray As String() = WorkingFilePath.Split("\"c)
-                If PathArray.Count > 4 Then
-                    Dim RootPath As String = PathArray(0) + "\"
-                    Dim ThirdToLastPath As String = PathArray(PathArray.Count() - 3) + "\"
-                    Dim SecondToLastPath As String = PathArray(PathArray.Count() - 2) + "\"
-                    Dim LastPath As String = PathArray(PathArray.Count() - 1)
-
-                    lblFilePath.Text = RootPath + "...\" + ThirdToLastPath + SecondToLastPath + LastPath
-                Else
-                    lblFilePath.Text = WorkingFilePath
-                End If
+                lblFilePath.Text = ShortenPath(WorkingFilePath)
 
                 If lstCardTitles.Items.Count > 0 Then
                     lstCardTitles.SelectedIndex = 0
@@ -289,6 +278,23 @@ Public Class frmMain
             MessageBox.Show("Unable to import library. The file may be corrupted or not of the appropriate type.", "Error")
         End Try
         Return MyLibrary
+    End Function
+
+    Private Function ShortenPath(ByVal Path As String) As String
+        ' return a short path for display in interface
+
+        Dim PathArray As String() = WorkingFilePath.Split("\"c)
+        If PathArray.Count > 4 Then
+            Dim RootPath As String = PathArray(0) + "\"
+            Dim ThirdToLastPath As String = PathArray(PathArray.Count() - 3) + "\"
+            Dim SecondToLastPath As String = PathArray(PathArray.Count() - 2) + "\"
+            Dim LastPath As String = PathArray(PathArray.Count() - 1)
+
+            Return RootPath + "...\" + ThirdToLastPath + SecondToLastPath + LastPath
+        Else
+            Return WorkingFilePath
+        End If
+
     End Function
 
     Private Sub SaveToFile(ByVal Path As String)
