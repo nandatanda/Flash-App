@@ -49,9 +49,28 @@ Public Class frmMain
 
     Private Sub tsmFileNew_Click(sender As Object, e As EventArgs) Handles tsmFileNew.Click
         If HasUnsavedChanges Then
-            MessageBox.Show("The current file is unsaved. Opening a new file may result in loss of data.", "Reminder")
+            Dim Response As Integer = MessageBox.Show("The current library has unsaved changes. Creating a new one will result in loss of data. Save before continuing? ", "New", MessageBoxButtons.YesNoCancel)
+            If Response = DialogResult.Yes Then
+                If WorkingFilePath = String.Empty Then
+                    Dim MyPrompt As SaveFileDialog = New SaveFileDialog With {
+                    .DefaultExt = "txt",
+                    .FileName = "my-flashcards",
+                    .InitialDirectory = BasePath,
+                    .Filter = "All files|*.*|Text files|*.txt",
+                    .Title = "Open"
+                    }
+
+                    If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
+                        WorkingFilePath = MyPrompt.FileName
+                        SaveToFile(WorkingFilePath)
+                    End If
+
+                Else
+                    SaveToFile(WorkingFilePath)
+                End If
+            End If
         Else
-            ClearCurrentCard()
+                ClearCurrentCard()
             lstCardTitles.Items.Clear()
             lblFilePath.Text = "New Library*"
             lblTitle.Text = "New Library"
@@ -62,7 +81,7 @@ Public Class frmMain
 
     Private Sub tsmFileOpen_Click(sender As Object, e As EventArgs) Handles tsmFileOpen.Click
         If HasUnsavedChanges Then
-            MessageBox.Show("The current file is unsaved. Opening a new file may result in loss of data.", "Reminder")
+            MessageBox.Show("The current file is unsaved. Opening a new file may result in loss of data.", "Open")
         Else
             Dim MyPrompt As OpenFileDialog = New OpenFileDialog With {
                 .DefaultExt = "txt",
@@ -183,7 +202,7 @@ Public Class frmMain
         ' remove selected card from list
 
         If LibraryList.Count > 0 Then
-            Dim Response As Integer = MessageBox.Show("Are you sure you want to delete this flashcard?", "Confirm Delete", MessageBoxButtons.OKCancel)
+            Dim Response As Integer = MessageBox.Show("Are you sure you want to delete this flashcard?", "Delete", MessageBoxButtons.OKCancel)
             If Response = DialogResult.OK Then
                 Dim TargetIndex As Integer = lstCardTitles.SelectedIndex
                 Dim LargestIndex As Integer = lstCardTitles.Items.Count - 2
@@ -204,7 +223,7 @@ Public Class frmMain
                 HasUnsavedChanges = True
             End If
         Else
-            MessageBox.Show("There are no cards to delete in the current library.", "Delete Card")
+            MessageBox.Show("There are no cards to delete in the current library.", "Delete")
         End If
     End Sub
 
