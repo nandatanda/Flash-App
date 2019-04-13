@@ -50,6 +50,11 @@ Public Class frmMain
     Private Sub tsmFileNew_Click(sender As Object, e As EventArgs) Handles tsmFileNew.Click
         If HasUnsavedChanges Then
             Dim Response As Integer = MessageBox.Show("The current library has unsaved changes. Creating a new one will result in loss of data. Save before continuing? ", "New", MessageBoxButtons.YesNoCancel)
+
+            If Response = DialogResult.Cancel Then
+                Exit Sub
+            End If
+
             If Response = DialogResult.Yes Then
                 If WorkingFilePath = String.Empty Then
                     Dim MyPrompt As SaveFileDialog = New SaveFileDialog With {
@@ -59,24 +64,25 @@ Public Class frmMain
                     .Filter = "All files|*.*|Text files|*.txt",
                     .Title = "Open"
                     }
-
                     If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
                         WorkingFilePath = MyPrompt.FileName
                         SaveToFile(WorkingFilePath)
+                    Else
+                        Exit Sub
                     End If
-
-                Else
-                    SaveToFile(WorkingFilePath)
                 End If
             End If
-        Else
-                ClearCurrentCard()
-            lstCardTitles.Items.Clear()
-            lblFilePath.Text = "New Library*"
-            lblTitle.Text = "New Library"
-            lblCaption.Text = "Create your first card with 'Ctrl + C' or by using the file menu above. The new card will be displayed here."
-            LibraryList = New List(Of List(Of String))
         End If
+
+        WorkingFilePath = String.Empty
+        LibraryList = New List(Of List(Of String))
+        HasUnsavedChanges = False
+
+        ClearCurrentCard()
+        lstCardTitles.Items.Clear()
+        lblFilePath.Text = "New Library*"
+        lblTitle.Text = "New Library"
+        lblCaption.Text = "Create your first card with 'Ctrl + C' or by using the file menu above. The new card will be displayed here."
     End Sub
 
     Private Sub tsmFileOpen_Click(sender As Object, e As EventArgs) Handles tsmFileOpen.Click
