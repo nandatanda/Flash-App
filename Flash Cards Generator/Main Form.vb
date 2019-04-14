@@ -113,7 +113,25 @@ Public Class frmMain
     End Sub
 
     Private Sub tsmFileSave_Click(sender As Object, e As EventArgs) Handles tsmFileSave.Click
+        If HasUnsavedChanges Then
+            If WorkingFilePath = String.Empty Then
+                Dim MyPrompt As SaveFileDialog = New SaveFileDialog With {
+                .DefaultExt = "txt",
+                .FileName = "my-flashcards",
+                .InitialDirectory = BasePath,
+                .Filter = "All files|*.*|Text files|*.txt",
+                .Title = "Open"
+                }
+                If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
+                    WorkingFilePath = MyPrompt.FileName
+                End If
+            End If
 
+            SaveToFile(WorkingFilePath)
+            HasUnsavedChanges = False
+
+            lblFilePath.Text = ShortenPath(WorkingFilePath)
+        End If
     End Sub
 
     Private Sub tsmFileSaveAs_Click(sender As Object, e As EventArgs) Handles tsmFileSaveAs.Click
