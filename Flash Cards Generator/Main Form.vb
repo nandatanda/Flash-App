@@ -68,6 +68,8 @@ Public Class frmMain
                     Else
                         Exit Sub
                     End If
+                Else
+                    SaveToFile(WorkingFilePath)
                 End If
             End If
         End If
