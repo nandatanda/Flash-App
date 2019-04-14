@@ -86,29 +86,63 @@ Public Class frmMain
     End Sub
 
     Private Sub tsmFileOpen_Click(sender As Object, e As EventArgs) Handles tsmFileOpen.Click
+        ' open a file from disk and load it into library list
+
         If HasUnsavedChanges Then
-            MessageBox.Show("The current file is unsaved. Opening a new file may result in loss of data.", "Open")
-        Else
-            Dim MyPrompt As OpenFileDialog = New OpenFileDialog With {
+            ' prompt for emergency save
+            Dim Response As Integer = MessageBox.Show("The current library has unsaved changes. Opening another one will result in loss of data. Save before continuing? ", "Open", MessageBoxButtons.YesNoCancel)
+            If Response = DialogResult.Cancel Then
+                Exit Sub
+
+            ElseIf Response = DialogResult.Yes Then
+                ' set up and confirm save
+
+                If WorkingFilePath = String.Empty Then
+                    ' define prompt for save location
+                    Dim SavePrompt As SaveFileDialog = New SaveFileDialog With {
+                    .DefaultExt = "txt",
+                    .FileName = "my-flashcards",
+                    .InitialDirectory = BasePath,
+                    .Filter = "All files|*.*|Text files|*.txt",
+                    .Title = "Save"}
+
+                    ' assign filename to path or cancel operation
+                    If SavePrompt.ShowDialog() <> DialogResult.Cancel Then
+                        WorkingFilePath = SavePrompt.FileName
+                    Else
+                        Exit Sub
+                    End If
+                End If
+
+                ' perform save
+                SaveToFile(WorkingFilePath)
+                HasUnsavedChanges = False
+                lblFilePath.Text = ShortenPath(WorkingFilePath)
+            End If
+        End If
+
+        ' define prompt for location of file to be opened
+        Dim OpenPrompt As OpenFileDialog = New OpenFileDialog With {
                 .DefaultExt = "txt",
                 .FileName = "data",
                 .InitialDirectory = BasePath,
                 .Filter = "All files|*.*|Text files|*.txt",
-                .Title = "Open"
-            }
+                .Title = "Open"}
 
-            If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
-                WorkingFilePath = MyPrompt.FileName
-                LibraryList = ParseFile(WorkingFilePath)
+        ' open file or cancel operation
+        If OpenPrompt.ShowDialog() <> DialogResult.Cancel Then
+            WorkingFilePath = OpenPrompt.FileName
+            LibraryList = ParseFile(WorkingFilePath)
 
-                UpdateCardTitles()
-                lblFilePath.Text = ShortenPath(WorkingFilePath)
-
-                If lstCardTitles.Items.Count > 0 Then
-                    lstCardTitles.SelectedIndex = 0
-                    UpdateCurrentCard()
-                End If
+            ' update interface
+            UpdateCardTitles()
+            lblFilePath.Text = ShortenPath(WorkingFilePath)
+            If lstCardTitles.Items.Count > 0 Then
+                lstCardTitles.SelectedIndex = 0
+                UpdateCurrentCard()
             End If
+        Else
+            Exit Sub
         End If
     End Sub
 
