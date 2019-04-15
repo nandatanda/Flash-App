@@ -180,8 +180,8 @@ Public Class frmMain
                 .FileName = "my-flashcards",
                 .InitialDirectory = BasePath,
                 .Filter = "All files|*.*|Text files|*.txt",
-                .Title = "Open"
-                }
+                .Title = "Open"}
+
         If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
             WorkingFilePath = MyPrompt.FileName
         End If
