@@ -63,26 +63,6 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property _121494_minimalist_geometric_wallpaper() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("121494_minimalist-geometric-wallpaper", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property black_background_00313351() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("black-background_00313351", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
         Friend ReadOnly Property sort_ascending_right() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("sort-ascending-right", resourceCulture)
