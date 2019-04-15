@@ -184,6 +184,8 @@ Public Class frmMain
 
         If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
             WorkingFilePath = MyPrompt.FileName
+        Else
+            Exit Sub
         End If
 
         SaveToFile(WorkingFilePath)
