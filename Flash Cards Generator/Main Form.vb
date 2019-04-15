@@ -175,6 +175,7 @@ Public Class frmMain
     End Sub
 
     Private Sub tsmFileSaveAs_Click(sender As Object, e As EventArgs) Handles tsmFileSaveAs.Click
+        ' define prompt for save location
         Dim MyPrompt As SaveFileDialog = New SaveFileDialog With {
                 .DefaultExt = "txt",
                 .FileName = "my-flashcards",
@@ -182,15 +183,18 @@ Public Class frmMain
                 .Filter = "All files|*.*|Text files|*.txt",
                 .Title = "Open"}
 
+        ' assign filename to path or cancel operation
         If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
             WorkingFilePath = MyPrompt.FileName
         Else
             Exit Sub
         End If
 
+        'perform save
         SaveToFile(WorkingFilePath)
         HasUnsavedChanges = False
 
+        ' update interface
         lblFilePath.Text = ShortenPath(WorkingFilePath)
     End Sub
 
