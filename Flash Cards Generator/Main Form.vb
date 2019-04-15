@@ -158,13 +158,12 @@ Public Class frmMain
                 }
                 If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
                     WorkingFilePath = MyPrompt.FileName
+                    SaveToFile(WorkingFilePath)
+                    HasUnsavedChanges = False
+
+                    lblFilePath.Text = ShortenPath(WorkingFilePath)
                 End If
             End If
-
-            SaveToFile(WorkingFilePath)
-            HasUnsavedChanges = False
-
-            lblFilePath.Text = ShortenPath(WorkingFilePath)
         End If
     End Sub
 
