@@ -298,10 +298,13 @@ Partial Class frmMain
         Me.Controls.Add(Me.lstCardTitles)
         Me.Controls.Add(Me.tsmMain)
         Me.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.tsmMain
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.MinimumSize = New System.Drawing.Size(300, 400)
+        Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(600, 727)
+        Me.MinimumSize = New System.Drawing.Size(600, 727)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FlashApp"
