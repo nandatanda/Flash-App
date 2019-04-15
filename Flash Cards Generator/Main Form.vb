@@ -149,21 +149,28 @@ Public Class frmMain
     Private Sub tsmFileSave_Click(sender As Object, e As EventArgs) Handles tsmFileSave.Click
         If HasUnsavedChanges Then
             If WorkingFilePath = String.Empty Then
+                ' define prompt for save location
                 Dim MyPrompt As SaveFileDialog = New SaveFileDialog With {
                 .DefaultExt = "txt",
                 .FileName = "my-flashcards",
                 .InitialDirectory = BasePath,
                 .Filter = "All files|*.*|Text files|*.txt",
-                .Title = "Open"
-                }
+                .Title = "Open"}
+
+                ' assign filename to path or cancel operation
                 If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
                     WorkingFilePath = MyPrompt.FileName
-                    SaveToFile(WorkingFilePath)
-                    HasUnsavedChanges = False
-
-                    lblFilePath.Text = ShortenPath(WorkingFilePath)
+                Else
+                    Exit Sub
                 End If
             End If
+
+            'perform save
+            SaveToFile(WorkingFilePath)
+            HasUnsavedChanges = False
+
+            ' update interface
+            lblFilePath.Text = ShortenPath(WorkingFilePath)
         End If
     End Sub
 
