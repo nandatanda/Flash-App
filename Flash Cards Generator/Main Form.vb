@@ -16,6 +16,7 @@ Public Class frmMain
 
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+        lblTitle.Visible = False
         lblTitle.Text = "Welcome"
         lblCaption.Text = "To start, create a new card library or open an existing one using the 'file' menu above."
     End Sub
@@ -419,6 +420,22 @@ Public Class frmMain
     Private Sub ClearCurrentCard()
         lblTitle.Text = String.Empty
         lblCaption.Text = String.Empty
+    End Sub
+
+    Private Sub FlipCard()
+        If lblTitle.Visible Then
+            lblTitle.Visible = False
+            lblCaption.Visible = True
+            picCardBackground.Image = Flash_Cards_Generator.My.Resources.Resources.flashcard_background_blue
+        Else
+            lblTitle.Visible = True
+            lblCaption.Visible = False
+            picCardBackground.Image = Flash_Cards_Generator.My.Resources.Resources.flashcard_background_blue_reversed
+        End If
+    End Sub
+
+    Private Sub picCardBackground_Click(sender As Object, e As EventArgs) Handles picCardBackground.Click
+        FlipCard()
     End Sub
 
 End Class

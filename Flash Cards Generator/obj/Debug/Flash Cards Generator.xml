@@ -22,6 +22,16 @@ Flash Cards Generator
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:Flash_Cards_Generator.My.Resources.Resources.flashcard_background_blue">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Flash_Cards_Generator.My.Resources.Resources.flashcard_background_blue_reversed">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Flash_Cards_Generator.My.Resources.Resources.sort_ascending_right">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

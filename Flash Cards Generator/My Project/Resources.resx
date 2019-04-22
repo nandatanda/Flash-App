@@ -124,4 +124,10 @@
   <data name="sort-descending-right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sort-descending-right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="flashcard-background-blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flashcard-background-blue.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flashcard-background-blue-reversed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flashcard-background-blue-reversed.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

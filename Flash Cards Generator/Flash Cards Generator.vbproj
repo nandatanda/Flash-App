@@ -145,6 +145,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-icon.ico" />
+    <None Include="Resources\flashcard-background-blue-reversed.jpg" />
+    <None Include="Resources\flashcard-background-blue.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
