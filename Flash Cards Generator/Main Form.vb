@@ -438,4 +438,11 @@ Public Class frmMain
         FlipCard()
     End Sub
 
+    Private Sub lblTitle_Click(sender As Object, e As EventArgs) Handles lblTitle.Click
+        FlipCard()
+    End Sub
+
+    Private Sub lblCaption_Click(sender As Object, e As EventArgs) Handles lblCaption.Click
+        FlipCard()
+    End Sub
 End Class
