@@ -50,6 +50,7 @@ Partial Class frmMain
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HowToToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SortAZToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AscendingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -143,7 +144,7 @@ Partial Class frmMain
         Me.tsmFileNew.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsmFileNew.Name = "tsmFileNew"
         Me.tsmFileNew.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.tsmFileNew.Size = New System.Drawing.Size(180, 22)
+        Me.tsmFileNew.Size = New System.Drawing.Size(146, 22)
         Me.tsmFileNew.Text = "&New"
         '
         'tsmFileOpen
@@ -152,13 +153,13 @@ Partial Class frmMain
         Me.tsmFileOpen.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsmFileOpen.Name = "tsmFileOpen"
         Me.tsmFileOpen.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.tsmFileOpen.Size = New System.Drawing.Size(180, 22)
+        Me.tsmFileOpen.Size = New System.Drawing.Size(146, 22)
         Me.tsmFileOpen.Text = "&Open"
         '
         'toolStripSeparator
         '
         Me.toolStripSeparator.Name = "toolStripSeparator"
-        Me.toolStripSeparator.Size = New System.Drawing.Size(177, 6)
+        Me.toolStripSeparator.Size = New System.Drawing.Size(143, 6)
         '
         'tsmFileSave
         '
@@ -166,19 +167,19 @@ Partial Class frmMain
         Me.tsmFileSave.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsmFileSave.Name = "tsmFileSave"
         Me.tsmFileSave.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.tsmFileSave.Size = New System.Drawing.Size(180, 22)
+        Me.tsmFileSave.Size = New System.Drawing.Size(146, 22)
         Me.tsmFileSave.Text = "&Save"
         '
         'tsmFileSaveAs
         '
         Me.tsmFileSaveAs.Name = "tsmFileSaveAs"
-        Me.tsmFileSaveAs.Size = New System.Drawing.Size(180, 22)
+        Me.tsmFileSaveAs.Size = New System.Drawing.Size(146, 22)
         Me.tsmFileSaveAs.Text = "Save &As"
         '
         'toolStripSeparator1
         '
         Me.toolStripSeparator1.Name = "toolStripSeparator1"
-        Me.toolStripSeparator1.Size = New System.Drawing.Size(177, 6)
+        Me.toolStripSeparator1.Size = New System.Drawing.Size(143, 6)
         '
         'PrintToolStripMenuItem
         '
@@ -186,7 +187,7 @@ Partial Class frmMain
         Me.PrintToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
         Me.PrintToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
-        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.PrintToolStripMenuItem.Text = "&Print"
         '
         'PrintPreviewToolStripMenuItem
@@ -194,18 +195,18 @@ Partial Class frmMain
         Me.PrintPreviewToolStripMenuItem.Image = CType(resources.GetObject("PrintPreviewToolStripMenuItem.Image"), System.Drawing.Image)
         Me.PrintPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.PrintPreviewToolStripMenuItem.Name = "PrintPreviewToolStripMenuItem"
-        Me.PrintPreviewToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PrintPreviewToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.PrintPreviewToolStripMenuItem.Text = "Print Pre&view"
         '
         'toolStripSeparator2
         '
         Me.toolStripSeparator2.Name = "toolStripSeparator2"
-        Me.toolStripSeparator2.Size = New System.Drawing.Size(177, 6)
+        Me.toolStripSeparator2.Size = New System.Drawing.Size(143, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
         Me.ExitToolStripMenuItem.Text = "E&xit"
         '
         'CardToolStripMenuItem
@@ -251,7 +252,7 @@ Partial Class frmMain
         '
         'HelpToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SearchToolStripMenuItem, Me.toolStripSeparator5, Me.AboutToolStripMenuItem})
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SearchToolStripMenuItem, Me.HowToToolStripMenuItem, Me.toolStripSeparator5, Me.AboutToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.HelpToolStripMenuItem.Text = "&Help"
@@ -272,6 +273,12 @@ Partial Class frmMain
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AboutToolStripMenuItem.Text = "&About..."
+        '
+        'HowToToolStripMenuItem
+        '
+        Me.HowToToolStripMenuItem.Name = "HowToToolStripMenuItem"
+        Me.HowToToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HowToToolStripMenuItem.Text = "User Manual"
         '
         'ViewToolStripMenuItem
         '
@@ -369,4 +376,5 @@ Partial Class frmMain
     Friend WithEvents SortAZToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AscendingToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DescendingToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HowToToolStripMenuItem As ToolStripMenuItem
 End Class
