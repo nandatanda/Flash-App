@@ -29,9 +29,14 @@ Partial Class frmMain
         Me.lblFilePath = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.FileToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmFileNew = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmFileOpen = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripSeparator = New System.Windows.Forms.ToolStripSeparator()
+        Me.tsmFileSave = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmFileSaveAs = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.PrintToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PrintPreviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -49,13 +54,9 @@ Partial Class frmMain
         Me.SortAZToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AscendingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescendingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HideTitlesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmMain = New System.Windows.Forms.MenuStrip()
         Me.btnSortListbox = New System.Windows.Forms.Button()
-        Me.tsmFileNew = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsmFileOpen = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsmFileSave = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PrintToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PrintPreviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.picCardBackground = New System.Windows.Forms.PictureBox()
         Me.tsmMain.SuspendLayout()
         CType(Me.picCardBackground, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -70,7 +71,6 @@ Partial Class frmMain
         Me.lstCardTitles.FormattingEnabled = True
         Me.lstCardTitles.ItemHeight = 21
         Me.lstCardTitles.Location = New System.Drawing.Point(0, 520)
-        Me.lstCardTitles.MultiColumn = True
         Me.lstCardTitles.Name = "lstCardTitles"
         Me.lstCardTitles.Size = New System.Drawing.Size(584, 168)
         Me.lstCardTitles.TabIndex = 5
@@ -126,10 +126,37 @@ Partial Class frmMain
         Me.FileToolStripMenuItem1.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem1.Text = "&File"
         '
+        'tsmFileNew
+        '
+        Me.tsmFileNew.Image = CType(resources.GetObject("tsmFileNew.Image"), System.Drawing.Image)
+        Me.tsmFileNew.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsmFileNew.Name = "tsmFileNew"
+        Me.tsmFileNew.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
+        Me.tsmFileNew.Size = New System.Drawing.Size(146, 22)
+        Me.tsmFileNew.Text = "&New"
+        '
+        'tsmFileOpen
+        '
+        Me.tsmFileOpen.Image = CType(resources.GetObject("tsmFileOpen.Image"), System.Drawing.Image)
+        Me.tsmFileOpen.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsmFileOpen.Name = "tsmFileOpen"
+        Me.tsmFileOpen.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
+        Me.tsmFileOpen.Size = New System.Drawing.Size(146, 22)
+        Me.tsmFileOpen.Text = "&Open"
+        '
         'toolStripSeparator
         '
         Me.toolStripSeparator.Name = "toolStripSeparator"
         Me.toolStripSeparator.Size = New System.Drawing.Size(143, 6)
+        '
+        'tsmFileSave
+        '
+        Me.tsmFileSave.Image = CType(resources.GetObject("tsmFileSave.Image"), System.Drawing.Image)
+        Me.tsmFileSave.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsmFileSave.Name = "tsmFileSave"
+        Me.tsmFileSave.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.tsmFileSave.Size = New System.Drawing.Size(146, 22)
+        Me.tsmFileSave.Text = "&Save"
         '
         'tsmFileSaveAs
         '
@@ -141,6 +168,23 @@ Partial Class frmMain
         '
         Me.toolStripSeparator1.Name = "toolStripSeparator1"
         Me.toolStripSeparator1.Size = New System.Drawing.Size(143, 6)
+        '
+        'PrintToolStripMenuItem
+        '
+        Me.PrintToolStripMenuItem.Image = CType(resources.GetObject("PrintToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.PrintToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
+        Me.PrintToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
+        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.PrintToolStripMenuItem.Text = "&Print"
+        '
+        'PrintPreviewToolStripMenuItem
+        '
+        Me.PrintPreviewToolStripMenuItem.Image = CType(resources.GetObject("PrintPreviewToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.PrintPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.PrintPreviewToolStripMenuItem.Name = "PrintPreviewToolStripMenuItem"
+        Me.PrintPreviewToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.PrintPreviewToolStripMenuItem.Text = "Print Pre&view"
         '
         'toolStripSeparator2
         '
@@ -226,7 +270,7 @@ Partial Class frmMain
         '
         'ViewToolStripMenuItem
         '
-        Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SortAZToolStripMenuItem})
+        Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SortAZToolStripMenuItem, Me.HideTitlesToolStripMenuItem})
         Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
         Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.ViewToolStripMenuItem.Text = "&View"
@@ -235,7 +279,7 @@ Partial Class frmMain
         '
         Me.SortAZToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AscendingToolStripMenuItem, Me.DescendingToolStripMenuItem})
         Me.SortAZToolStripMenuItem.Name = "SortAZToolStripMenuItem"
-        Me.SortAZToolStripMenuItem.Size = New System.Drawing.Size(118, 22)
+        Me.SortAZToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SortAZToolStripMenuItem.Text = "Sort A-Z"
         '
         'AscendingToolStripMenuItem
@@ -249,6 +293,13 @@ Partial Class frmMain
         Me.DescendingToolStripMenuItem.Name = "DescendingToolStripMenuItem"
         Me.DescendingToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.DescendingToolStripMenuItem.Text = "Descending"
+        '
+        'HideTitlesToolStripMenuItem
+        '
+        Me.HideTitlesToolStripMenuItem.CheckOnClick = True
+        Me.HideTitlesToolStripMenuItem.Name = "HideTitlesToolStripMenuItem"
+        Me.HideTitlesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HideTitlesToolStripMenuItem.Text = "Hide Titles"
         '
         'tsmMain
         '
@@ -271,50 +322,6 @@ Partial Class frmMain
         Me.btnSortListbox.Size = New System.Drawing.Size(25, 25)
         Me.btnSortListbox.TabIndex = 28
         Me.btnSortListbox.UseVisualStyleBackColor = False
-        '
-        'tsmFileNew
-        '
-        Me.tsmFileNew.Image = CType(resources.GetObject("tsmFileNew.Image"), System.Drawing.Image)
-        Me.tsmFileNew.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsmFileNew.Name = "tsmFileNew"
-        Me.tsmFileNew.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.tsmFileNew.Size = New System.Drawing.Size(146, 22)
-        Me.tsmFileNew.Text = "&New"
-        '
-        'tsmFileOpen
-        '
-        Me.tsmFileOpen.Image = CType(resources.GetObject("tsmFileOpen.Image"), System.Drawing.Image)
-        Me.tsmFileOpen.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsmFileOpen.Name = "tsmFileOpen"
-        Me.tsmFileOpen.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.tsmFileOpen.Size = New System.Drawing.Size(146, 22)
-        Me.tsmFileOpen.Text = "&Open"
-        '
-        'tsmFileSave
-        '
-        Me.tsmFileSave.Image = CType(resources.GetObject("tsmFileSave.Image"), System.Drawing.Image)
-        Me.tsmFileSave.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsmFileSave.Name = "tsmFileSave"
-        Me.tsmFileSave.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.tsmFileSave.Size = New System.Drawing.Size(146, 22)
-        Me.tsmFileSave.Text = "&Save"
-        '
-        'PrintToolStripMenuItem
-        '
-        Me.PrintToolStripMenuItem.Image = CType(resources.GetObject("PrintToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.PrintToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
-        Me.PrintToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
-        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
-        Me.PrintToolStripMenuItem.Text = "&Print"
-        '
-        'PrintPreviewToolStripMenuItem
-        '
-        Me.PrintPreviewToolStripMenuItem.Image = CType(resources.GetObject("PrintPreviewToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.PrintPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.PrintPreviewToolStripMenuItem.Name = "PrintPreviewToolStripMenuItem"
-        Me.PrintPreviewToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
-        Me.PrintPreviewToolStripMenuItem.Text = "Print Pre&view"
         '
         'picCardBackground
         '
@@ -349,6 +356,7 @@ Partial Class frmMain
         Me.MaximumSize = New System.Drawing.Size(600, 727)
         Me.MinimumSize = New System.Drawing.Size(600, 727)
         Me.Name = "frmMain"
+        Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FlashApp"
         Me.tsmMain.ResumeLayout(False)
@@ -392,4 +400,5 @@ Partial Class frmMain
     Friend WithEvents DescendingToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HowToToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents picCardBackground As PictureBox
+    Friend WithEvents HideTitlesToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -156,7 +156,14 @@ Public Class frmMain
             LibraryList = ParseFile(WorkingFilePath)
 
             ' update interface
-            UpdateCardTitles()
+            If HideTitlesToolStripMenuItem.Checked Then
+                lstCardTitles.Items.Clear()
+                For i As Integer = 0 To LibraryList.Count - 1
+                    lstCardTitles.Items.Add("Card #" & (i + 1).ToString)
+                Next
+            Else
+                UpdateCardTitles()
+            End If
             lblFilePath.Text = ShortenPath(WorkingFilePath)
             If lstCardTitles.Items.Count > 0 Then
                 lstCardTitles.SelectedIndex = 0
@@ -452,6 +459,23 @@ Public Class frmMain
     Private Sub ClearCurrentCard()
         lblTitle.Text = String.Empty
         lblCaption.Text = String.Empty
+    End Sub
+
+    Private Sub HideTitlesToolStripMenuItem_CheckedChanged(sender As Object, e As EventArgs) Handles HideTitlesToolStripMenuItem.CheckedChanged
+        Dim LatestIndex As Integer = lstCardTitles.SelectedIndex
+
+        If HideTitlesToolStripMenuItem.Checked Then
+            lstCardTitles.Items.Clear()
+            For i As Integer = 0 To LibraryList.Count - 1
+                lstCardTitles.Items.Add("Card #" & (i + 1).ToString)
+            Next
+        Else
+            lstCardTitles.Items.Clear()
+            For Each Card As List(Of String) In LibraryList
+                lstCardTitles.Items.Add(Card(0))
+            Next
+        End If
+        lstCardTitles.SelectedIndex = LatestIndex
     End Sub
 
 End Class
