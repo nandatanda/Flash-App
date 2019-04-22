@@ -23,6 +23,23 @@ Public Class frmMain
 
     Private Sub lstCardTitles_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstCardTitles.SelectedIndexChanged
         UpdateCurrentCard()
+        If lblTitle.Visible Then
+            FlipCard()
+        End If
+    End Sub
+
+    ' Click Events for Non-TSM Buttons & Flashcard Representation
+
+    Private Sub picCardBackground_Click(sender As Object, e As EventArgs) Handles picCardBackground.Click
+        FlipCard()
+    End Sub
+
+    Private Sub lblTitle_Click(sender As Object, e As EventArgs) Handles lblTitle.Click
+        FlipCard()
+    End Sub
+
+    Private Sub lblCaption_Click(sender As Object, e As EventArgs) Handles lblCaption.Click
+        FlipCard()
     End Sub
 
     Private Sub btnSortListbox_Click(sender As Object, e As EventArgs) Handles btnSortListbox.Click
@@ -47,6 +64,7 @@ Public Class frmMain
             lstCardTitles.SelectedItem = LatestSelectedItem
         End If
     End Sub
+
 
     ' Click Events for ToolStripMenu -> File
 
@@ -355,6 +373,20 @@ Public Class frmMain
 
     ' Member Functions & Subs
 
+    Private Sub FlipCard()
+        ' update interface to simulate flipping the current card over
+
+        If lblTitle.Visible Then
+            lblTitle.Visible = False
+            lblCaption.Visible = True
+            picCardBackground.Image = Flash_Cards_Generator.My.Resources.Resources.flashcard_background_blue
+        Else
+            lblTitle.Visible = True
+            lblCaption.Visible = False
+            picCardBackground.Image = Flash_Cards_Generator.My.Resources.Resources.flashcard_background_blue_reversed
+        End If
+    End Sub
+
     Private Function ParseFile(ByVal Path As String) As List(Of List(Of String))
         ' return a list of cards where each element is a list of that card's components
         Dim MyLibrary As List(Of List(Of String)) = New List(Of List(Of String))
@@ -422,27 +454,4 @@ Public Class frmMain
         lblCaption.Text = String.Empty
     End Sub
 
-    Private Sub FlipCard()
-        If lblTitle.Visible Then
-            lblTitle.Visible = False
-            lblCaption.Visible = True
-            picCardBackground.Image = Flash_Cards_Generator.My.Resources.Resources.flashcard_background_blue
-        Else
-            lblTitle.Visible = True
-            lblCaption.Visible = False
-            picCardBackground.Image = Flash_Cards_Generator.My.Resources.Resources.flashcard_background_blue_reversed
-        End If
-    End Sub
-
-    Private Sub picCardBackground_Click(sender As Object, e As EventArgs) Handles picCardBackground.Click
-        FlipCard()
-    End Sub
-
-    Private Sub lblTitle_Click(sender As Object, e As EventArgs) Handles lblTitle.Click
-        FlipCard()
-    End Sub
-
-    Private Sub lblCaption_Click(sender As Object, e As EventArgs) Handles lblCaption.Click
-        FlipCard()
-    End Sub
 End Class
