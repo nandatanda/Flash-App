@@ -54,7 +54,7 @@ Partial Class frmMain
         Me.SortAZToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AscendingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DescendingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HideTitlesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmViewHideTitles = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmMain = New System.Windows.Forms.MenuStrip()
         Me.btnSortListbox = New System.Windows.Forms.Button()
         Me.picCardBackground = New System.Windows.Forms.PictureBox()
@@ -132,7 +132,7 @@ Partial Class frmMain
         Me.tsmFileNew.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsmFileNew.Name = "tsmFileNew"
         Me.tsmFileNew.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.tsmFileNew.Size = New System.Drawing.Size(146, 22)
+        Me.tsmFileNew.Size = New System.Drawing.Size(180, 22)
         Me.tsmFileNew.Text = "&New"
         '
         'tsmFileOpen
@@ -194,7 +194,7 @@ Partial Class frmMain
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ExitToolStripMenuItem.Text = "E&xit"
         '
         'CardToolStripMenuItem
@@ -248,29 +248,29 @@ Partial Class frmMain
         'SearchToolStripMenuItem
         '
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SearchToolStripMenuItem.Text = "&Search"
         '
         'HowToToolStripMenuItem
         '
         Me.HowToToolStripMenuItem.Name = "HowToToolStripMenuItem"
-        Me.HowToToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.HowToToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.HowToToolStripMenuItem.Text = "User Manual"
         '
         'toolStripSeparator5
         '
         Me.toolStripSeparator5.Name = "toolStripSeparator5"
-        Me.toolStripSeparator5.Size = New System.Drawing.Size(137, 6)
+        Me.toolStripSeparator5.Size = New System.Drawing.Size(177, 6)
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AboutToolStripMenuItem.Text = "&About..."
         '
         'ViewToolStripMenuItem
         '
-        Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SortAZToolStripMenuItem, Me.HideTitlesToolStripMenuItem})
+        Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SortAZToolStripMenuItem, Me.tsmViewHideTitles})
         Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
         Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.ViewToolStripMenuItem.Text = "&View"
@@ -294,12 +294,12 @@ Partial Class frmMain
         Me.DescendingToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.DescendingToolStripMenuItem.Text = "Descending"
         '
-        'HideTitlesToolStripMenuItem
+        'tsmViewHideTitles
         '
-        Me.HideTitlesToolStripMenuItem.CheckOnClick = True
-        Me.HideTitlesToolStripMenuItem.Name = "HideTitlesToolStripMenuItem"
-        Me.HideTitlesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.HideTitlesToolStripMenuItem.Text = "Hide Titles"
+        Me.tsmViewHideTitles.CheckOnClick = True
+        Me.tsmViewHideTitles.Name = "tsmViewHideTitles"
+        Me.tsmViewHideTitles.Size = New System.Drawing.Size(180, 22)
+        Me.tsmViewHideTitles.Text = "Hide Titles"
         '
         'tsmMain
         '
@@ -400,5 +400,5 @@ Partial Class frmMain
     Friend WithEvents DescendingToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HowToToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents picCardBackground As PictureBox
-    Friend WithEvents HideTitlesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsmViewHideTitles As ToolStripMenuItem
 End Class
