@@ -18,7 +18,7 @@ Public Class frmMain
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         lblTitle.Visible = False
         lblTitle.Text = "Welcome"
-        lblCaption.Text = "To start, create a new card library or open an existing one using the 'file' menu above."
+        lblCaption.Text = "Hi there! To start, create a new card library or open an existing one using the file menu above. You can click on cards to flip them. Have fun!"
     End Sub
 
     Private Sub lstCardTitles_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstCardTitles.SelectedIndexChanged
@@ -43,25 +43,34 @@ Public Class frmMain
     End Sub
 
     Private Sub btnSortListbox_Click(sender As Object, e As EventArgs) Handles btnSortListbox.Click
-        If LibraryList.Count > 0 Then
-            Static ListboxIsInAscendingOrder As Boolean
+
+        Static ListboxIsInAscendingOrder As Boolean
+
+        If lstCardTitles.Items.Count > 0 And Not tsmViewHideTitles.Checked Then
             Dim LatestSelectedItem As String = lstCardTitles.SelectedItem.ToString
 
-            If lstCardTitles.Items.Count > 0 Then
-                If ListboxIsInAscendingOrder Then
-                    LibraryList.Reverse()
-                    btnSortListbox.BackgroundImage = My.Resources.sort_ascending_right
-                    ListboxIsInAscendingOrder = False
-                Else
-                    LibraryList.Sort(Function(x, y) x(0).CompareTo(y(0)))
-                    btnSortListbox.BackgroundImage = My.Resources.sort_descending_right
-                    ListboxIsInAscendingOrder = True
-                End If
+            If ListboxIsInAscendingOrder Then
+                LibraryList.Reverse()
+                btnSortListbox.BackgroundImage = My.Resources.sort_ascending_right
+                ListboxIsInAscendingOrder = False
+            Else
+                LibraryList.Sort(Function(x, y) x(0).CompareTo(y(0)))
+                btnSortListbox.BackgroundImage = My.Resources.sort_descending_right
+                ListboxIsInAscendingOrder = True
             End If
 
             UpdateCardTitles()
             ClearCurrentCard()
             lstCardTitles.SelectedItem = LatestSelectedItem
+
+        Else
+            If ListboxIsInAscendingOrder Then
+                btnSortListbox.BackgroundImage = My.Resources.sort_ascending_right
+                ListboxIsInAscendingOrder = False
+            Else
+                btnSortListbox.BackgroundImage = My.Resources.sort_descending_right
+                ListboxIsInAscendingOrder = True
+            End If
         End If
     End Sub
 
@@ -156,10 +165,10 @@ Public Class frmMain
             LibraryList = ParseFile(WorkingFilePath)
 
             ' update interface
-            If HideTitlesToolStripMenuItem.Checked Then
+            If tsmViewHideTitles.Checked Then
                 lstCardTitles.Items.Clear()
                 For i As Integer = 0 To LibraryList.Count - 1
-                    lstCardTitles.Items.Add("Card #" & (i + 1).ToString)
+                    lstCardTitles.Items.Add("???")
                 Next
             Else
                 UpdateCardTitles()
@@ -224,6 +233,10 @@ Public Class frmMain
 
         ' update interface
         lblFilePath.Text = ShortenPath(WorkingFilePath)
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Me.Close()
     End Sub
 
     ' Click Events for ToolStripMenu -> Card
@@ -461,13 +474,13 @@ Public Class frmMain
         lblCaption.Text = String.Empty
     End Sub
 
-    Private Sub HideTitlesToolStripMenuItem_CheckedChanged(sender As Object, e As EventArgs) Handles HideTitlesToolStripMenuItem.CheckedChanged
+    Private Sub HideTitlesToolStripMenuItem_CheckedChanged(sender As Object, e As EventArgs) Handles tsmViewHideTitles.CheckedChanged
         Dim LatestIndex As Integer = lstCardTitles.SelectedIndex
 
-        If HideTitlesToolStripMenuItem.Checked Then
+        If tsmViewHideTitles.Checked Then
             lstCardTitles.Items.Clear()
             For i As Integer = 0 To LibraryList.Count - 1
-                lstCardTitles.Items.Add("Card #" & (i + 1).ToString)
+                lstCardTitles.Items.Add("???")
             Next
         Else
             lstCardTitles.Items.Clear()
