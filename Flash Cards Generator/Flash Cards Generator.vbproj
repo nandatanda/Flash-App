@@ -145,6 +145,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-icon.ico" />
+    <None Include="Resources\card-delete-icon.png" />
+    <None Include="Resources\card-edit-icon.png" />
+    <None Include="Resources\card-new-icon.png" />
+    <None Include="Resources\icon-card-new.png" />
+    <None Include="Resources\icon-edit.png" />
     <None Include="Resources\flashcard-background-blue-reversed.jpg" />
     <None Include="Resources\flashcard-background-blue.jpg" />
   </ItemGroup>

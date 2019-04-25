@@ -9,10 +9,10 @@ Option Infer Off
 Public Class frmMain
 
     Private BasePath As String = My.Application.Info.DirectoryPath
-    Private WorkingFilePath As String = String.Empty
+    Private CurrentPath As String = String.Empty
     Private HasUnsavedChanges As Boolean
 
-    Public LibraryList As List(Of List(Of String)) = New List(Of List(Of String))
+    Public CurrentLibrary As List(Of List(Of String)) = New List(Of List(Of String))
 
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -22,44 +22,37 @@ Public Class frmMain
     End Sub
 
     Private Sub lstCardTitles_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstCardTitles.SelectedIndexChanged
-        UpdateCurrentCard()
+        RefreshCurrentCard()
         If lblTitle.Visible Then
-            FlipCard()
+            FlipCurrentCard()
         End If
     End Sub
 
     ' Click Events for Non-TSM Buttons & Flashcard Representation
 
-    Private Sub picCardBackground_Click(sender As Object, e As EventArgs) Handles picCardBackground.Click
-        FlipCard()
+    Private Sub Card_Click(sender As Object, e As EventArgs) Handles picCardBackground.Click, lblTitle.Click, lblCaption.Click
+        FlipCurrentCard()
     End Sub
 
-    Private Sub lblTitle_Click(sender As Object, e As EventArgs) Handles lblTitle.Click
-        FlipCard()
-    End Sub
-
-    Private Sub lblCaption_Click(sender As Object, e As EventArgs) Handles lblCaption.Click
-        FlipCard()
-    End Sub
 
     Private Sub btnSortListbox_Click(sender As Object, e As EventArgs) Handles btnSortListbox.Click
 
         Static ListboxIsInAscendingOrder As Boolean
 
-        If lstCardTitles.Items.Count > 0 And Not tsmViewHideTitles.Checked Then
+        If lstCardTitles.Items.Count > 0 And Not tsmViewHideCardNames.Checked Then
             Dim LatestSelectedItem As String = lstCardTitles.SelectedItem.ToString
 
             If ListboxIsInAscendingOrder Then
-                LibraryList.Reverse()
+                CurrentLibrary.Reverse()
                 btnSortListbox.BackgroundImage = My.Resources.sort_ascending_right
                 ListboxIsInAscendingOrder = False
             Else
-                LibraryList.Sort(Function(x, y) x(0).CompareTo(y(0)))
+                CurrentLibrary.Sort(Function(x, y) x(0).CompareTo(y(0)))
                 btnSortListbox.BackgroundImage = My.Resources.sort_descending_right
                 ListboxIsInAscendingOrder = True
             End If
 
-            UpdateCardTitles()
+            RefreshCardNames()
             ClearCurrentCard()
             lstCardTitles.SelectedItem = LatestSelectedItem
 
@@ -84,7 +77,7 @@ Public Class frmMain
             If Response = DialogResult.Cancel Then
                 Exit Sub
             ElseIf Response = DialogResult.Yes Then
-                If WorkingFilePath = String.Empty Then
+                If CurrentPath = String.Empty Then
                     Dim MyPrompt As SaveFileDialog = New SaveFileDialog With {
                     .DefaultExt = "txt",
                     .FileName = "my-flashcards",
@@ -93,19 +86,19 @@ Public Class frmMain
                     .Title = "Open"
                     }
                     If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
-                        WorkingFilePath = MyPrompt.FileName
-                        SaveToFile(WorkingFilePath)
+                        CurrentPath = MyPrompt.FileName
+                        SaveToFile(CurrentPath)
                     Else
                         Exit Sub
                     End If
                 Else
-                    SaveToFile(WorkingFilePath)
+                    SaveToFile(CurrentPath)
                 End If
             End If
         End If
 
-        WorkingFilePath = String.Empty
-        LibraryList = New List(Of List(Of String))
+        CurrentPath = String.Empty
+        CurrentLibrary = New List(Of List(Of String))
         HasUnsavedChanges = False
 
         ClearCurrentCard()
@@ -127,7 +120,7 @@ Public Class frmMain
             ElseIf Response = DialogResult.Yes Then
                 ' set up and confirm save
 
-                If WorkingFilePath = String.Empty Then
+                If CurrentPath = String.Empty Then
                     ' define prompt for save location
                     Dim SavePrompt As SaveFileDialog = New SaveFileDialog With {
                     .DefaultExt = "txt",
@@ -138,16 +131,16 @@ Public Class frmMain
 
                     ' assign filename to path or cancel operation
                     If SavePrompt.ShowDialog() <> DialogResult.Cancel Then
-                        WorkingFilePath = SavePrompt.FileName
+                        CurrentPath = SavePrompt.FileName
                     Else
                         Exit Sub
                     End If
                 End If
 
                 ' perform save
-                SaveToFile(WorkingFilePath)
+                SaveToFile(CurrentPath)
                 HasUnsavedChanges = False
-                lblFilePath.Text = ShortenPath(WorkingFilePath)
+                lblFilePath.Text = ShortenPath(CurrentPath)
             End If
         End If
 
@@ -161,22 +154,22 @@ Public Class frmMain
 
         ' open file or cancel operation
         If OpenPrompt.ShowDialog() <> DialogResult.Cancel Then
-            WorkingFilePath = OpenPrompt.FileName
-            LibraryList = ParseFile(WorkingFilePath)
+            CurrentPath = OpenPrompt.FileName
+            CurrentLibrary = ParseFile(CurrentPath)
 
             ' update interface
-            If tsmViewHideTitles.Checked Then
+            If tsmViewHideCardNames.Checked Then
                 lstCardTitles.Items.Clear()
-                For i As Integer = 0 To LibraryList.Count - 1
+                For i As Integer = 0 To CurrentLibrary.Count - 1
                     lstCardTitles.Items.Add("???")
                 Next
             Else
-                UpdateCardTitles()
+                RefreshCardNames()
             End If
-            lblFilePath.Text = ShortenPath(WorkingFilePath)
+            lblFilePath.Text = ShortenPath(CurrentPath)
             If lstCardTitles.Items.Count > 0 Then
                 lstCardTitles.SelectedIndex = 0
-                UpdateCurrentCard()
+                RefreshCurrentCard()
             End If
         Else
             Exit Sub
@@ -185,7 +178,7 @@ Public Class frmMain
 
     Private Sub tsmFileSave_Click(sender As Object, e As EventArgs) Handles tsmFileSave.Click
         If HasUnsavedChanges Then
-            If WorkingFilePath = String.Empty Then
+            If CurrentPath = String.Empty Then
                 ' define prompt for save location
                 Dim MyPrompt As SaveFileDialog = New SaveFileDialog With {
                 .DefaultExt = "txt",
@@ -196,18 +189,18 @@ Public Class frmMain
 
                 ' assign filename to path or cancel operation
                 If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
-                    WorkingFilePath = MyPrompt.FileName
+                    CurrentPath = MyPrompt.FileName
                 Else
                     Exit Sub
                 End If
             End If
 
             'perform save
-            SaveToFile(WorkingFilePath)
+            SaveToFile(CurrentPath)
             HasUnsavedChanges = False
 
             ' update interface
-            lblFilePath.Text = ShortenPath(WorkingFilePath)
+            lblFilePath.Text = ShortenPath(CurrentPath)
         End If
     End Sub
 
@@ -222,17 +215,17 @@ Public Class frmMain
 
         ' assign filename to path or cancel operation
         If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
-            WorkingFilePath = MyPrompt.FileName
+            CurrentPath = MyPrompt.FileName
         Else
             Exit Sub
         End If
 
         'perform save
-        SaveToFile(WorkingFilePath)
+        SaveToFile(CurrentPath)
         HasUnsavedChanges = False
 
         ' update interface
-        lblFilePath.Text = ShortenPath(WorkingFilePath)
+        lblFilePath.Text = ShortenPath(CurrentPath)
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
@@ -260,28 +253,28 @@ Public Class frmMain
         Dim NewCard As List(Of String) = New List(Of String)
         NewCard.Add(Title)
         NewCard.Add(Caption)
-        LibraryList.Add(NewCard)
+        CurrentLibrary.Add(NewCard)
 
         ' update interface
-        UpdateCardTitles()
+        RefreshCardNames()
         lstCardTitles.SelectedItem = Title
 
         HasUnsavedChanges = True
-        If WorkingFilePath = String.Empty Then
+        If CurrentPath = String.Empty Then
             lblFilePath.Text = "New Library*"
         Else
-            lblFilePath.Text = ShortenPath(WorkingFilePath) + "*"
+            lblFilePath.Text = ShortenPath(CurrentPath) + "*"
         End If
     End Sub
 
     Private Sub tsmCardEdit_Click(sender As Object, e As EventArgs) Handles tsmCardEdit.Click
         ' edit a card's title/caption and replace in library list
 
-        If LibraryList.Count > 0 Then
+        If CurrentLibrary.Count > 0 Then
             ' read original card from list
             Dim Index As Integer = lstCardTitles.SelectedIndex
-            Dim Title As String = LibraryList(Index)(0)
-            Dim Caption As String = LibraryList(Index)(1)
+            Dim Title As String = CurrentLibrary(Index)(0)
+            Dim Caption As String = CurrentLibrary(Index)(1)
 
             ' input new title
             Title = InputBox("Change the text of the title.", "Edit", Title)
@@ -299,16 +292,16 @@ Public Class frmMain
             Dim EditedCard As List(Of String) = New List(Of String)
             EditedCard.Add(Title)
             EditedCard.Add(Caption)
-            If Not EditedCard.SequenceEqual(LibraryList(Index)) Then
-                LibraryList(Index) = EditedCard
+            If Not EditedCard.SequenceEqual(CurrentLibrary(Index)) Then
+                CurrentLibrary(Index) = EditedCard
                 HasUnsavedChanges = True
             End If
 
             ' update interface
-            UpdateCardTitles()
+            RefreshCardNames()
             lstCardTitles.SelectedIndex = Index
-            UpdateCurrentCard()
-            lblFilePath.Text = ShortenPath(WorkingFilePath) + "*"
+            RefreshCurrentCard()
+            lblFilePath.Text = ShortenPath(CurrentPath) + "*"
         Else
             MessageBox.Show("There are no cards to edit in the current library.", "Edit")
         End If
@@ -317,16 +310,16 @@ Public Class frmMain
     Private Sub tsmCardDelete_Click(sender As Object, e As EventArgs) Handles tsmCardDelete.Click
         ' remove selected card from list
 
-        If LibraryList.Count > 0 Then
+        If CurrentLibrary.Count > 0 Then
             Dim Response As Integer = MessageBox.Show("Are you sure you want to delete this flashcard?", "Delete", MessageBoxButtons.OKCancel)
             If Response = DialogResult.OK Then
                 Dim TargetIndex As Integer = lstCardTitles.SelectedIndex
                 Dim LargestIndex As Integer = lstCardTitles.Items.Count - 2
 
-                LibraryList.RemoveAt(TargetIndex)
+                CurrentLibrary.RemoveAt(TargetIndex)
 
                 ' update interface
-                UpdateCardTitles()
+                RefreshCardNames()
                 ClearCurrentCard()
 
                 ' choose new selected item
@@ -337,7 +330,7 @@ Public Class frmMain
                 End If
 
                 HasUnsavedChanges = True
-                lblFilePath.Text = ShortenPath(WorkingFilePath) + "*"
+                lblFilePath.Text = ShortenPath(CurrentPath) + "*"
             End If
         Else
             MessageBox.Show("There are no cards to delete in the current library.", "Delete")
@@ -345,55 +338,70 @@ Public Class frmMain
     End Sub
 
     Private Sub tsmCardMoveUp_Click(sender As Object, e As EventArgs) Handles tsmCardMoveUp.Click
-        If LibraryList.Count > 1 Then
+        If CurrentLibrary.Count > 1 Then
             Dim CurrentIndex As Integer = lstCardTitles.SelectedIndex
             Dim TargetIndex As Integer = lstCardTitles.SelectedIndex - 1
             Dim TemporaryValue As List(Of String)
 
             'swap positions in list
             If TargetIndex >= 0 Then
-                TemporaryValue = LibraryList(TargetIndex)
-                LibraryList(TargetIndex) = LibraryList(CurrentIndex)
-                LibraryList(CurrentIndex) = TemporaryValue
+                TemporaryValue = CurrentLibrary(TargetIndex)
+                CurrentLibrary(TargetIndex) = CurrentLibrary(CurrentIndex)
+                CurrentLibrary(CurrentIndex) = TemporaryValue
 
-                UpdateCardTitles()
+                RefreshCardNames()
                 lstCardTitles.SelectedIndex = TargetIndex
             Else
                 lstCardTitles.SelectedIndex = 0
             End If
 
             HasUnsavedChanges = True
-            lblFilePath.Text = ShortenPath(WorkingFilePath) + "*"
+            lblFilePath.Text = ShortenPath(CurrentPath) + "*"
         End If
     End Sub
 
     Private Sub tsmCardMoveDown_Click(sender As Object, e As EventArgs) Handles tsmCardMoveDown.Click
-        If LibraryList.Count > 1 Then
-            Dim CurrentIndex As Integer = lstCardTitles.SelectedIndex
-            Dim TargetIndex As Integer = lstCardTitles.SelectedIndex + 1
-            Dim LargestIndex As Integer = lstCardTitles.Items.Count - 1
-            Dim TemporaryValue As List(Of String)
+        If CurrentLibrary.Count > 1 Then
+            Dim Origin As Integer = lstCardTitles.SelectedIndex
+            Dim Destination As Integer = lstCardTitles.SelectedIndex + 1
+            Dim BottomCard As Integer = lstCardTitles.Items.Count - 1
 
             'swap values and write to file
-            If TargetIndex <= LargestIndex Then
-                TemporaryValue = LibraryList(TargetIndex)
-                LibraryList(TargetIndex) = LibraryList(CurrentIndex)
-                LibraryList(CurrentIndex) = TemporaryValue
-
-                UpdateCardTitles()
-                lstCardTitles.SelectedIndex = TargetIndex
+            If Destination <= BottomCard Then
+                SwapCards(Origin, Destination)
+                RefreshCardNames()
+                lstCardTitles.SelectedIndex = Destination
             Else
-                lstCardTitles.SelectedIndex = LargestIndex
+                lstCardTitles.SelectedIndex = BottomCard
             End If
 
             HasUnsavedChanges = True
-            lblFilePath.Text = ShortenPath(WorkingFilePath) + "*"
+            lblFilePath.Text = ShortenPath(CurrentPath) + "*"
         End If
+    End Sub
+
+    ' Click Events for ToolStripMenu -> View
+
+    Private Sub HideTitlesToolStripMenuItem_CheckedChanged(sender As Object, e As EventArgs) Handles tsmViewHideCardNames.CheckedChanged
+        Dim LatestIndex As Integer = lstCardTitles.SelectedIndex
+        If tsmViewHideCardNames.Checked Then
+            HideCardNames()
+        Else
+            RefreshCardNames()
+        End If
+        lstCardTitles.SelectedIndex = LatestIndex
     End Sub
 
     ' Member Functions & Subs
 
-    Private Sub FlipCard()
+    Private Sub SwapCards(ByVal FirstIndex As Integer, ByVal SecondIndex As Integer)
+        Dim TemporaryValue As List(Of String) = CurrentLibrary(FirstIndex)
+
+        CurrentLibrary(FirstIndex) = CurrentLibrary(SecondIndex)
+        CurrentLibrary(SecondIndex) = TemporaryValue
+    End Sub
+
+    Private Sub FlipCurrentCard()
         ' update interface to simulate flipping the current card over
 
         If lblTitle.Visible Then
@@ -413,9 +421,9 @@ Public Class frmMain
         Try
             For Each Line As String In IO.File.ReadLines(Path)
                 Dim Record As List(Of String) = New List(Of String) From {
-                Split(Line, ";")(0),
-                Split(Line, ";")(1)
-            }
+    Split(Line, ";")(0),
+    Split(Line, ";")(1)
+}
                 MyLibrary.Add(Record)
             Next
         Catch
@@ -427,7 +435,7 @@ Public Class frmMain
     Private Function ShortenPath(ByVal Path As String) As String
         ' return a short path for display in interface
 
-        Dim PathArray As String() = WorkingFilePath.Split("\"c)
+        Dim PathArray As String() = CurrentPath.Split("\"c)
         If PathArray.Count > 4 Then
             Dim RootPath As String = PathArray(0) + "\"
             Dim ThirdToLastPath As String = PathArray(PathArray.Count() - 3) + "\"
@@ -436,7 +444,7 @@ Public Class frmMain
 
             Return RootPath + "...\" + ThirdToLastPath + SecondToLastPath + LastPath
         Else
-            Return WorkingFilePath
+            Return CurrentPath
         End If
 
     End Function
@@ -445,7 +453,7 @@ Public Class frmMain
         ' write the current list of cards to file
         Dim Lines As List(Of String) = New List(Of String)
         Try
-            For Each Line As List(Of String) In LibraryList
+            For Each Line As List(Of String) In CurrentLibrary
                 Lines.Add(Line(0) + ";" + Line(1))
             Next
             System.IO.File.WriteAllLines(Path, Lines)
@@ -454,17 +462,24 @@ Public Class frmMain
         End Try
     End Sub
 
-    Private Sub UpdateCardTitles()
-        ' copy all titles to the listbox
+    Private Sub RefreshCardNames()
+        ' copy all card names to the listbox
         lstCardTitles.Items.Clear()
-        For Each Card As List(Of String) In LibraryList
+        For Each Card As List(Of String) In CurrentLibrary
             lstCardTitles.Items.Add(Card(0))
         Next
     End Sub
 
-    Private Sub UpdateCurrentCard()
+    Private Sub HideCardNames()
+        lstCardTitles.Items.Clear()
+        For i As Integer = 0 To CurrentLibrary.Count - 1
+            lstCardTitles.Items.Add("???")
+        Next
+    End Sub
+
+    Private Sub RefreshCurrentCard()
         ' display title and caption of selected item
-        Dim Card As List(Of String) = LibraryList(lstCardTitles.SelectedIndex)
+        Dim Card As List(Of String) = CurrentLibrary(lstCardTitles.SelectedIndex)
         lblTitle.Text = Card(0)
         lblCaption.Text = "'" + Card(1) + "'"
     End Sub
@@ -474,21 +489,5 @@ Public Class frmMain
         lblCaption.Text = String.Empty
     End Sub
 
-    Private Sub HideTitlesToolStripMenuItem_CheckedChanged(sender As Object, e As EventArgs) Handles tsmViewHideTitles.CheckedChanged
-        Dim LatestIndex As Integer = lstCardTitles.SelectedIndex
-
-        If tsmViewHideTitles.Checked Then
-            lstCardTitles.Items.Clear()
-            For i As Integer = 0 To LibraryList.Count - 1
-                lstCardTitles.Items.Add("???")
-            Next
-        Else
-            lstCardTitles.Items.Clear()
-            For Each Card As List(Of String) In LibraryList
-                lstCardTitles.Items.Add(Card(0))
-            Next
-        End If
-        lstCardTitles.SelectedIndex = LatestIndex
-    End Sub
 
 End Class
