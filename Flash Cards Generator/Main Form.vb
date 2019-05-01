@@ -28,6 +28,12 @@ Public Class frmMain
         End If
     End Sub
 
+    Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Space Then
+            FlipCurrentCard()
+        End If
+    End Sub
+
     ' Click Events for Non-TSM Buttons & Flashcard Representation
 
     Private Sub Card_Click(sender As Object, e As EventArgs) Handles picCardBackground.Click, lblTitle.Click, lblCaption.Click
@@ -65,6 +71,7 @@ Public Class frmMain
                 ListboxIsInAscendingOrder = True
             End If
         End If
+        lstCardTitles.Select()
     End Sub
 
 
@@ -72,7 +79,7 @@ Public Class frmMain
 
     Private Sub tsmFileNew_Click(sender As Object, e As EventArgs) Handles tsmFileNew.Click
         If HasUnsavedChanges Then
-            Dim Response As Integer = MessageBox.Show("The current library has unsaved changes. Creating a new one will result in loss of data. Save before continuing? ", "New", MessageBoxButtons.YesNoCancel)
+            Dim Response As Integer = MessageBox.Show("The current library has unsaved changes. Creating a new one will result in loss of data. Save before continuing? ", "New Library", MessageBoxButtons.YesNoCancel)
 
             If Response = DialogResult.Cancel Then
                 Exit Sub
@@ -185,7 +192,7 @@ Public Class frmMain
                 .FileName = "my-flashcards",
                 .InitialDirectory = BasePath,
                 .Filter = "All files|*.*|Text files|*.txt",
-                .Title = "Open"}
+                .Title = "Save"}
 
                 ' assign filename to path or cancel operation
                 If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
@@ -211,7 +218,7 @@ Public Class frmMain
                 .FileName = "my-flashcards",
                 .InitialDirectory = BasePath,
                 .Filter = "All files|*.*|Text files|*.txt",
-                .Title = "Open"}
+                .Title = "Save As"}
 
         ' assign filename to path or cancel operation
         If MyPrompt.ShowDialog() <> DialogResult.Cancel Then
@@ -238,13 +245,13 @@ Public Class frmMain
         ' create a new card record and add it to library list
 
         ' input new card's title
-        Dim Title As String = InputBox("Enter a title for your flashcard.", "Create Card", "Title")
+        Dim Title As String = InputBox("Enter a title for your flashcard.", "New Card", "Title")
         If Title = "" Then
             Exit Sub
         End If
 
         ' input new card's caption
-        Dim Caption As String = InputBox("Enter the text you want to appear in the body of the flashcard.", "Create Card", "Text")
+        Dim Caption As String = InputBox("Enter the text you want to appear in the body of the flashcard.", "New Card", "Text")
         If Caption = "" Then
             Exit Sub
         End If
@@ -382,7 +389,11 @@ Public Class frmMain
 
     ' Click Events for ToolStripMenu -> View
 
-    Private Sub HideTitlesToolStripMenuItem_CheckedChanged(sender As Object, e As EventArgs) Handles tsmViewHideCardNames.CheckedChanged
+    Private Sub tsmViewFlip_Click(sender As Object, e As EventArgs) Handles tsmViewFlip.Click
+        FlipCurrentCard()
+    End Sub
+
+    Private Sub tsmViewHideCardNames_CheckedChanged(sender As Object, e As EventArgs) Handles tsmViewHideCardNames.CheckedChanged
         Dim LatestIndex As Integer = lstCardTitles.SelectedIndex
         If tsmViewHideCardNames.Checked Then
             HideCardNames()
@@ -421,9 +432,9 @@ Public Class frmMain
         Try
             For Each Line As String In IO.File.ReadLines(Path)
                 Dim Record As List(Of String) = New List(Of String) From {
-    Split(Line, ";")(0),
-    Split(Line, ";")(1)
-}
+                    Split(Line, ";")(0),
+                    Split(Line, ";")(1)
+                }
                 MyLibrary.Add(Record)
             Next
         Catch
@@ -488,6 +499,18 @@ Public Class frmMain
         lblTitle.Text = String.Empty
         lblCaption.Text = String.Empty
     End Sub
+
+    Private Function CardNamesAreHidden() As Boolean
+        If lstCardTitles.Items.Count > 0 Then
+            For Each Title As String In lstCardTitles.Items
+                If Title <> "???" Then
+                    Return False
+                End If
+            Next
+            Return True
+        End If
+        Return False
+    End Function
 
 
 End Class
