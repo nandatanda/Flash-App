@@ -300,7 +300,6 @@ Partial Class frmMain
         'tsmViewFlip
         '
         Me.tsmViewFlip.Name = "tsmViewFlip"
-        Me.tsmViewFlip.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.Right), System.Windows.Forms.Keys)
         Me.tsmViewFlip.Size = New System.Drawing.Size(180, 22)
         Me.tsmViewFlip.Text = "Flip"
         '
