@@ -46,6 +46,8 @@ Partial Class Print_Template
         Me.lblName6 = New System.Windows.Forms.Label()
         Me.lblName7 = New System.Windows.Forms.Label()
         Me.lblName8 = New System.Windows.Forms.Label()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -296,6 +298,10 @@ Partial Class Print_Template
         Me.lblName8.TabIndex = 27
         Me.lblName8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'PrintDialog1
+        '
+        Me.PrintDialog1.UseEXDialog = True
+        '
         'Print_Template
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -362,4 +368,6 @@ Partial Class Print_Template
     Friend WithEvents lblName6 As Label
     Friend WithEvents lblName7 As Label
     Friend WithEvents lblName8 As Label
+    Friend WithEvents PrintDialog1 As PrintDialog
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
 End Class

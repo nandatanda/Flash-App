@@ -49,3 +49,16 @@ C:\Users\aelay\OneDrive\Development\VB.Net\Flash-App\Flash Cards Generator\obj\D
 C:\Users\aelay\OneDrive\Development\VB.Net\Flash-App\Flash Cards Generator\obj\Debug\Flash_Cards_Generator.Quiz_Form.resources
 C:\Users\aelay\OneDrive\Development\VB.Net\Flash-App\Flash Cards Generator\obj\Debug\Flash_Cards_Generator.Print_Template.resources
 C:\Users\Al\OneDrive\Development\VB.Net\Flash-App\Flash Cards Generator\obj\Debug\Flash_Cards_Generator.Print_Template.resources
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\bin\Debug\Flash Cards Generator.exe.config
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\bin\Debug\Flash Cards Generator.exe
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\bin\Debug\Flash Cards Generator.pdb
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\bin\Debug\Flash Cards Generator.xml
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Debug\Flash Cards Generator.vbprojAssemblyReference.cache
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Debug\Flash_Cards_Generator.frmMain.resources
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Debug\Flash_Cards_Generator.Resources.resources
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Debug\Flash_Cards_Generator.Print_Template.resources
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Debug\Flash Cards Generator.vbproj.GenerateResource.cache
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Debug\Flash Cards Generator.vbproj.CoreCompileInputs.cache
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Debug\Flash Cards Generator.exe
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Debug\Flash Cards Generator.xml
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Debug\Flash Cards Generator.pdb

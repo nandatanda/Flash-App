@@ -269,24 +269,24 @@ Partial Class frmMain
         'SearchToolStripMenuItem
         '
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.SearchToolStripMenuItem.Text = "&Search"
         '
         'HowToToolStripMenuItem
         '
         Me.HowToToolStripMenuItem.Name = "HowToToolStripMenuItem"
-        Me.HowToToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HowToToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.HowToToolStripMenuItem.Text = "User Manual"
         '
         'toolStripSeparator5
         '
         Me.toolStripSeparator5.Name = "toolStripSeparator5"
-        Me.toolStripSeparator5.Size = New System.Drawing.Size(177, 6)
+        Me.toolStripSeparator5.Size = New System.Drawing.Size(137, 6)
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.AboutToolStripMenuItem.Text = "&About..."
         '
         'ViewToolStripMenuItem
@@ -300,31 +300,31 @@ Partial Class frmMain
         'tsmViewFlip
         '
         Me.tsmViewFlip.Name = "tsmViewFlip"
-        Me.tsmViewFlip.Size = New System.Drawing.Size(180, 22)
+        Me.tsmViewFlip.Size = New System.Drawing.Size(167, 22)
         Me.tsmViewFlip.Text = "Flip"
         '
         'tsmViewNextCard
         '
         Me.tsmViewNextCard.Name = "tsmViewNextCard"
-        Me.tsmViewNextCard.Size = New System.Drawing.Size(180, 22)
+        Me.tsmViewNextCard.Size = New System.Drawing.Size(167, 22)
         Me.tsmViewNextCard.Text = "Next Card"
         '
         'PreviousCardToolStripMenuItem
         '
         Me.PreviousCardToolStripMenuItem.Name = "PreviousCardToolStripMenuItem"
-        Me.PreviousCardToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PreviousCardToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
         Me.PreviousCardToolStripMenuItem.Text = "Previous Card"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(164, 6)
         '
         'SortAZToolStripMenuItem
         '
         Me.SortAZToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AscendingToolStripMenuItem, Me.DescendingToolStripMenuItem})
         Me.SortAZToolStripMenuItem.Name = "SortAZToolStripMenuItem"
-        Me.SortAZToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SortAZToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
         Me.SortAZToolStripMenuItem.Text = "Sort"
         '
         'AscendingToolStripMenuItem
@@ -343,7 +343,7 @@ Partial Class frmMain
         '
         Me.tsmViewHideCardNames.CheckOnClick = True
         Me.tsmViewHideCardNames.Name = "tsmViewHideCardNames"
-        Me.tsmViewHideCardNames.Size = New System.Drawing.Size(180, 22)
+        Me.tsmViewHideCardNames.Size = New System.Drawing.Size(167, 22)
         Me.tsmViewHideCardNames.Text = "Hide Card Names"
         '
         'tsmMain

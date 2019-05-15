@@ -1,0 +1,12 @@
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\bin\Release\Flash Cards Generator.exe.config
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\bin\Release\Flash Cards Generator.exe
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\bin\Release\Flash Cards Generator.pdb
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\bin\Release\Flash Cards Generator.xml
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Release\Flash_Cards_Generator.frmMain.resources
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Release\Flash_Cards_Generator.Resources.resources
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Release\Flash_Cards_Generator.Print_Template.resources
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Release\Flash Cards Generator.vbproj.GenerateResource.cache
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Release\Flash Cards Generator.vbproj.CoreCompileInputs.cache
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Release\Flash Cards Generator.exe
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Release\Flash Cards Generator.xml
+C:\Users\Student\Desktop\Flash-App\Flash Cards Generator\obj\Release\Flash Cards Generator.pdb

@@ -512,5 +512,7 @@ Public Class frmMain
         Return False
     End Function
 
-
+    Private Sub PrintToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintToolStripMenuItem.Click
+        Print_Template.Show()
+    End Sub
 End Class
