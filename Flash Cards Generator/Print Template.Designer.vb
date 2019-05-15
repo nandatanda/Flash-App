@@ -38,6 +38,14 @@ Partial Class Print_Template
         Me.lblCaption5 = New System.Windows.Forms.Label()
         Me.lblCaption8 = New System.Windows.Forms.Label()
         Me.lblCaption7 = New System.Windows.Forms.Label()
+        Me.lblName1 = New System.Windows.Forms.Label()
+        Me.lblName2 = New System.Windows.Forms.Label()
+        Me.lblName3 = New System.Windows.Forms.Label()
+        Me.lblName4 = New System.Windows.Forms.Label()
+        Me.lblName5 = New System.Windows.Forms.Label()
+        Me.lblName6 = New System.Windows.Forms.Label()
+        Me.lblName7 = New System.Windows.Forms.Label()
+        Me.lblName8 = New System.Windows.Forms.Label()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -131,7 +139,7 @@ Partial Class Print_Template
         'lblCaption1
         '
         Me.lblCaption1.BackColor = System.Drawing.SystemColors.Window
-        Me.lblCaption1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.lblCaption1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCaption1.Location = New System.Drawing.Point(33, 33)
         Me.lblCaption1.Name = "lblCaption1"
         Me.lblCaption1.Size = New System.Drawing.Size(230, 136)
@@ -182,7 +190,7 @@ Partial Class Print_Template
         '
         Me.lblCaption5.BackColor = System.Drawing.SystemColors.Window
         Me.lblCaption5.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
-        Me.lblCaption5.Location = New System.Drawing.Point(33, 397)
+        Me.lblCaption5.Location = New System.Drawing.Point(33, 395)
         Me.lblCaption5.Name = "lblCaption5"
         Me.lblCaption5.Size = New System.Drawing.Size(230, 136)
         Me.lblCaption5.TabIndex = 17
@@ -208,11 +216,99 @@ Partial Class Print_Template
         Me.lblCaption7.TabIndex = 19
         Me.lblCaption7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'lblName1
+        '
+        Me.lblName1.BackColor = System.Drawing.SystemColors.Window
+        Me.lblName1.Font = New System.Drawing.Font("Segoe UI", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblName1.Location = New System.Drawing.Point(33, 87)
+        Me.lblName1.Name = "lblName1"
+        Me.lblName1.Size = New System.Drawing.Size(230, 28)
+        Me.lblName1.TabIndex = 20
+        Me.lblName1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblName2
+        '
+        Me.lblName2.BackColor = System.Drawing.SystemColors.Window
+        Me.lblName2.Font = New System.Drawing.Font("Segoe UI", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblName2.Location = New System.Drawing.Point(330, 87)
+        Me.lblName2.Name = "lblName2"
+        Me.lblName2.Size = New System.Drawing.Size(230, 28)
+        Me.lblName2.TabIndex = 21
+        Me.lblName2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblName3
+        '
+        Me.lblName3.BackColor = System.Drawing.SystemColors.Window
+        Me.lblName3.Font = New System.Drawing.Font("Segoe UI", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblName3.Location = New System.Drawing.Point(33, 269)
+        Me.lblName3.Name = "lblName3"
+        Me.lblName3.Size = New System.Drawing.Size(230, 28)
+        Me.lblName3.TabIndex = 22
+        Me.lblName3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblName4
+        '
+        Me.lblName4.BackColor = System.Drawing.SystemColors.Window
+        Me.lblName4.Font = New System.Drawing.Font("Segoe UI", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblName4.Location = New System.Drawing.Point(330, 269)
+        Me.lblName4.Name = "lblName4"
+        Me.lblName4.Size = New System.Drawing.Size(230, 28)
+        Me.lblName4.TabIndex = 23
+        Me.lblName4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblName5
+        '
+        Me.lblName5.BackColor = System.Drawing.SystemColors.Window
+        Me.lblName5.Font = New System.Drawing.Font("Segoe UI", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblName5.Location = New System.Drawing.Point(33, 449)
+        Me.lblName5.Name = "lblName5"
+        Me.lblName5.Size = New System.Drawing.Size(230, 28)
+        Me.lblName5.TabIndex = 24
+        Me.lblName5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblName6
+        '
+        Me.lblName6.BackColor = System.Drawing.SystemColors.Window
+        Me.lblName6.Font = New System.Drawing.Font("Segoe UI", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblName6.Location = New System.Drawing.Point(331, 451)
+        Me.lblName6.Name = "lblName6"
+        Me.lblName6.Size = New System.Drawing.Size(230, 28)
+        Me.lblName6.TabIndex = 25
+        Me.lblName6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblName7
+        '
+        Me.lblName7.BackColor = System.Drawing.SystemColors.Window
+        Me.lblName7.Font = New System.Drawing.Font("Segoe UI", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblName7.Location = New System.Drawing.Point(33, 633)
+        Me.lblName7.Name = "lblName7"
+        Me.lblName7.Size = New System.Drawing.Size(230, 28)
+        Me.lblName7.TabIndex = 26
+        Me.lblName7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblName8
+        '
+        Me.lblName8.BackColor = System.Drawing.SystemColors.Window
+        Me.lblName8.Font = New System.Drawing.Font("Segoe UI", 12.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblName8.Location = New System.Drawing.Point(330, 633)
+        Me.lblName8.Name = "lblName8"
+        Me.lblName8.Size = New System.Drawing.Size(230, 28)
+        Me.lblName8.TabIndex = 27
+        Me.lblName8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Print_Template
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(593, 749)
+        Me.Controls.Add(Me.lblName8)
+        Me.Controls.Add(Me.lblName7)
+        Me.Controls.Add(Me.lblName6)
+        Me.Controls.Add(Me.lblName5)
+        Me.Controls.Add(Me.lblName4)
+        Me.Controls.Add(Me.lblName3)
+        Me.Controls.Add(Me.lblName2)
+        Me.Controls.Add(Me.lblName1)
         Me.Controls.Add(Me.lblCaption7)
         Me.Controls.Add(Me.lblCaption8)
         Me.Controls.Add(Me.lblCaption5)
@@ -258,4 +354,12 @@ Partial Class Print_Template
     Friend WithEvents lblCaption5 As Label
     Friend WithEvents lblCaption8 As Label
     Friend WithEvents lblCaption7 As Label
+    Friend WithEvents lblName1 As Label
+    Friend WithEvents lblName2 As Label
+    Friend WithEvents lblName3 As Label
+    Friend WithEvents lblName4 As Label
+    Friend WithEvents lblName5 As Label
+    Friend WithEvents lblName6 As Label
+    Friend WithEvents lblName7 As Label
+    Friend WithEvents lblName8 As Label
 End Class
