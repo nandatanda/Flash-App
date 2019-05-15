@@ -104,12 +104,6 @@
     <Compile Include="Print Template.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Quiz Form.Designer.vb">
-      <DependentUpon>Quiz Form.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Quiz Form.vb">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Main Form.resx">
@@ -123,9 +117,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Print Template.resx">
       <DependentUpon>Print Template.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Quiz Form.resx">
-      <DependentUpon>Quiz Form.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

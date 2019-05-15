@@ -18,7 +18,7 @@ Public Class frmMain
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
         lblTitle.Visible = False
         lblTitle.Text = "Welcome"
-        lblCaption.Text = "Hi there! To start, create a new card library or open an existing one using the file menu above. You can click on cards to flip them. Have fun!"
+        lblCaption.Text = "Hi there! To start, create a new card library or open an existing one using the 'File' menu above. You can click on cards to flip them. Have fun!"
     End Sub
 
     Private Sub lstCardTitles_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstCardTitles.SelectedIndexChanged
@@ -112,7 +112,7 @@ Public Class frmMain
         lstCardTitles.Items.Clear()
         lblFilePath.Text = "New Library*"
         lblTitle.Text = "New Library"
-        lblCaption.Text = "Create your first card with 'Ctrl + C' or by using the file menu above. The new card will be displayed here."
+        lblCaption.Text = "Create your first card with 'Ctrl + C' or by using the 'Card' menu above. The new card will be displayed here."
     End Sub
 
     Private Sub tsmFileOpen_Click(sender As Object, e As EventArgs) Handles tsmFileOpen.Click

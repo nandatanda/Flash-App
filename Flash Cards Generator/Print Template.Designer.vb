@@ -130,6 +130,7 @@ Partial Class Print_Template
         '
         'lblCaption1
         '
+        Me.lblCaption1.BackColor = System.Drawing.SystemColors.Window
         Me.lblCaption1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.lblCaption1.Location = New System.Drawing.Point(33, 33)
         Me.lblCaption1.Name = "lblCaption1"
@@ -139,6 +140,7 @@ Partial Class Print_Template
         '
         'lblCaption3
         '
+        Me.lblCaption3.BackColor = System.Drawing.SystemColors.Window
         Me.lblCaption3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.lblCaption3.Location = New System.Drawing.Point(33, 215)
         Me.lblCaption3.Name = "lblCaption3"
@@ -148,6 +150,7 @@ Partial Class Print_Template
         '
         'lblCaption2
         '
+        Me.lblCaption2.BackColor = System.Drawing.SystemColors.Window
         Me.lblCaption2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.lblCaption2.Location = New System.Drawing.Point(330, 33)
         Me.lblCaption2.Name = "lblCaption2"
@@ -157,6 +160,7 @@ Partial Class Print_Template
         '
         'lblCaption4
         '
+        Me.lblCaption4.BackColor = System.Drawing.SystemColors.Window
         Me.lblCaption4.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.lblCaption4.Location = New System.Drawing.Point(330, 215)
         Me.lblCaption4.Name = "lblCaption4"
@@ -166,6 +170,7 @@ Partial Class Print_Template
         '
         'lblCaption6
         '
+        Me.lblCaption6.BackColor = System.Drawing.SystemColors.Window
         Me.lblCaption6.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.lblCaption6.Location = New System.Drawing.Point(331, 397)
         Me.lblCaption6.Name = "lblCaption6"
@@ -175,6 +180,7 @@ Partial Class Print_Template
         '
         'lblCaption5
         '
+        Me.lblCaption5.BackColor = System.Drawing.SystemColors.Window
         Me.lblCaption5.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.lblCaption5.Location = New System.Drawing.Point(33, 397)
         Me.lblCaption5.Name = "lblCaption5"
@@ -184,6 +190,7 @@ Partial Class Print_Template
         '
         'lblCaption8
         '
+        Me.lblCaption8.BackColor = System.Drawing.SystemColors.Window
         Me.lblCaption8.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.lblCaption8.Location = New System.Drawing.Point(330, 579)
         Me.lblCaption8.Name = "lblCaption8"
@@ -193,6 +200,7 @@ Partial Class Print_Template
         '
         'lblCaption7
         '
+        Me.lblCaption7.BackColor = System.Drawing.SystemColors.Window
         Me.lblCaption7.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.lblCaption7.Location = New System.Drawing.Point(33, 579)
         Me.lblCaption7.Name = "lblCaption7"
