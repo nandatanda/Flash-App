@@ -57,5 +57,26 @@ Flash Cards Generator
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="T:Flash_Cards_Generator.PrintForm">
+ <summary>
+ Prints a screengrab of the form
+ </summary>
+ <remarks></remarks>
+ https://stackoverflow.com/questions/9776561/vb-net-printform-autofit
+</member>
+<member name="M:Flash_Cards_Generator.PrintForm.QueryPageSettings(System.Object,System.Drawing.Printing.QueryPageSettingsEventArgs)">
+ <summary>
+ Determines page settings for current page e.g. Orientation 
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+ <remarks></remarks>
+</member>
+<member name="M:Flash_Cards_Generator.PrintForm.PrintPreview(System.Boolean,Flash_Cards_Generator.PrintForm.PrintMode_ENUM,System.String,System.Windows.Forms.Form)">
+ <summary>
+ Preview the Report on screen
+ </summary>
+ <remarks></remarks>
+</member>
 </members>
 </doc>

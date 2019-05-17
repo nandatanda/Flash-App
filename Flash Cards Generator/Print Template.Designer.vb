@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Print_Template
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,8 +20,9 @@ Partial Class Print_Template
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
@@ -48,6 +49,7 @@ Partial Class Print_Template
         Me.lblName8 = New System.Windows.Forms.Label()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -302,6 +304,11 @@ Partial Class Print_Template
         '
         Me.PrintDialog1.UseEXDialog = True
         '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 500
+        '
         'Print_Template
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -370,4 +377,5 @@ Partial Class Print_Template
     Friend WithEvents lblName8 As Label
     Friend WithEvents PrintDialog1 As PrintDialog
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents Timer1 As Timer
 End Class
