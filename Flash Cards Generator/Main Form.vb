@@ -405,6 +405,13 @@ Public Class frmMain
 
     ' Member Functions & Subs
 
+    Public Function FileName() As String
+        Dim PathArray As String() = CurrentPath.Split("\"c)
+        Dim NameIndex As Integer = PathArray.Count() - 1
+
+        Return PathArray(NameIndex)
+    End Function
+
     Private Sub SwapCards(ByVal FirstIndex As Integer, ByVal SecondIndex As Integer)
         Dim TemporaryValue As List(Of String) = CurrentLibrary(FirstIndex)
 
@@ -513,6 +520,8 @@ Public Class frmMain
     End Function
 
     Private Sub PrintToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintToolStripMenuItem.Click
-        Print_Template.Show()
+        If CurrentLibrary.Count > 0 Then
+            Print_Template.Show()
+        End If
     End Sub
 End Class
